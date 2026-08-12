@@ -9,7 +9,7 @@ class Conexao {
     private $pdo;
 
     public function __construct(){
-        $this->conectar(); 
+        $this->pdo(); 
     }
 
     private function conectar(){
