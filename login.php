@@ -1,6 +1,13 @@
 <?php
+class 
 
+class Listar{
+    public function listagem(){
+        $query = "SELECT FROM usuarios nome, email, senha,"
+        
 
+    }
+}
 
 
 
