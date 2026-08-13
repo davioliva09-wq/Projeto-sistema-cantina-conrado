@@ -1,31 +1,28 @@
-<?php
+<?php 
+class Conexao { 
+    private $host = 'localhost'; 
+    private $dbname = 'proj'; 
+    private $password = ''; 
+    private $username = 'root'; 
+    private $conn; 
 
-class Conexao {
-    private $host = "localhost";
-    private $dbname = "sistema_cantina"; 
-    private $user = "root";      
-    private $passwword = "";        
-    private $charset = 'utf8';
-    private $pdo;
+    private function conect(){ 
+        $this->conn = null; 
+        try { 
+            $this->conn = new PDO( 
+                "mysql:host=".$this->host.";dbname=".$this->dbname, 
+                $this->username, 
+                $this->password 
+            ); 
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) { 
+            echo "Erro de conexão: " . $e->getMessage(); 
+        } 
+        return $this->conn; 
+    } 
 
-    public function __construct(){
-        $this->pdo(); 
-    }
-
-    private function conectar(){
-        if($this->pdo === null){
-            try {
-                // Monta a string de conexão (DSN) utilizando as suas variáveis
-                $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset={$this->charset}";
-                
-                $this->pdo = new PDO($dsn, $this->user, $this->passwword);
-                
-                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-                
-            } catch (PDOException $e) {
-                die("Erro na conexão POO: " . $e->getMessage());
-            }
-        }
-    }
-}
+    public function exeCon(){ 
+        return $this->conect(); 
+    } 
+} 
+?>
