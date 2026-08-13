@@ -31,21 +31,23 @@ class Usuario
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $email = $_POST['email']; 
+$senha = $_POST['senha']; 
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $usuario = new Usuario();
-
-    $resultado = $usuario->logar($email, $senha);
-
-    if ($resultado) {
-        header("Location: teste.php");
-    } else {
-        echo "E-mail ou senha incorretos.";
+$usuario = new Usuario();
+$resultado = $usuario->logar($email, $senha); 
+if($resultado){ 
+        echo "certo";
+    }else{
+        echo "de ruim";
     }
-}
+
+
+
+
+    }
+   
 
 ?>
 
