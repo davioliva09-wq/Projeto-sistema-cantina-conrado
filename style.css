@@ -1,0 +1,29 @@
+header {
+    background-color: #040227;
+}
+
+body {
+    background-color: #0a056b;
+    color: #ffffff
+}
+
+#title {
+    font-family: "Rammetto One", sans-serif;
+    text-align: left;
+    color: #ffa805;
+
+    display: inline-flex;      
+    align-items: center;
+    flex-direction: row;   
+    font-size: 30px;
+    gap: 15px;                 
+}
+
+header img {
+    vertical-align: middle;
+}
+
+.smolpng {
+    width: 70px;
+    height: 70px;
+}
