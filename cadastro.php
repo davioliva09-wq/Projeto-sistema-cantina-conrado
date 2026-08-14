@@ -1,3 +1,17 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+require_once("processar-cadastro.php");
+
+header("location:login.php");
+exit();
+
+
+
+
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -94,7 +108,7 @@
 
             <h2>Cadastro</h2>
 
-            <form>
+            <form method="post" action="processar-cadastro.php">
 
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome">

@@ -1,44 +1,9 @@
 <?php
 
-// LOGIN TEMPORÁRIO PARA DEMONSTRAÇÃO DO FRONT-END!!!! :O
-// Será substituído pela autenticação do Back-End UwU
-
-$emailAluno = "aluno@cantinaconrado.com";
-$senhaAluno = "1234";
-
-$emailAdmin = "admin@cantinaconrado.com";
-$senhaAdmin = "admin123";
-
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $tipoLogin = $_POST["tipo"];
+if($_SERVER["REQUEST_METHOD"] =="POST"){
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-
-    // login de aluno
-    if (
-        $tipoLogin === "usuario" &&
-        $email === $emailAluno &&
-        $senha === $senhaAluno
-    ) {
-        header("Location: perfil-aluno.php");
-        exit;
-    }
-
-    // login de administrador
-    if (
-        $tipoLogin === "administrador" &&
-        $email === $emailAdmin &&
-        $senha === $senhaAdmin
-    ) {
-        header("Location: perfil-admin.php");
-        exit;
-    }
-
-    $erro = "E-mail ou senha incorretos.";
 }
-
 ?>
 
 <!--- Tela de login --->
@@ -56,15 +21,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <title>Login - Cantina Conrado</title>
 
- <style>
-            
-            header {
+  <style>
+            body {
+    margin: 0;
+    padding: 0;
+}
+
+           header {
+            margin: 15px !important; /* Cria um espaço de 15px entre o header e a borda da tela */
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    /* Adicione estas linhas: */
+    margin: 10px 20px !important; /* 10px acima/abaixo e 20px nas laterais */
+    background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
+    border-radius: 8px; /* Opcional: arredonda os cantos se tiver fundo */
+    width: auto !important; /* Impede que o arquivo externo force 100% de largura */
+}
+
+            /* Garante que o link interno do logo não quebre o alinhamento */
+            header a {
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
                 align-items: center;
-                gap: 15px;
+                gap: 10px;
+                text-decoration: none;
+                color: inherit;
             }
+
     
             nav {
                 display: flex;
@@ -116,11 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
 
         </style>
-
-
-
-
-
     </head>
 
     <body>
