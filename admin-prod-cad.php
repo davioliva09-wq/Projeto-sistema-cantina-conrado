@@ -70,7 +70,7 @@
 
             <section>
 
-                <form action="salvar-produto.php" method="POST" enctype="multipart/form-data">
+                <form action="cad-prod.php" method="POST" enctype="multipart/form-data">
 
                     <input
                         type="hidden"
@@ -147,6 +147,7 @@
                         rows="6"
                     ></textarea>
 
+                    <!-- O campo de imagem foi comentado temporariamente
                     <label for="imagem" id="area-imagem">
                         Adicionar Imagem
                     </label>
@@ -154,9 +155,10 @@
                     <input
                         type="file"
                         id="imagem"
-                        name="imagem"
+                       name="imagem"
                         accept="image/*"
                     >
+                    -->
 
                     <div id="linha-botoes">
 
@@ -197,4 +199,4 @@
     </footer>
 
 </body>
-</html> 
+</html>
