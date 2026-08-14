@@ -14,8 +14,16 @@ require_once("usuario.php");
 $nome = $_POST["nome"] ?? '';
 $email = $_POST["email"] ?? '';
 $telefone = $_POST["telefone"] ?? '';
-$senha = $_POST["senha"] ?? '';
+$senha          = $_POST["senha"] ?? '';
+$confirmarSenha = $_POST["confirmar_senha"] ?? ''; 
 
+if ($senha !== $confirmarSenha) {
+    echo "<script> 
+            alert('As senhas não coincidem! Digite a mesma senha nos dois campos.'); 
+            window.history.back(); 
+          </script>";
+    exit; 
+}
 $usuario = new Usuario($conn);
 
 if ($usuario->cadastrar($nome, $email, $telefone, $senha)) {
