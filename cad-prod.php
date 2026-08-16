@@ -20,5 +20,5 @@ $produto = new ADM($conn);
 $produto->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao);
 echo "<script>
     alert('Produto cadastrado com sucesso!');
-    window.location.href = 'privacidade.php';
+    window.location.href = 'index.php';
 </script>";
