@@ -1,29 +1,148 @@
-header {
-    background-color: #040227;
-}
-
+/* Configurações Gerais */
 body {
     background-color: #0a056b;
-    color: #ffffff
+    color: #ffffff;
+    margin: 0;
+    font-family: sans-serif; /* Altere para sua fonte preferida */
 }
 
-#title {
-    font-family: "Rammetto One", sans-serif;
-    text-align: left;
-    color: #ffa805;
 
-    display: inline-flex;      
+/* Cabeçalho */
+header { 
+    background-color: #040227; 
+    padding: 10px 20px; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;   
-    font-size: 30px;
-    gap: 15px;                 
+    box-sizing: border-box; /* Impede o 'Meu Perfil' de colar na borda */
 }
 
-header img {
-    vertical-align: middle;
+
+#title { 
+    font-family: "Rammetto One", sans-serif; 
+    color: #ffa805; 
+    font-size: 30px; 
+    margin: 0; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none;
 }
 
-.smolpng {
-    width: 70px;
-    height: 70px;
+header a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.smolpng { 
+    width: 70px; 
+    height: 70px; 
+}
+
+/* Estrutura Principal (Sidebar + Conteúdo) */
+#wrapper {
+    display: flex;
+    min-height: calc(100vh - 90px); /* Ocupa o restante da tela descontando o cabeçalho */
+}
+
+/* Barra Lateral (Menu) */
+#sidebar {
+    width: 240px;
+    background-color: #040227;
+    padding: 20px;
+    border-top: 1px solid #0a056b;
+}
+
+#sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#sidebar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#sidebar nav a:hover, #sidebar nav a.ativo {
+    background-color: #ffa805;
+    color: #040227;
+    font-weight: bold;
+}
+
+/* Área do Formulário */
+main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    width: 100%;
+    max-width: 600px; /* Limita a largura para o formulário não esticar demais */
+    background-color: #040227;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Elementos do Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #ffa805;
+    margin-bottom: -5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffa805;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333333;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
+}
+
+/* Linha de Preço e Estoque Lado a Lado */
+#linha-preco-estoque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#linha-preco-estoque div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Botão Salvar */
+#btn-salvar {
+    background-color: #ffa805;
+    color: #040227;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+#btn-salvar:hover {
+    background-color: #e09304;
 }

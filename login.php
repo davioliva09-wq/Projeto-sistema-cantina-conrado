@@ -1,10 +1,53 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] =="POST"){
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+
+//Everton392@
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require_once 'conexao.php';
+require_once 'Usuario.php';
+require_once 'admin.php';
+
+$mensagemErro = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = $_POST["senha"] ?? '';
+    $tipoForm = $_POST["tipo"] ?? 'usuario';
+
+    $usuarioClasse = new Usuario($conn);
+    $usuarioADMClasse = new ADM($conn);
+
+    if ($tipoForm === 'admin') {
+        $resultado = $usuarioADMClasse->loginAdm($email, $senha);
+
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'admin';
+            header("Location: admin-relatorio.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail/Senha incorretos ou você não é um Administrador.";
+        }
+    } else {
+        $resultado = $usuarioClasse->login($email, $senha);
+
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'comum';
+            header("Location: catalogo.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail ou senha incorretos.";
+        }
+    }
 }
 ?>
+
 
 <!--- Tela de login --->
 
@@ -124,7 +167,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
 
                 <nav>
                     <a href="?tipo=usuario">Usuário</a>
-                    <a href="?tipo=administrador">Administrador</a>
+                    <a href="?tipo=admin">Administrador</a>
                 </nav>
 
 
@@ -135,7 +178,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                 ?>
 
                 
-                <?php if ($tipo === 'administrador'): ?>
+                <?php if ($tipo === 'admin'): ?>
 
                     <h1>Administrador</h1>
 
@@ -144,7 +187,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                         <input
                             type="hidden"
                             name="tipo"
-                            value="administrador"
+                            value="admin"
                         >
 
                         <label for="email">

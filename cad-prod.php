@@ -14,10 +14,11 @@ $preco = $_POST["preco"];
 $estoque = $_POST["estoque"];
 $categoria = $_POST["categoria"];
 $descricao = $_POST["descricao"];
+$imagem = $_FILES["imagem"];
 
 $produto = new ADM($conn);
 
-$produto->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao);
+$produto->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem);
 echo "<script>
     alert('Produto cadastrado com sucesso!');
     window.location.href = 'index.php';
