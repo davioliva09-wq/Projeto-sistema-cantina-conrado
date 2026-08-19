@@ -1,168 +1,310 @@
 <?php
 
-require_once('conexao.php');
-session_start();
-class Usuario
-{
-    private $pdo;
 
-    public function __construct()
-    {
-        $conexao = new Conexao();
-        $this->pdo = $conexao->exeCon();
-    }
+//Everton392@
 
-    public function logar($email, $senha)
-    {
-        $sql = "SELECT * FROM usuarios WHERE email = :email";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require_once 'conexao.php';
+require_once 'Usuario.php';
+require_once 'admin.php';
 
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":email", $email);
-        $stmt->execute();
+$mensagemErro = "";
 
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = $_POST["senha"] ?? '';
+    $tipoForm = $_POST["tipo"] ?? 'usuario';
 
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
-            return $usuario;
+    $usuarioClasse = new Usuario($conn);
+    $usuarioADMClasse = new ADM($conn);
+
+    if ($tipoForm === 'admin') {
+        $resultado = $usuarioADMClasse->loginAdm($email, $senha);
+
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'admin';
+            header("Location: admin-relatorio.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail/Senha incorretos ou você não é um Administrador.";
         }
+    } else {
+        $resultado = $usuarioClasse->login($email, $senha);
 
-        return false;
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'comum';
+            header("Location: catalogo.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail ou senha incorretos.";
+        }
     }
 }
-
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email = $_POST['email']; 
-$senha = $_POST['senha']; 
-
-$usuario = new Usuario();
-$resultado = $usuario->logar($email, $senha); 
-if($resultado){ 
-        echo "certo";
-    }else{
-        echo "de ruim";
-    }
-
-
-
-
-    }
-   
-
 ?>
 
 
+<!--- Tela de login --->
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+    <html lang="pt-BR">
 
-<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Cantina Conrado</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+            body {
+    margin: 0;
+    padding: 0;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+           header {
+            margin: 15px !important; /* Cria um espaço de 15px entre o header e a borda da tela */
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    /* Adicione estas linhas: */
+    margin: 10px 20px !important; /* 10px acima/abaixo e 20px nas laterais */
+    background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
+    border-radius: 8px; /* Opcional: arredonda os cantos se tiver fundo */
+    width: auto !important; /* Impede que o arquivo externo force 100% de largura */
+}
 
-    <link rel="stylesheet" href="style.css">
+            /* Garante que o link interno do logo não quebre o alinhamento */
+            header a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+                color: inherit;
+            }
 
-    <title>Login - Cantina Conrado</title>
-
-</head>
-
-<body>
-
-    <header>
-
-        <img
-            class="smolpng"
-            src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png"
-            alt="Cantina Conrado"
-        >
-
-        <h2 id="title">
-            Cantina<br>
-            Conrado
-        </h2>
-
-    </header>
-
-
-    <main>
-
-        <section>
-
-            <h1>Login</h1>
-
-            <form action="" method="POST">
-
-                <label for="email">
-                    E-mail
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="E-mail"
-                    required
-                >
+    
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
 
 
-                <label for="senha">
-                    Senha
-                </label>
+            main {
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 width: 100%;
+                 margin-top: 30px;
+            }
 
-                <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    placeholder="Senha"
-                    required
-                >
+             section {
+                 display: flex;
+                 flex-direction: column;
+                align-items: center;
+                text-align: center;
+                max-width: 400px;
+                width: 100%;
+            }
 
-
-                <button type="submit">
-                    Entrar
-                </button>
-
-            </form>
-
-            <a href="#">
-                Esqueci a senha
-            </a>
-
-            <a href="#">
-                Primeiro acesso
-            </a>
-
-        </section>
-
-    </main>
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
 
 
-    <footer>
+            input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                }
 
-        <nav>
 
-            <a href="privacidade.php">
-                Políticas de Privacidade
-            </a>
+            a {
+                color: #ffffff; 
+            }
+            
 
-            <a href="termos.php">
-                Termos de Uso
-            </a>
+        </style>
+    </head>
 
-        </nav>
+    <body>
 
-        <p>
-            © 2026 Escola Padre Conrado C. Silva Alves |
-            Todos os direitos reservados.
-        </p>
+        <header>
+                <div>
+                 <a href="index.php">
+                 <img class=smolpng src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado">
+                   <h2 id=title>Cantina<br>Conrado</h2>
+                   </a>
+                </div>
+         </header>
 
-    </footer>
 
-</body>
+        <main>
 
-</html>
+            <section>
+
+                <nav>
+                    <a href="?tipo=usuario">Usuário</a>
+                    <a href="?tipo=admin">Administrador</a>
+                </nav>
+
+
+                <?php
+
+                $tipo = $_GET['tipo'] ?? 'usuario';
+
+                ?>
+
+                
+                <?php if ($tipo === 'admin'): ?>
+
+                    <h1>Administrador</h1>
+
+                    <form action="login.php" method="POST">
+
+                        <input
+                            type="hidden"
+                            name="tipo"
+                            value="admin"
+                        >
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="E-mail"
+                            required
+                        >
+
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Senha"
+                            required
+                        >
+
+
+                        <button type="submit">
+                            Login
+                        </button>
+
+                    </form>
+
+                    <a href="admin-rec-senha.php">
+                        Esqueci a senha
+                    </a>
+
+
+                <?php else: ?>
+
+                    <h1>Usuário</h1>
+
+                    <form action="login.php" method="POST">
+
+                        <input
+                            type="hidden"
+                            name="tipo"
+                            value="usuario"
+                        >
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="E-mail"
+                            required
+                        >
+
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Senha"
+                            required
+                        >
+
+
+                        <button type="submit">
+                            Login
+                        </button>
+
+                    </form>
+
+                    <a href="rec-senha.php">
+                        Esqueci a senha
+                    </a>
+
+                    <a href="cadastro.php">
+                        Primeiro acesso
+                    </a>
+
+                <?php endif; ?>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+
+            <nav>
+                <a href="privacidade.php">
+                    Políticas de Privacidade
+                </a>
+
+                <a href="termos.php">
+                    Termos de Uso
+                </a>
+            </nav>
+
+            <p>
+                © 2026 Escola Padre Conrado C. Silva Alves |
+                Todos os direitos reservados.
+            </p>
+
+        </footer>
+
+    </body>
+
+    </html>
