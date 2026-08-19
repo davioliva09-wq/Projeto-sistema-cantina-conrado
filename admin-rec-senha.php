@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
-    <style>
+        <style>
             
-            header {
+            /*header {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -67,7 +67,7 @@
 
             a {
                 color: #ffffff; 
-            }
+            }*/
             
 
         </style>

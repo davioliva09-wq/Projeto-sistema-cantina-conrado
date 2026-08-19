@@ -1,45 +1,53 @@
 <?php
 
-// LOGIN TEMPORÁRIO PARA DEMONSTRAÇÃO DO FRONT-END!!!! :O
-// Será substituído pela autenticação do Back-End UwU
 
-$emailAluno = "aluno@cantinaconrado.com";
-$senhaAluno = "1234";
+//Everton392@
 
-$emailAdmin = "admin@cantinaconrado.com";
-$senhaAdmin = "admin123";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require_once 'conexao.php';
+require_once 'Usuario.php';
+require_once 'admin.php';
 
+$mensagemErro = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = $_POST["senha"] ?? '';
+    $tipoForm = $_POST["tipo"] ?? 'usuario';
 
-    $tipoLogin = $_POST["tipo"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $usuarioClasse = new Usuario($conn);
+    $usuarioADMClasse = new ADM($conn);
 
-    // login de aluno
-    if (
-        $tipoLogin === "usuario" &&
-        $email === $emailAluno &&
-        $senha === $senhaAluno
-    ) {
-        header("Location: perfil-aluno.php");
-        exit;
+    if ($tipoForm === 'admin') {
+        $resultado = $usuarioADMClasse->loginAdm($email, $senha);
+
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'admin';
+            header("Location: admin-relatorio.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail/Senha incorretos ou você não é um Administrador.";
+        }
+    } else {
+        $resultado = $usuarioClasse->login($email, $senha);
+
+        if ($resultado) {
+            session_start();
+            $_SESSION['usuario_id'] = $resultado['id'];
+            $_SESSION['usuario_tipo'] = 'comum';
+            header("Location: catalogo.php");
+            exit;
+        } else {
+            $mensagemErro = "E-mail ou senha incorretos.";
+        }
     }
-
-    // login de administrador
-    if (
-        $tipoLogin === "administrador" &&
-        $email === $emailAdmin &&
-        $senha === $senhaAdmin
-    ) {
-        header("Location: perfil-admin.php");
-        exit;
-    }
-
-    $erro = "E-mail ou senha incorretos.";
 }
-
 ?>
+
 
 <!--- Tela de login --->
 
@@ -56,15 +64,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <title>Login - Cantina Conrado</title>
 
- <style>
-            
-            header {
+  <style>
+            body {
+    margin: 0;
+    padding: 0;
+}
+
+           header {
+            margin: 15px !important; /* Cria um espaço de 15px entre o header e a borda da tela */
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    /* Adicione estas linhas: */
+    margin: 10px 20px !important; /* 10px acima/abaixo e 20px nas laterais */
+    background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
+    border-radius: 8px; /* Opcional: arredonda os cantos se tiver fundo */
+    width: auto !important; /* Impede que o arquivo externo force 100% de largura */
+}
+
+            /* Garante que o link interno do logo não quebre o alinhamento */
+            header a {
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
                 align-items: center;
-                gap: 15px;
+                gap: 10px;
+                text-decoration: none;
+                color: inherit;
             }
+
     
             nav {
                 display: flex;
@@ -116,11 +147,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
 
         </style>
-
-
-
-
-
     </head>
 
     <body>
@@ -141,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <nav>
                     <a href="?tipo=usuario">Usuário</a>
-                    <a href="?tipo=administrador">Administrador</a>
+                    <a href="?tipo=admin">Administrador</a>
                 </nav>
 
 
@@ -152,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ?>
 
                 
-                <?php if ($tipo === 'administrador'): ?>
+                <?php if ($tipo === 'admin'): ?>
 
                     <h1>Administrador</h1>
 
@@ -161,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <input
                             type="hidden"
                             name="tipo"
-                            value="administrador"
+                            value="admin"
                         >
 
                         <label for="email">

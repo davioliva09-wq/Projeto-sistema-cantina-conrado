@@ -1,10 +1,17 @@
 <?php 
 class Conexao { 
-    private $host = 'localhost'; 
-    private $dbname = 'proj'; 
-    private $password = ''; 
-    private $username = 'root'; 
-    private $conn; 
+   private $host; 
+    private $dbname; 
+    private $username; 
+    private $password; 
+      private $conn; 
+
+      public function __construct() {
+        $this->host     = $_ENV['DB_HOST'] ?? 'localhost';
+        $this->dbname   = $_ENV['DB_NAME'] ?? 'proj';
+        $this->username = $_ENV['DB_USER'] ?? 'root';
+        $this->password = $_ENV['DB_PASS'] ?? '';
+    }
 
     private function conect(){ 
         $this->conn = null; 
@@ -24,5 +31,8 @@ class Conexao {
     public function exeCon(){ 
         return $this->conect(); 
     } 
-} 
+} $banco = new Conexao();
+$conn = $banco->exeCon(); 
+
+
 ?>

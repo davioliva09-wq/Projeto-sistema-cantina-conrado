@@ -34,7 +34,7 @@
     <main>
 
         <section>
-            <p style="color: #ffa805;">BEM VINDO(A)!</p>
+           <!-- <p style="color: #ffa805;">BEM VINDO(A)!</p>-->
 
             <h1>
                 Sua fome não espera,
