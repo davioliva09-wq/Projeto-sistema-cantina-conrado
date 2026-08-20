@@ -8,10 +8,8 @@
 </head>
 
 <body>
-    <header>
-        <img src="logo_cantina.png" alt="cantina"> 
-        <h1>Olá, Administrador</h1>
-    </header>
+<?php include 'header.php'; ?>
+
     
     <form action="pesquisa"></form>
     <label for="campo-busca">Buscar: </label>

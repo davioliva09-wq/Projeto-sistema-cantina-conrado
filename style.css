@@ -8,14 +8,7 @@ body {
 
 
 /* Cabeçalho */
-header { 
-    background-color: #040227; 
-    padding: 10px 20px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box; /* Impede o 'Meu Perfil' de colar na borda */
-}
+
 
 
 #title { 

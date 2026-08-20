@@ -17,19 +17,7 @@
 
 <body>
 
-    <header>
-        <div>
-            <a href="index.php">
-            <img class=smolpng src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado">
-            <h2 id=title>Cantina<br>Conrado</h2>
-            </a>
-        </div>
-
-        <nav>
-            <a href="login.php?tipo=administrador">Fazer login</a>
-        </nav>
-    </header>
-
+<?php include 'header.php'; ?>
 
     <main>
 
