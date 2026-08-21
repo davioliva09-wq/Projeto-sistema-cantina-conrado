@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -21,13 +24,13 @@
 
     <main>
 
-        <section>
+        <section class="section-login">
            <!-- <p style="color: #ffa805;">BEM VINDO(A)!</p>-->
 
-            <h1>
+            <h1 class="intro">
                 Sua fome não espera,
                 <br>
-                a gente facilita!
+                <span class="span-intro">a gente facilita!</span>
             </h1>
 
             <p>
@@ -36,11 +39,13 @@
                 de forma rápida, prática e sem filas.
             </p>
 
-            <a href="login.php?tipo=usuario">
-                Fazer login
-            </a>
+            <button class="btn-intro">
+                <a href="login.php?tipo=usuario" >
+                  FAZER LOGIN
+                 </a>
+            </button>
 
-            <p>
+            <p class="text-intro">
                 Acesso exclusivo para alunos, responsáveis,
                 funcionários e administradores.
             </p>

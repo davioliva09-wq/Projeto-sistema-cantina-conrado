@@ -1,6 +1,16 @@
 <?php 
 // Código PHP (se necessário) pode entrar aqui
 ?> 
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
 <style> 
 header { 
     background-color: #040227; 
@@ -16,9 +26,11 @@ header div a {
     align-items: center;
     text-decoration: none;
     color: white; /* Ajuste a cor do texto conforme necessário */
+    font-family: "Rammetto One";
+
 }
 .smolpng {
-    height: 50px; /* Define um tamanho padrão para o ícone */
+    height: 65px; /* Define um tamanho padrão para o ícone */
     margin-right: 10px;
 }
 header nav a {
