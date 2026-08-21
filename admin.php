@@ -1,7 +1,9 @@
 <?php 
 require_once 'conexao.php'; 
+require_once("usuario.php");
 
-class ADM { 
+
+class ADM extends Usuario {     
     private string $nome; 
     private float $preco; 
     private int $estoque; 

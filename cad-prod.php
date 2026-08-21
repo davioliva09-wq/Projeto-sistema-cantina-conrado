@@ -18,7 +18,7 @@ $imagem = $_FILES["imagem"];
 
 if($nome && $preco !== null){
     $admService = new ADM($conn);
-    $admService->cadastrarProduto($nome, $preco, $estqoue, $categoria, $descricao, $imagem);
+    $admService->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem);
 }else{
     echo "erro ao cadastrar produto";
 }}else{
