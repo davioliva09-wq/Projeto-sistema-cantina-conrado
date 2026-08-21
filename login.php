@@ -70,31 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     padding: 0;
 }
 
-           header {
-            margin: 15px !important; /* Cria um espaço de 15px entre o header e a borda da tela */
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    
-    /* Adicione estas linhas: */
-    margin: 10px 20px !important; /* 10px acima/abaixo e 20px nas laterais */
-    background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
-    border-radius: 8px; /* Opcional: arredonda os cantos se tiver fundo */
-    width: auto !important; /* Impede que o arquivo externo force 100% de largura */
-}
 
-            /* Garante que o link interno do logo não quebre o alinhamento */
-            header a {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 10px;
-                text-decoration: none;
-                color: inherit;
-            }
+     
 
     
             nav {
@@ -151,14 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <body>
 
-        <header>
-                <div>
-                 <a href="index.php">
-                 <img class=smolpng src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado">
-                   <h2 id=title>Cantina<br>Conrado</h2>
-                   </a>
-                </div>
-         </header>
+           <?php require_once("header.php"); ?>
 
 
         <main>

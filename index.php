@@ -1,5 +1,3 @@
-<!--- Tela Inicial --->
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,21 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <main>
-
         <section>
-           <!-- <p style="color: #ffa805;">BEM VINDO(A)!</p>-->
-
             <h1>
-                Sua fome não espera,
-                <br>
+                Sua fome não espera,<br>
                 a gente facilita!
             </h1>
 
@@ -45,27 +38,9 @@
                 funcionários e administradores.
             </p>
         </section>
-
-
     </main>
 
-
-    <footer>
-        <nav>
-            <a href="privacidade.php">
-                Políticas de Privacidade
-            </a>
-
-            <a href="termos.php">
-                Termos de Uso
-            </a>
-        </nav>
-
-        <p>
-            © 2026 Escola Padre Conrado C. Silva Alves |
-            Todos os direitos reservados.
-        </p>
-    </footer>
+    <?php require_once 'footer.php'; ?>
 
 </body>
 </html>

@@ -18,7 +18,7 @@ $produtos = $produtoService->listarProdutos();
     <link rel="stylesheet" href="style.css"> 
 </head> 
 <body> 
-    <?php include 'header.php'; ?> 
+    <?php require_once("header.php"); ?>
 
     <main class="catalogo-container">
         <h1>Nosso Cardápio</h1>

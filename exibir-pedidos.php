@@ -1,9 +1,9 @@
 <?php
 require_once("conexao.php"); // Instancia a variável $conexao
-require_once("ADM.php");     // Altere para o nome correto do seu arquivo da classe ADM
-
-//$admObj = new ADM($conexao);
-//$produtos = $admObj->listarProdutos();
+require_once("admin.php");     // Altere para o nome correto do seu arquivo da classe ADM
+require_once("produtos.php");
+$admObj = new Produto($conn);
+$produtos = $admObj->listarProdutos();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,10 +14,8 @@ require_once("ADM.php");     // Altere para o nome correto do seu arquivo da cla
 </head>
 <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9;">
 
-    <!-- Seu header separado -->
     <?php require_once("header.php"); ?>
 
-    <!-- Container Principal -->
     <main style="display: flex; justify-content: center; width: 100%; margin-top: 30px; box-sizing: border-box; padding: 0 20px;">
         <div style="width: 100%; max-width: 1200px;">
             
@@ -25,7 +23,6 @@ require_once("ADM.php");     // Altere para o nome correto do seu arquivo da cla
                 Nossos Produtos
             </h2>
             
-            <!-- Grade / Grid de Produtos -->
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; width: 100%;">
                 
                 <?php if (!empty($produtos)): ?>
