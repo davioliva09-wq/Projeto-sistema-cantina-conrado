@@ -60,6 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+        
         <link rel="stylesheet" href="style.css">
 
         <title>Login - Cantina Conrado</title>
@@ -81,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     /* Adicione estas linhas: */
     margin: 10px 20px !important; /* 10px acima/abaixo e 20px nas laterais */
-    background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
+    /* background-color: #f0f0f0; /* Opcional: para ver o fundo do header afastado */
     border-radius: 8px; /* Opcional: arredonda os cantos se tiver fundo */
     width: auto !important; /* Impede que o arquivo externo force 100% de largura */
 }
@@ -150,6 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
 
     <body>
+        
 
         <header>
                 <div>
@@ -166,8 +171,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <section>
 
                 <nav>
-                    <a href="?tipo=usuario">Usuário</a>
-                    <a href="?tipo=admin">Administrador</a>
+                    <a href="?tipo=usuario" class="login-select-btn">Usuário</a>
+                    <a href="?tipo=admin" class="login-select-btn">Administrador</a>
                 </nav>
 
 
@@ -179,6 +184,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 
                 <?php if ($tipo === 'admin'): ?>
+
+
 
                     <h1>Administrador</h1>
 
@@ -216,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         >
 
 
-                        <button type="submit">
+                        <button type="submit" class="btn">
                             Login
                         </button>
 
@@ -264,8 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             required
                         >
 
-
-                        <button type="submit">
+                        <button type="submit" class="btn">
                             Login
                         </button>
 

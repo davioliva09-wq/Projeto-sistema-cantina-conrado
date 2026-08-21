@@ -140,6 +140,63 @@ textarea {
     background-color: #e09304;
 }
 
+
+.btn {
+        background: none;
+        border: none;
+        outline: none;
+
+        padding: 12px 24px;      
+        border-radius: 6px;    
+        width: 250px;  
+        
+        background-color: #a60303;
+        color: #ffffff;
+
+        font-family: "Rammetto One";
+
+}
+
+.btn:hover {
+    background-color: #af2626;
+    cursor: pointer;
+}
+
+.login-select-btn {
+    background: none;
+    border: none;
+    outline: none;
+
+    padding: 12px 24px;      
+    border-radius: 6px;     
+        
+    background-color: #e09304;
+    font-family: "Rammetto One";
+    transition: 0.2s;
+}
+
+.login-select-btn:hover {
+    background-color: #db9d2a;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.circulo-fundo {
+    position: absolute;
+    background-color: #2b60be;
+    border-radius: 50%;
+    z-index: 1; 
+}
+
+.circulo-fundo2 {
+    width: 450px;
+    height: 450px;
+    bottom: -150px;
+    left: -150px;
+}
+
+
+
  .catalogo-container {
     max-width: 1200px;
     margin: 40px auto;
@@ -240,3 +297,4 @@ textarea {
         font-size: 2rem;
     }
 }
+
