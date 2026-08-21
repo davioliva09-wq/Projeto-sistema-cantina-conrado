@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST["senha"] ?? '';
     $tipoForm = $_POST["tipo"] ?? 'usuario';
 
-    $usuarioClasse = new Usuario($conn);
+    $usuarioClasse = new UsuarioComum($conn);
     $usuarioADMClasse = new ADM($conn);
 
     if ($tipoForm === 'admin') {

@@ -24,7 +24,7 @@ if ($senha !== $confirmarSenha) {
           </script>";
     exit; 
 }
-$usuario = new Usuario($conn);
+$usuario = new UsuarioComum($conn);
 
 if ($usuario->cadastrar($nome, $email, $telefone, $senha)) {
     echo "<script> alert('Cadastro realizado com sucesso!'); window.location.href = 'login.php'; </script>";

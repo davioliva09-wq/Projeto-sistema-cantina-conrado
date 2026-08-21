@@ -30,7 +30,7 @@ $produtos = $produtoService->listarProdutos();
                 <?php foreach ($produtos as $item): ?>
                     <?php if ($item['disponivel']): ?>
                         <div class="produto-card">
-                            <img src="imagens/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
+                            <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                             <h3><?php echo htmlspecialchars($item['nome']); ?></h3>
                             <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p>
                             <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p>
