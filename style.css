@@ -1,3 +1,4 @@
+
 /* Configurações Gerais */
 body {
     background-color: #0a056b;
@@ -143,7 +144,6 @@ textarea {
     background-color: #e09304;
 }
 
-
 .btn {
         background: none;
         border: none;
@@ -171,7 +171,6 @@ textarea {
     font-family: "Fredoka";
     font-weight: 600;
     color: #ffffff;
-
     font-size: 50px;
 }
 
@@ -182,7 +181,6 @@ textarea {
     padding: 30px;
     border-radius: 8px;
     box-shadow: none;
-
     margin-right: auto; 
     margin-left: 0;
 }

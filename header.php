@@ -6,6 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -46,7 +49,11 @@ header nav a {
             <h2 id="title">Cantina<br>Conrado</h2> 
         </a> 
     </div> 
-    <nav> 
-        <a href="login.php?tipo=administrador">Fazer login</a> 
-    </nav> 
+
+    <div style="display: flex; align-items: center;">
+        <img src="https://icones.pro/wp-content/uploads/2021/03/icone-de-groupe-symbole-png-jaune.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
+        <nav>
+         <a href="login.php?tipo=usuario" class="span-intro">Já tem conta? <br> Fazer login</a> 
+        </nav>
+    </div> 
 </header>
