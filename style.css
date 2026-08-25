@@ -1,7 +1,7 @@
 
 /* Configurações Gerais */
 body {
-    background-color: #0a056b;
+    background-color: #070442;
     color: #ffffff;
     margin: 0;
     font-family: sans-serif; /* Altere para sua fonte preferida */
@@ -383,8 +383,21 @@ textarea {
 /* Cadastro */
 
 .cadastro-form {
-    color: #ffffff  ;
+    width: 100%;
+    max-width: 900px; /* Limita a largura para o formulário não esticar demais */
+    background-color: #090551;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
 }
+
+.headless {
+    background-color: transparent;
+    
+}
+
+
 
 
 

@@ -47,5 +47,7 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
             <?php endif; ?>
         </div>
     </main>
-</body> 
+    <?php include "footer.php" ?>
+</body>
+ 
 </html>

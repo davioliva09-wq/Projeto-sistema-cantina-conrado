@@ -1,4 +1,4 @@
-<!--- Tela Inicial --->
+    <!--- Tela Inicial --->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -8,13 +8,6 @@
     <title>Cantina Conrado</title>
 
     <!-- Google Font Links pro Rammeto One-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -62,7 +55,7 @@
 
         <section class="lanches-index">
 
-        <img src="https://i.imgur.com/SPapSq8.png" alt="lanches gulosos">
+        <img src="images/indexlanchitos.png" alt="lanches gulosos">
 
         </section>
 
@@ -72,23 +65,7 @@
 
     </main>
 
-
-    <footer>
-        <nav>
-            <a href="privacidade.php">
-                Políticas de Privacidade
-            </a>
-
-            <a href="termos.php">
-                Termos de Uso
-            </a>
-        </nav>
-
-        <p>
-            © 2026 Escola Padre Conrado C. Silva Alves |
-            Todos os direitos reservados.
-        </p>
-    </footer>
+    <?php include "footer.php" ?>
 
 </body>
 </html>
