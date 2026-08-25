@@ -5,21 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Administrador</title>
     <link rel="stylesheet" href="style.css">
+    <style> 
+    .meno a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;        
+    text-decoration: none;
+    color: white;          
+    text-align: left;       
+    padding-left: 10px;     
+    box-sizing: border-box;
+}
+         Sair{
+            margin-left: 145px;
+         }
+        body {
+    background-color: #d3d3d3;
+}
+
+       .tabela {
+            margin-left: 145px;
+            max-width: calc(100% - 145px);
+            }
+        .meno {
+    position: fixed;
+    left: 0;
+    top: 120px;
+    width: 145px;
+    height: 100vh;
+    background-color: #010226;
+    display: flex;
+    flex-direction: column;
+}
+    .barra-de-pesquisa{
+        margin-left: 145px;
+        max-width: calc(100% - 145px);
+
+    }
+    </style>
 </head>
 
 <body>
 <?php include 'header.php'; ?>
     
+    <div class="barra-de-pesquisa">
     <form action="pesquisa"></form>
     <label for="campo-busca">Buscar: </label>
-    <input type="search" placeholder="Pesquisar Usuários">
+    <input type="Usuário" placeholder="Pesquisar Usuários">
     <button type="submit">Enviar</button>
+    </div>
 
-    <nav>
+    <nav class=meno>
         <a href="Produtos.html">Produtos</a>
         <a href="Pedidos.html">Pedidos</a>
         <a href="Usuários1.html">Usuários</a>
-        <a href="Sair.html">Sair</a>
+        <a href="Sair.html" margin-bottom: 30px; >Sair</a>
     </nav>
 
     <br>
