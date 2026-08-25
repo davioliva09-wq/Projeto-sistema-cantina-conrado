@@ -16,17 +16,17 @@ class ADM extends Usuario {
         $this->db = $conexao; 
     } 
 
-    public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem) { 
-        $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem) VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem)"; 
-        $stmt = $this->db->prepare($sql); 
-        $stmt->bindParam(':nome', $nome); 
-        $stmt->bindParam(':preco', $preco); 
-        $stmt->bindParam(':estoque', $estoque); 
-        $stmt->bindParam(':categoria', $categoria); 
-        $stmt->bindParam(':descricao', $descricao); 
-        $stmt->bindParam(':imagem', $imagem); 
-        return $stmt->execute(); 
-    } 
+    public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem) {
+    $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem) VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':preco', $preco);
+    $stmt->bindParam(':estoque', $estoque);
+    $stmt->bindParam(':categoria', $categoria);
+    $stmt->bindParam(':descricao', $descricao);
+    $stmt->bindParam(':imagem', $imagem);
+    return $stmt->execute();
+}
 
     public function loginAdm($email, $senha) { 
         $sql = "SELECT id, senha FROM users WHERE email = :email AND tipo = 'admin' LIMIT 1"; 

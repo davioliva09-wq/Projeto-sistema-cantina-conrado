@@ -6,12 +6,12 @@ require_once 'conexao.php';
 require_once 'produtos.php'; 
 
 $produtoService = new Produto($conn);
-$produtos = $produtoService->listarProdutos();
+$termoPesquisa = isset($_GET['q']) ? $_GET['q'] : '';
+$produtos = $produtoService->buscaProdNome($termoPesquisa);
 ?>
 <!DOCTYPE html> 
 <html lang="pt-BR"> 
 <head> 
-    
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Catálogo - Cantina Conrado</title> 
@@ -23,12 +23,17 @@ $produtos = $produtoService->listarProdutos();
     <main class="catalogo-container">
         <h1>Nosso Cardápio</h1>
         
+        <form action="" method="GET">
+            <input name="q" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>">
+            <input type="submit" value="Pesquisar">
+        </form>
+        
         <div class="produtos-grid">
             <?php if (empty($produtos)): ?>
-                <p>Nenhum produto cadastrado no momento.</p>
+                <p>Nenhum produto encontrado no momento.</p>
             <?php else: ?>
                 <?php foreach ($produtos as $item): ?>
-                    <?php if ($item['disponivel']): ?>
+                    <?php if (isset($item['disponivel']) && $item['disponivel']): ?>
                         <div class="produto-card">
                             <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                             <h3><?php echo htmlspecialchars($item['nome']); ?></h3>

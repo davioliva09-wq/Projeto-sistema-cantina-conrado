@@ -27,7 +27,7 @@ class UsuarioComum extends usuario {
             return false;
         }
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO usuarios (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
+        $sql = "INSERT INTO users (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
@@ -37,7 +37,7 @@ class UsuarioComum extends usuario {
     }
 
     public function login($email, $senha) {
-        $sql = "SELECT id, email, senha FROM usuarios where email = :email";
+        $sql = "SELECT id, email, senha FROM users where email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->execute();

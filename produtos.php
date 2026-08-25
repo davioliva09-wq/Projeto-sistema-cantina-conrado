@@ -23,5 +23,17 @@ class Produto {
             return false;
         }
     }
+   public function buscaProdNome(string $nome) {
+    $sql = "SELECT * FROM produtos WHERE nome LIKE :pesquisa";
+    $stmt = $this->db->prepare($sql);
+    $pesquisa = "%" . $nome . "%";
+    $stmt->bindValue(':pesquisa', $pesquisa, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+}
+
+
 ?>
