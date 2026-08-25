@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #070442;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* Topo com a Logo */
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: transparent; 
+    border-radius: 8px;
+}
+
+.logo-icon img {
+    height: auto;
+    width: 80px;
+}
+
+.brand-name {
+    color: #ffcc00;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+    text-transform: capitalize;
+    font-family: "Rammetto One", sans-serif;
+}
+
+/* Painel Principal de Configurações */
+.card-config {
+    background-color: #162a6b;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #233d8a;
+    padding-bottom: 20px;
+    font-family: "Fredoka";
+    font-weight: "400"
+    
+}
+
+/* Layout estruturado em duas colunas */
+.content-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.form-side {
+    flex: 1;
+}
+
+.avatar-side {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilização do Formulário */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px;
+    color: #a0aec0;
+    font-size: 1.1rem;
+}
+
+.input-container input {
+    width: 100%;
+    background-color: #0b1536;
+    border: 1px solid #1c3580;
+    border-radius: 6px;
+    padding: 14px 14px 14px 45px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-container input:focus {
+    border-color: #ffcc00;
+}
+
+.input-container input::placeholder {
+    color: #4a5568;
+}
+
+/* Campos de Telefone Divididos */
+.phone-fields {
+    display: flex;
+    gap: 15px;
+}
+
+.ddd-input {
+    width: 80px !important;
+    text-align: center;
+}
+
+/* Container do Avatar e Círculo */ 
+.avatar-title { 
+    color: #ffffff; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 15px; 
+    text-align: center;
+} 
+
+.avatar-wrapper { 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    margin-bottom: 30px; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+} 
+
+.avatar-img { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid #1c3580; 
+    display: block;
+}
+
+/* Botão Editar posicionado corretamente sobre a foto */
+.btn-edit-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    background-color: #0a1128;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-edit-avatar:hover {
+    background-color: #ffcc00;
+    color: #0a1128;
+}
+
+/* Botões de Ação da Direita */
+.action-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-yellow {
+    width: 100%;
+    background-color: #ffcc00;
+    color: #0d1b46;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s
+}
+
+.btn-yellow:hover {
+    background-color: #0d1b46;
+    color: #ffcc00;
+}
+
+/* Rodapé e Botão Voltar */
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    border-top: 1px solid #233d8a;
+    padding-top: 20px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-back:hover {
+    background-color: #ffcc00;
+    color: #0d1b46;
+}
