@@ -58,7 +58,15 @@ $stmt->execute();
 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-
+public function alterarSenha($id, $senha){
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    $sql = "UPDATE usuarios SET senha = :senha WHERE id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+        ":senha" => $senha,
+        ":id" => $id
+    ]);
+}
 
 
 
