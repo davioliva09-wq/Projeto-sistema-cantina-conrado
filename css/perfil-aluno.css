@@ -252,6 +252,11 @@ body {
     transition: background-color 0.2s, color 0.2s;
 }
 
+.seta-img {
+    height: 30px;
+    width: 30px;
+}
+
 .btn-back:hover {
     background-color: #ffcc00;
     color: #0d1b46;

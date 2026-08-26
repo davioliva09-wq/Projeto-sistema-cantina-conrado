@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="action-buttons">
-                        <a href="#" class="btn-yellow">Histórico</a>
+                        <a href="historico.php" class="btn-yellow">Histórico</a>
                         <button class="btn-yellow">Sair da conta</button>
                     </div>
                 </section>
@@ -92,8 +92,8 @@
 
             <!-- Rodapé do Card -->
             <footer class="card-footer">
-                <a href="#" class="btn-back">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar
+                <a href="catalogo.php" class="btn-back">
+                    <img src="https://cdn.creazilla.com/icons/3213492/arrow-left-icon-lg.png" alt="voltar" class="seta-img"> Voltar
                 </a>
             </footer>
 

@@ -1,0 +1,256 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #070442;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: transparent; 
+    border-radius: 8px;
+}
+
+.logo-icon img {
+    height: auto;
+    width: 80px;
+}
+    .brand-name {
+    color: #ffcc00;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+    text-transform: capitalize;
+    font-family: "Rammetto One", sans-serif;
+}
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Topo da página / Branding */
+        .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-icon img {
+            height: 60px;
+            width: 60px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-text .cantina {
+            color: #fca311;
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+
+        .logo-text .conrado {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+
+        /* Card Principal */
+        .history-card {
+            background-color: #0b1a47;
+            border-radius: 8px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .history-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* Item do Histórico */
+        .order-item {
+            border-bottom: 1px solid #14285f;
+            padding: 25px 0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Linha de Cabeçalho da Tabela Interna */
+        .item-table-header {
+            display: grid;
+            grid-template-columns: 1fr 120px 80px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .header-label {
+            font-size: 12px;
+            color: #a0aec0;
+            font-weight: 400;
+        }
+
+        /* Linha de Conteúdo Principal */
+        .item-main {
+            display: grid;
+            grid-template-columns: auto 1fr 120px 80px;
+            align-items: start;
+            gap: 20px;
+        }
+
+        /* Imagem do Produto */
+        .product-img {
+            width: auto;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            background-color: #14285f; /* Fallback visual */
+        }
+
+        /* Detalhes do Produto */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .product-description {
+            font-size: 11px;
+            color: #cbd5e0;
+            line-height: 1.4;
+            max-width: 320px;
+        }
+
+        /* Valores e Preços */
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .unit-price {
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .total-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Badge de Quantidade */
+        .quantity-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        .quantity-badge {
+            background-color: #12224d;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 4px;
+            min-width: 30px;
+            text-align: center;
+            border: 1px solid #1a2f6a;
+        }
+
+        .card-footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    border-top: 1px solid #233d8a;
+    padding-top: 20px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-back:hover {
+    background-color: #ffcc00;
+    color: #0d1b46;
+}
+
+
+        /* Responsividade Básica */
+        @media (max-width: 600px) {
+            .item-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .item-table-header {
+                display: none;
+            }
+            .product-description {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .price-container, .quantity-container {
+                align-items: center;
+                justify-content: center;
+            }
+        }
