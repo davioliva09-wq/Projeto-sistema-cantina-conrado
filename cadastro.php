@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-with-icon">
-                        <img src="images/email-ico.png" alt="Email">
+                        <img src="images/email-icon.png" alt="Email">
                         <input type="email" id="email" name="email" placeholder="email@email.com" required>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <div class="form-group">
                     <label for="telefone">Telefone</label>
                     <div class="input-with-icon">
-                        <img src="images/phone-ico.png" alt="telefoine">
+                        <img src="images/phone-icon.png" alt="telefoine">
                         <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
                     </div>
                 </div>
