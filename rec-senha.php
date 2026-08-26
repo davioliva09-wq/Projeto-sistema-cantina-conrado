@@ -62,7 +62,7 @@
         <h2 style="font-family: Rammetto One;">Recuperar Senha</h2>
 
         <p>Insira o E-mail e número cadastrado para receber o código de verificação.</p>
-        <form action="POST">
+        <form  method="POST" action="password-reset.php">
 
         <label for="rec-email">E-mail: </label>
         <input type="email" id="rec-email" name="rec-email">

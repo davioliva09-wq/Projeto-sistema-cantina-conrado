@@ -1,0 +1,152 @@
+
+.rammetto-one-regular {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #070442;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* Container Principal */
+        .page-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* Topo / Logo */
+        header.logo-header {
+            margin-bottom: 25px;
+        }
+
+        header.logo-header a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-family: "Rammetto One", "Sans-Seriff";
+            color: #f7b500;
+            font-size: 50px;
+            line-height: 1.1;
+            text-transform: none;
+        }
+
+        /* Caixa de Cadastro */
+        main.card-cadastro {
+            background-color: #0b065f;
+            border-radius: 12px;
+            width: 100%;
+            padding: 40px 50px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            font-family: "Fredoka";
+            font-size: 50px;
+            margin-bottom: 20px;
+        }   
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background-color: #384d85;
+            margin-bottom: 25px;
+        }
+
+        /* Formulário e Inputs */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .input-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .input-with-icon img {
+            text-align: center;
+            height: auto;
+            width: 30px;
+        }
+
+        .input-with-icon input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ffffff;
+            font-size: 0.95rem;
+            color: #333333;
+            outline: none;
+        }
+
+        .input-with-icon input::placeholder {
+            color: #cccccc;
+        }
+
+        /* Botão Cadastrar */
+        .btn-cadastrar {
+            background-color: #e09304;
+            color: #0b065f;
+            border: none;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-cadastrar:hover {
+            background-color: #d5a13f;
+        }

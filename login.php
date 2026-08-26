@@ -7,7 +7,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once 'conexao.php';
-require_once 'Usuario.php';
 require_once 'admin.php';
 
 $mensagemErro = "";
@@ -292,24 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </main>
 
 
-        <footer>
-
-            <nav>
-                <a href="privacidade.php">
-                    Políticas de Privacidade
-                </a>
-
-                <a href="termos.php">
-                    Termos de Uso
-                </a>
-            </nav>
-
-            <p>
-                © 2026 Escola Padre Conrado C. Silva Alves |
-                Todos os direitos reservados.
-            </p>
-
-        </footer>
+    <?php include "footer.php" ?>
 
     </body>
 

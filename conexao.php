@@ -8,9 +8,10 @@ class Conexao {
     private $conn; 
 
     private function conect() { 
+        // Alterado de 3307 para 3306 (Porta padrao do XAMPP)
         $this->host = $_ENV['DB_HOST'] ?? '127.0.0.1'; 
-        $this->port = $_ENV['DB_PORT'] ?? '3307'; 
-        $this->dbname = $_ENV['DB_NAME'] ?? 'bd_cantina'; 
+        $this->port = $_ENV['DB_PORT'] ?? '3306'; 
+        $this->dbname = $_ENV['DB_NAME'] ?? 'proj'; 
         $this->username = $_ENV['DB_USER'] ?? 'root'; 
         $this->password = $_ENV['DB_PASS'] ?? ''; 
         $this->conn = null; 
@@ -23,7 +24,8 @@ class Conexao {
             ); 
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
         } catch (PDOException $e) { 
-            echo "Erro de conexão: " . $e->getMessage(); 
+            // Mata a execucao mostrando o erro real caso o banco nao conecte
+            die("Erro crítico de conexão: " . $e->getMessage()); 
         } 
         return $this->conn; 
     } 
@@ -33,6 +35,7 @@ class Conexao {
     } 
 } 
 
+// Cria a conexao inicial padrão
 $banco = new Conexao(); 
 $conn = $banco->exeCon(); 
 ?>
