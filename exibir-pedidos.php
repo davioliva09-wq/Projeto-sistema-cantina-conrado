@@ -2,8 +2,8 @@
 require_once("conexao.php"); // Instancia a variável $conexao
 require_once("ADM.php");     // Altere para o nome correto do seu arquivo da classe ADM
 
-//$admObj = new ADM($conexao);
-//$produtos = $admObj->listarProdutos();
+$admObj = new ADM($conexao);
+$produtos = $admObj->listarProdutos();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
