@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
 
     <!-- Vínculo com o arquivo externo css -->
-    <link rel="stylesheet" href="perfil-aluno.css">
+    <link rel="stylesheet" href="css/perfil-aluno.css">
 </head>
 <body>
 

@@ -22,7 +22,7 @@ $produtoId = $_GET['id'] ?? 1;
     <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="css/style-admin.css">
 
 </head>
 
