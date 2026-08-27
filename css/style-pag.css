@@ -1,0 +1,110 @@
+body {
+            background-color: #080f5c;
+        }
+
+        header {
+            padding: 20px 30px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .pagamento {
+            background-color: #162f78;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            border-radius: 6px;
+        }
+
+        .resumo,
+        .metodo {
+            background-color: #080f5c;
+            padding: 25px;
+            border-radius: 6px;
+        }
+
+        .resumo h2,
+        .metodo h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .produto {
+            padding: 15px 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .produto p {
+            margin: 5px 0;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .total span:last-child {
+            color: #ffa805;
+        }
+
+        .opcoes {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .opcao {
+            border: 1px solid #aaa;
+            padding: 15px;
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .opcao input {
+            margin-bottom: 10px;
+        }
+
+        .api-area {
+            border: 1px dashed #aaa;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .botoes {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button,
+        .cancelar {
+            padding: 10px 20px;
+            border: 1px solid #ffa805;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button:hover,
+        .cancelar:hover {
+            background-color: #ffa805;
+            color: #080f5c;
+        }
+
+        @media (max-width: 700px) {
+
+            .pagamento {
+                grid-template-columns: 1fr;
+            }
+
+        }
