@@ -21,12 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         /* --- Estilização Avançada do Formulário (CSS Embutido Dedicado) --- */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fcf8f2; /* Tom off-white levemente quente */
         }
 
         /* Container do Formulário */
         main section {
-            background: #ffffff;
             padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(214, 111, 23, 0.06); /* Sombra suave quente */
@@ -72,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             font-size: 0.95rem;
             font-family: inherit;
             color: #333;
-            background-color: #fafafa;
             box-sizing: border-box;
             transition: all 0.2s ease-in-out;
         }
@@ -140,18 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.php">
-            <div id="title">
-                <!-- Mantida a imagem dinâmica enviada para o cabeçalho -->
-                <img class="smolpng" src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado" width="50">
-                <span>Cantina<br>Conrado</span>
-            </div>
-        </a>
-        <nav>
-            <a href="perfil-admin.html">Meu Perfil</a>
-        </nav>
-    </header>
+   
+    <?php require_once("header.php") ?>
     <div id="wrapper">
         <aside id="sidebar">
             <nav>

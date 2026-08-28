@@ -58,7 +58,15 @@ $stmt->execute();
 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+public function buscaPorNome($nome){
+    $sql = "SELECT * from users WHERE nome = :nome";
+    $stmt = $this->db->prepare($sql); 
+    
+    $stmt->bindParam(":nome", $nome);
+    $stmt->execute();
 
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
 
 
