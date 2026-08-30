@@ -3,13 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
-
-
-
-
-require_once("conexao.php");
-require_once("usuario.php");
+require_once __DIR__ . '/../../routes/conexao.php';
+require_once __DIR__ . '/usuario.php';
 
 $nome = $_POST["nome"] ?? '';
 $email = $_POST["email"] ?? '';
@@ -27,5 +22,7 @@ if ($senha !== $confirmarSenha) {
 $usuario = new UsuarioComum($conn);
 
 if ($usuario->cadastrar($nome, $email, $telefone, $senha)) {
-    echo "<script> alert('Cadastro realizado com sucesso!'); window.location.href = 'login.php'; </script>";
+    echo "<script> alert('Cadastro realizado com sucesso!');
+window.location.href = '../views/login.php';
+; </script>";
 }

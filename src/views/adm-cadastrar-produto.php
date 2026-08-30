@@ -1,7 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once("cad-prod.php");
-    
+require_once __DIR__ . "/../models/cad-prod.php";    
     header("Location: index.php");
     exit();
 } 

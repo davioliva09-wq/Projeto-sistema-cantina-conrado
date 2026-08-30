@@ -1,0 +1,15 @@
+{
+    "name": "artemisoliva/sistemacantina",
+    "autoload": {
+        "psr-4": {
+            "Artemisoliva\\Sistemacantina\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Davi Oliva",
+            "email": "seuemail@gmail.com"
+        }
+    ],
+    "require": {}
+}

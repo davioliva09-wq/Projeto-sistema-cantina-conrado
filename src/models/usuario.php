@@ -1,6 +1,5 @@
 <?php
-require_once("conexao.php");
-
+require_once __DIR__ . '/../../routes/conexao.php';
 abstract class Usuario{
     public function login($email, $senha){
 
@@ -10,7 +9,7 @@ abstract class Usuario{
 
 
 
-class UsuarioComum extends usuario {
+class UsuarioComum extends Usuario {
     private PDO $db;
     private string $nome;
     private string $email;
@@ -22,9 +21,13 @@ class UsuarioComum extends usuario {
     }
 
     public function cadastrar($nome, $email, $telefone, $senha) {
-        if (strlen($senha) < 8) {
-            echo "<script> alert('A senha deve ter pelo menos 8 caracteres!'); window.history.back(); </script>";
+        if (strlen($senha) > 8) {
+            echo "<script> alert('A senha deve ter pelo menos 8 caracteres!');
+             </script>";
             return false;
+        }else{
+            echo "<script> alert('bela senha')
+            </script>";
         }
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
         $sql = "INSERT INTO usuarios (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
@@ -67,6 +70,8 @@ public function buscaPorNome($nome){
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+
 
 
 

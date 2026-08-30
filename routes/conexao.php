@@ -9,8 +9,8 @@ class Conexao {
 
     private function conect() { 
         $this->host = $_ENV['DB_HOST'] ?? '127.0.0.1'; 
-        $this->port = $_ENV['DB_PORT'] ?? '3307'; 
-        $this->dbname = $_ENV['DB_NAME'] ?? 'bd_cantina'; 
+        $this->port = $_ENV['DB_PORT'] ?? '3306'; 
+        $this->dbname = $_ENV['DB_NAME'] ?? 'proj'; 
         $this->username = $_ENV['DB_USER'] ?? 'root'; 
         $this->password = $_ENV['DB_PASS'] ?? ''; 
         $this->conn = null; 
