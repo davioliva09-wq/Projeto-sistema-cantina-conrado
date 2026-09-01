@@ -1,5 +1,8 @@
+<<<<<<< HEAD:index.php
     <!--- Tela Inicial --->
 
+=======
+>>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/views/index.php
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,13 +12,21 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Google Font Links pro Rammeto One-->
+<<<<<<< HEAD:index.php
 
+=======
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+>>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/views/index.php
 </head>
 
 <body>
 
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 
+<<<<<<< HEAD:index.php
     <main style="position: relative; overflow: hidden;">
 
         <section class="section-index">
@@ -30,6 +41,13 @@
                 Sua fome não espera,
                 <br>
                 <span class="span-intro">a gente facilita!</span>
+=======
+    <main>
+        <section>
+            <h1>
+                Sua fome não espera,<br>
+                a gente facilita!
+>>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/views/index.php
             </h1>
 
             <p>
@@ -53,6 +71,7 @@
             </div>
 
         </section>
+<<<<<<< HEAD:index.php
 
         <section class="lanches-index">
 
@@ -67,6 +86,11 @@
     </main>
 
     <?php include "footer.php" ?>
+=======
+    </main>
+
+    <?php require_once 'footer.php'; ?>
+>>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/views/index.php
 
 </body>
 </html>

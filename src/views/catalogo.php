@@ -2,8 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once 'conexao.php'; 
-require_once 'produtos.php'; 
+require_once '../../routes/conexao.php'; 
+require_once '../models/produtos.php'; 
 
 $produtoService = new Produto($conn);
 $termoPesquisa = isset($_GET['q']) ? $_GET['q'] : '';
@@ -18,7 +18,7 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
     <link rel="stylesheet" href="css/style.css"> 
 </head> 
 <body> 
-    <?php include 'header.php'; ?> 
+    <?php require_once("header.php"); ?>
 
     <main class="catalogo-container">
         <h1>Nosso Cardápio</h1>
