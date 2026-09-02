@@ -4,100 +4,102 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    require_once("processar-cadastro.php");
+    header("location:login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cadastro - Cantina Conrado</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../../css/style-cadastro.css">
 
-    <style>
-        nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 30px;
-        }
-
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        a {
-            color: #ffffff; 
-        }
-    </style>
 </head>
-
 <body>
 
-    <?php include 'header.php'; ?>
+    <div class="page-container">
+        
+        <!-- Logo da Cantina Conrado -->
+        <header class="logo-header">
+            <a href="index.php">
+                <img class="logo-img" src="../../images/logo.png" alt="Cantina Conrado">
+                <h1 class="logo-text">Cantina<br>Conrado</h1>
+            </a>
+        </header>
 
-    <main>
-        <section>
-            <h2>Cadastro</h2>
+        <!-- Painel de Cadastro -->
+        <main class="card-cadastro">
+            <h2 class="card-title">Cadastro</h2>
+            <hr class="divider">
 
-            <form action="cadastro.php" method="POST">
+            <form method="post" action="processar-cadastro.php">
+                
+                <!-- Nome -->
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <div class="input-with-icon">
+                        <img src="../../images/user-neru.png" alt="Usuario">
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                </div>
 
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" required>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon">
+                        <img src="../../images/email-icon.png" alt="Email">
+                        <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                    </div>
+                </div>
 
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone" required>
+                <!-- Telefone -->
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <div class="input-with-icon">
+                        <img src="../../images/phone-icon.png" alt="telefoine">
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                    </div>
+                </div>
 
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required>
+                <!-- Senha -->
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <div class="input-with-icon">
+                        <img src="../../images/miku-lock.png" alt="senha">
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" required>
+                <!-- Confirmar Senha -->
+                <div class="form-group">
+                    <label for="confirmar_senha">Confirmar senha</label>
+                    <div class="input-with-icon">
+                        <img src="../../images/miku-lock.png" alt="senha-again">
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
+                    </div>
+                </div>
 
-                <label for="confirmar_senha">Confirmar senha:</label>
-                <input type="password" id="confirmar_senha" name="confirmar_senha" required>
-
-                <button type="submit">Cadastrar</button>
+                <!-- Botão Enviar -->
+                <button type="submit" class="btn-cadastrar">Cadastrar</button>
 
             </form>
+        </main>
+        
+        <?php include "footer.php" ?>
 
-            <a href="login.php">Já possui uma conta? Entrar</a>
-        </section>
-    </main>
+    </div>
 
 </body>
 </html>

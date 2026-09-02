@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style.css">
 </head>
 
 
@@ -44,7 +44,7 @@ header nav a {
 
 <header> 
     <div> 
-        <a href="index.php"> 
+        <a href="../views/index.php"> 
             <img class="smolpng" src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado"> 
             <h2 id="title">Cantina<br>Conrado</h2> 
         </a> 

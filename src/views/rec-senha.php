@@ -9,67 +9,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../../css/style-cadastro.css">
     
-    <?php include "header.php" ?>
-
-     <style>
-
-            main {
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;
-                 width: 100%;
-                 margin-top: 30px;
-            }
-
-             section {
-                 display: flex;
-                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                max-width: 400px;
-                width: 100%;
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                width: 100%;
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
-
-
-            input {
-                width: 100%;
-                padding: 8px;
-                box-sizing: border-box;
-                }
-
-        </style>
-
 </head>
 
 
 <body>
 
-    <main>
-        <section>
-    
-        <h2 style="font-family: Rammetto One;">Recuperar Senha</h2>
+        <div class="page-container">
 
-        <p>Insira o E-mail e número cadastrado para receber o código de verificação.</p>
+        <header class="logo-header">
+            <a href="index.php">
+                <img class="logo-img" src="../../images/logo.png" alt="Cantina Conrado">
+                <h1 class="logo-text">Cantina<br>Conrado</h1>
+            </a>
+        </header>
+
+    <!-- Painel (Reutilizado do Cadastro) -->
+
+    <main class="card-cadastro">
+        <h2 class="card-title">Recuperar Senha</h2>
+        <hr class="divider">
+
+        <p style="color: antiquewhite; margin-bottom: 20px;">Insira o E-mail e número cadastrado para receber o código de verificação.</p>
         <form  method="POST" action="password-reset.php">
 
-        <label for="rec-email">E-mail: </label>
-        <input type="email" id="rec-email" name="rec-email">
-        <label for="rec-numero">Número: </label>
-        <input type="text" id="rec-email" name="rec-email">
+        <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-with-icon">
+                    <img src="../../images/email-icon.png" alt="Email">
+                    <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                </div>
+        </div>
 
-        <button type="submit" class="btn">
+        <!-- Telefone -->
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+                <div class="input-with-icon">
+                    <img src="../../images/phone-icon.png" alt="telefoine">
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                </div>
+        </div>  
+
+        <button type="submit" class="btn-cadastrar" style="margin-top: 30px;">
             Enviar código
         </button>
 
@@ -77,6 +62,8 @@
 
         </section>
     </main>
+
+    </div>
     
 </body>
 </html>
