@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
 
     <!-- Vínculo com o arquivo externo css -->
-    <link rel="stylesheet" href="css/perfil-aluno.css">
+    <link rel="stylesheet" href="../../css/perfil-aluno.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         <!-- Topo: Logo e Nome -->
         <header class="header-logo">
             <div class="logo-icon">
-             <img src="images/logo.png" alt="Uwu">
+             <img src="../../images/logo.png" alt="Uwu">
             </div>
             <h1 class="brand-name">Cantina<br>Conrado</h1>
         </header>
@@ -78,7 +78,7 @@
                     
                     <div class="avatar-wrapper">
                         <!-- Substitua o link abaixo pelo caminho ou link da sua imagem final -->
-                        <img src="images/kibe.jpg"  class="avatar-img">
+                        <img src="../../images/kibe.jpg"  class="avatar-img">
                         <button class="btn-edit-avatar">Editar</button>
                     </div>
 

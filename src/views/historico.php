@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="css/style-hist.css">
+    <link rel="stylesheet" href="../../css/style-hist.css">
     
 </head>
 <body>
@@ -24,7 +24,7 @@
         <!-- Topo da página / Branding -->
         <header class="header-logo">
             <div class="logo-icon">
-                <img src="images/logo.png" alt="" srcset="">
+                <img src="../../images/logo.png" alt="" srcset="">
             </div>
             <div class="logo-text">
                 <h1 class="brand-name">Cantina<br>Conrado</h1>
@@ -43,7 +43,7 @@
                     <div class="header-label">Qtd.</div>
                 </div>
                 <div class="item-main">
-                    <img class="product-img" src="images/hotdog.png" >
+                    <img class="product-img" src="../../images/hotdog.png" >
                     <div class="product-details">
                         <h2 class="product-name">Hot -dog</h2>
                         <p class="product-description">Pão para hot dog, salsicha, molho de tomate, ketchup, maionese.</p>
@@ -66,7 +66,7 @@
                     <div class="header-label">Qtd.</div>
                 </div>
                 <div class="item-main">
-                    <img class="product-img" src="images/hotdog.png" alt="Hot-dog">
+                    <img class="product-img" src="../../images/hotdog.png" alt="Hot-dog">
                     <div class="product-details">
                         <h2 class="product-name">Hot -dog</h2>
                         <p class="product-description">Pão para hot dog, salsicha, molho de tomate, ketchup, maionese.</p>
@@ -89,7 +89,7 @@
                     <div class="header-label">Qtd.</div>
                 </div>
                 <div class="item-main">
-                    <img class="product-img" src="images/hotdog.png" alt="Hot-dog">
+                    <img class="product-img" src="../../images/hotdog.png" alt="Hot-dog">
                     <div class="product-details">
                         <h2 class="product-name">Hot -dog</h2>
                         <p class="product-description">Pão para hot dog, salsicha, molho de tomate, ketchup, maionese.</p>
