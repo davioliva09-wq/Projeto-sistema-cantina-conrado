@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="../../css/style-cadastro.css">
-    
+
 </head>
 
 
@@ -64,6 +64,8 @@
     </main>
 
     </div>
+
+    <?php include "footer.php" ?>
     
 </body>
 </html>
