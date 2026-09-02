@@ -42,7 +42,7 @@
             </button>
             
             <div style="display: flex; align-items: center; margin-top: 15px;">
-                <img src="images/miku-lock.png" alt="Cadeado de segurança" style="width: 15px; height: auto; margin-right: 5px;">
+                <img src="images/miku-lock.png" alt="" style="width: 15px; height: auto; margin-right: 5px;">
                 <p class="text-intro">
                     Cadastro exclusivo para alunos, responsáveis, e funcionários.
                 </p>
