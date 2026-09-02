@@ -25,7 +25,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <style>
 
@@ -121,7 +121,21 @@
 <body>
 
 
-<?php include 'header.php'; ?>
+<?php include 'admin-header.php'; ?>
+
+    
+    <div id="wrapper">
+
+    <aside id="sidebar">
+            <nav>
+                <a href="admin-dashboard.php">Dashboard</a>
+                <a href="admin-pedidos.php">Pedidos</a>
+                <a href="admin-estoque.php">Estoque</a>
+                <a href="admin-relatorio.php" class="ativo">Relatórios</a>
+                <a href="admin-usuarios.php">Usuários</a>
+           </nav>
+       </aside>
+
 
 
     <main>
@@ -416,28 +430,6 @@
 
     </main>
 
-
-    <footer>
-
-        <nav>
-
-            <a href="privacidade.php">
-                Políticas de Privacidade
-            </a>
-
-            <a href="termos.php">
-                Termos de Uso
-            </a>
-
-        </nav>
-
-
-        <p>
-            © 2026 Escola Padre Conrado C. Silva Alves |
-            Todos os direitos reservados.
-        </p>
-
-    </footer>
 
 
 </body>

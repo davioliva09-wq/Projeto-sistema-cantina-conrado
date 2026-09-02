@@ -22,14 +22,14 @@ $produtoId = $_GET['id'] ?? 1;
     <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style-admin.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
 </head>
 
 
 <body>
 
-    <?php include "header.php" ?>
+    <?php include "admin-header.php" ?>
 
 
         <nav>
@@ -196,28 +196,6 @@ $produtoId = $_GET['id'] ?? 1;
 
     </main>
 
-
-    <footer>
-
-        <nav>
-
-            <a href="privacidade.php">
-                Políticas de Privacidade
-            </a>
-
-            <a href="termos.php">
-                Termos de Uso
-            </a>
-
-        </nav>
-
-
-        <p>
-            © 2026 Escola Padre Conrado C. Silva Alves |
-            Todos os direitos reservados.
-        </p>
-
-    </footer>
 
 </body>
 

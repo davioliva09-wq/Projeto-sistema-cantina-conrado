@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Administrador</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <style> 
     .meno a {
     display: block;
@@ -47,7 +47,19 @@
 
 <body>
 <?php include 'header.php'; ?>
-    
+
+    <div id="wrapper">
+
+    <aside id="sidebar">
+            <nav>
+                <a href="admin-dashboard.php">Dashboard</a>
+                <a href="admin-pedidos.php">Pedidos</a>
+                <a href="admin-estoque.php">Estoque</a>
+                <a href="admin-relatorio.php">Relatórios</a>
+                <a href="admin-usuarios.php" class="ativo">Usuários</a>
+           </nav>
+       </aside>
+
     <div class="barra-de-pesquisa">
     <form action="pesquisa"></form>
     <label for="campo-busca">Buscar: </label>
@@ -55,12 +67,6 @@
     <button type="submit">Enviar</button>
     </div>
 
-    <nav class=meno>
-        <a href="Produtos.html">Produtos</a>
-        <a href="Pedidos.html">Pedidos</a>
-        <a href="Usuários1.html">Usuários</a>
-        <a href="Sair.html" margin-bottom: 30px; >Sair</a>
-    </nav>
 
     <br>
 

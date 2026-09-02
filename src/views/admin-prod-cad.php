@@ -17,28 +17,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <!-- Linkagem do seu arquivo CSS Local -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-    <header>
-        <a href="index.php">
-            <div id="title">
-                <!-- Substitua pelo caminho real da sua imagem ou ícone -->
-            <img class=smolpng src="https://cdn-icons-png.flaticon.com/512/3075/3075929.png" alt="Cantina Conrado">
-                <span>Cantina<br>Conrado</span>
-            </div>
-        </a>
-        <nav>
-            <a href="perfil-admin.html">Meu Perfil</a>
-        </nav>
-    </header>
+    
+    <?php include "admin-header.php" ?>
+
     <div id="wrapper">
         <aside id="sidebar">
             <nav>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="produtos.html" class="ativo">Produtos</a>
-                <a href="pedidos.html">Pedidos</a>
-                <a href="usuarios.html">Usuários</a>
+                <a href="admin-dashboard.php">Dashboard</a>
+                <a href="admin-pedidos.php">Pedidos</a>
+                <a href="admin-estoque.php" class="ativo">Estoque</a>
+                <a href="admin-relatorio.php">Relatório</a>
+                <a href="admin-usuarios.php">Usuários</a>
             </nav>
         </aside>
         <main>
