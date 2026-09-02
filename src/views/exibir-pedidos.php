@@ -1,15 +1,14 @@
 <?php
-<<<<<<< HEAD:exibir-pedidos.php
+
 require_once("conexao.php"); // Instancia a variável $conexao
 require_once("ADM.php");     // Altere para o nome correto do seu arquivo da classe ADM
 
 $admObj = new ADM($conexao);
-=======
+
 require_once("models/conexao.php"); // Instancia a variável $conexao
 require_once("models/admin.php");     // Altere para o nome correto do seu arquivo da classe ADM
 require_once("models/produtos.php");
 $admObj = new Produto($conn);
->>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/views/exibir-pedidos.php
 $produtos = $admObj->listarProdutos();
 ?>
 <!DOCTYPE html>
