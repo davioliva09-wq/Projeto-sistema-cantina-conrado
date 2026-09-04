@@ -33,7 +33,7 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
                 <p>Nenhum produto encontrado no momento.</p>
             <?php else: ?>
                 <?php foreach ($produtos as $item): ?>
-                    <?php if (isset($item['disponivel']) && $item['disponivel']): ?>
+                    <?php if (empty($item['disponivel'])): ?>
                         <div class="produto-card">
                             <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                             <h3><?php echo htmlspecialchars($item['nome']); ?></h3>

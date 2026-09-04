@@ -23,3 +23,7 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sss", $token_hash, $expiry, $email);
 
 $stmt->execute();
+
+
+
+

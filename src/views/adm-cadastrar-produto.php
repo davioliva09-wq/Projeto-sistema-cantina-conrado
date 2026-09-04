@@ -14,7 +14,7 @@ require_once __DIR__ . "/../models/cad-prod.php";
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <style>
         /* --- Estilização Avançada do Formulário (CSS Embutido Dedicado) --- */
