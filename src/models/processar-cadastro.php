@@ -12,13 +12,13 @@ $telefone = $_POST["telefone"] ?? '';
 $senha          = $_POST["senha"] ?? '';
 $confirmarSenha = $_POST["confirmar_senha"] ?? ''; 
 
-if ($senha !== $confirmarSenha) {
+/*if ($senha !== $confirmarSenha) {
     echo "<script> 
             alert('As senhas não coincidem! Digite a mesma senha nos dois campos.'); 
             window.history.back(); 
           </script>";
     exit; 
-}
+}*/
 $usuario = new UsuarioComum($conn);
 
 if ($usuario->cadastrar($nome, $email, $telefone, $senha)) {

@@ -38,8 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css">
-
+<link rel="stylesheet" href="css/style.css">
     <title>Login - Cantina Conrado</title>
 
     <style>

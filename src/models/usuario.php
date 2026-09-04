@@ -61,7 +61,7 @@ $stmt->execute();
 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-<<<<<<< HEAD:usuario.php
+
 public function alterarSenha($id, $senha){
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
     $sql = "UPDATE usuarios SET senha = :senha WHERE id = :id";
@@ -71,8 +71,7 @@ public function alterarSenha($id, $senha){
         ":id" => $id
     ]);
 }
-=======
-public function buscaPorNome($nome){
+    public function buscaPorNome($nome){
     $sql = "SELECT * from users WHERE nome = :nome";
     $stmt = $this->db->prepare($sql); 
     
@@ -83,7 +82,6 @@ public function buscaPorNome($nome){
 }
 
 
->>>>>>> b3994af8aec536fb0cfb430e3bebd4501634504f:src/models/usuario.php
 
 
 

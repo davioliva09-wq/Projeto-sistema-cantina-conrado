@@ -38,4 +38,5 @@ class Conexao {
 // Cria a conexao inicial padrão
 $banco = new Conexao(); 
 $conn = $banco->exeCon(); 
+
 ?>

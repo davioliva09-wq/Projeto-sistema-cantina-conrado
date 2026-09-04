@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="../../css/style-cadastro.css">
+    <link rel="stylesheet" href="css/style-cadastro.css">
 
 </head>
 
@@ -23,7 +23,7 @@
 
         <header class="logo-header">
             <a href="index.php">
-                <img class="logo-img" src="../../images/logo.png" alt="Cantina Conrado">
+                <img class="logo-img" src="images/logo.png" alt="Cantina Conrado">
                 <h1 class="logo-text">Cantina<br>Conrado</h1>
             </a>
         </header>
@@ -35,24 +35,24 @@
         <hr class="divider">
 
         <p style="color: antiquewhite; margin-bottom: 20px;">Insira o E-mail e número cadastrado para receber o código de verificação.</p>
-        <form  method="POST" action="password-reset.php">
+        <form  method="POST" action="/../models/forgot-password.php">
 
         <div class="form-group">
                 <label for="email">Email</label>
                 <div class="input-with-icon">
-                    <img src="../../images/email-icon.png" alt="Email">
+                    <img src="images/email-icon.png" alt="Email">
                     <input type="email" id="email" name="email" placeholder="email@email.com" required>
                 </div>
         </div>
 
-        <!-- Telefone -->
+        <!-- Telefone 
         <div class="form-group">
             <label for="telefone">Telefone</label>
                 <div class="input-with-icon">
-                    <img src="../../images/phone-icon.png" alt="telefoine">
+                    <img src="images/phone-icon.png" alt="telefoine">
                     <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
                 </div>
-        </div>  
+        </div>  -->
 
         <button type="submit" class="btn-cadastrar" style="margin-top: 30px;">
             Enviar código
