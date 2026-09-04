@@ -50,13 +50,13 @@ body
 <header> 
     <div> 
         <a href="../views/admin-pedidos.php"> 
-            <img class="smolpng" src="../../images/logo.png" alt="Cantina Conrado"> 
+            <img class="smolpng" src="images/logo.png" alt="Cantina Conrado"> 
             <h2 id="title">Cantina<br>Conrado</h2> 
         </a> 
     </div> 
 
     <div style="display: flex; align-items: center;">
-        <img src="../../images/user-neru.png" alt="login" style="width: 25px; height: auto; margin-right: 10px;">
+        <img src="images/user-neru.png" alt="login" style="width: 25px; height: auto; margin-right: 10px;">
         <nav>
          <a href="perfil-admin.php" class="span-intro">Meu Perfil </a> 
         </nav>
