@@ -23,6 +23,6 @@ $usuario = new UsuarioComum($conn);
 
 if ($usuario->cadastrar($nome, $email, $telefone, $senha)) {
     echo "<script> alert('Cadastro realizado com sucesso!');
-window.location.href = '../views/login.php';
+window.location.href = '../views/catalogo.php';
 ; </script>";
 }
