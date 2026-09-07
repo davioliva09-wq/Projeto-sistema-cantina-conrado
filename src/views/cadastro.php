@@ -82,6 +82,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <button type="submit" class="btn-cadastrar">Cadastrar</button>
 
             </form>
+            
+            <hr class=divider>
+
+            <div class=login-links style="color: #ffffff">
+                Já tem uma conta? <br>
+                <a href="login.php">Fazer Login</a> 
+            </div>
         </main>
         
         <?php include "footer.php" ?>
