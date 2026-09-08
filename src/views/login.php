@@ -1,4 +1,4 @@
-<?php
+<?php /*
 //ob_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -21,119 +21,109 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
         }
         $_SESSION['usuario_id'] = $resultado['id'];
-        
+
         header("Location: catalogo.php");
         exit();
     } else {
         $mensagemErro = "E-mail ou senha incorretos.";
     }
 }
+*/
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Poppins:wght@400;600&family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-cadastro.css">
     <title>Login - Cantina Conrado</title>
 
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 30px;
-        }
-
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        a {
-            color: #ffffff; 
-        }
-
+        /* Ajustes específicos da página de login que não estão no style-cadastro.css */
         .erro-login {
-            color: #ff3333;
-            background-color: #ffe6e6;
-            padding: 8px;
-            border-radius: 4px;
+            color: #ffffff;
+            background-color: rgba(255, 51, 51, 0.25);
+            border: 1px solid #ff3333;
+            padding: 10px;
+            border-radius: 6px;
             width: 100%;
             box-sizing: border-box;
-            margin-bottom: 10px;
-            font-size: 14px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            text-align: center;
         }
+
+        .card-cadastro a {
+            color: #e09304;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .card-cadastro a:hover {
+            text-decoration: none;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <?php require_once("header.php"); ?>
+    <div class="page-container">
 
-    <main>
-        <section>
-            <h1>Usuário</h1>
+        <header class="logo-header">
+            <a href="index.php">
+                <img src="images/logo.png" alt="Cantina Conrado" class="logo-img">
+                <span class="logo-text">Cantina<br>Conrado</span>
+            </a>
+        </header>
+
+        <main class="card-cadastro">
+            <h1 class="card-title">Login</h1>
+            <hr class="divider">
 
             <?php if (!empty($mensagemErro)): ?>
                 <div class="erro-login"><?php echo $mensagemErro; ?></div>
             <?php endif; ?>
 
             <form action="catalogo.php" method="POST">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="E-mail" required>
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon">
+                        <img src="images/email-icon.png" alt="">
+                        <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                    </div>
+                </div>
 
-                <button type="submit">Login</button>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <div class="input-with-icon">
+                        <img src="images/miku-lock.png" alt="">
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-cadastrar">Login</button>
             </form>
 
-            <a href="rec-senha.php">Esqueci a senha</a>
-            <a href="cadastro.php">Primeiro acesso</a>
-        </section>
-    </main>
+            <div class="login-links">
+                <a href="rec-senha.php">Esqueci a senha</a>
+                <a href="cadastro.php">Primeiro acesso</a>
+            </div>
+        </main>
 
-    <?php
-    include("footer.php")
-?>
+    <footer>
+        <nav>
+            <a href="privacidade.php">Políticas de Privacidade</a>
+            <a href="termos.php">Termos de Uso</a>
+        </nav>
+        <p>© 2026 Escola Padre Conrado C. Silva Alves | Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
