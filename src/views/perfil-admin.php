@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cantina Conrado - Configurações</title>
+    <title>Cantina Conrado - Configurações.</title>
 
 
     <!-- Importação de ícones externos (Font Awesome) -->
@@ -206,6 +207,11 @@
             opacity: 0.9;
         }
 
+        .btn-edit-profile i {
+            font-size: 18px;
+            line-height: 1;
+        }
+
         .admin-tag {
             display: none !important;
         }
@@ -284,6 +290,98 @@
             font-size: 18px;
         }
 
+        /* =========================================================
+           ANIMAÇÃO DOS BOTÕES
+           ---------------------------------------------------------
+           Ao passar o mouse, o botão sobe levemente e ganha sombra.
+           Ao clicar, ele dá uma pequena "pressionada".
+        ========================================================= */
+
+        .action-buttons .btn-yellow {
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background-color 0.18s ease;
+            cursor: pointer;
+        }
+
+        .action-buttons .btn-yellow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            background-color: #ffe04a;
+        }
+
+        .action-buttons .btn-yellow:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ícone também acompanha a animação */
+        .action-buttons .btn-yellow i {
+            transition: transform 0.18s ease;
+        }
+
+        .action-buttons .btn-yellow:hover i {
+            transform: scale(1.12);
+        }
+
+        /* =========================================================
+           BOTÃO SAIR DA CONTA
+           ---------------------------------------------------------
+           Cria um espaço maior entre "Gerenciar Cardápio" e
+           "Sair da conta", deixando o botão mais para baixo.
+        ========================================================= */
+
+
+
+        /* Botão Sair da conta no rodapé */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card-footer .btn-yellow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 240px;
+            height: 48px;
+            padding: 0 16px;
+            box-sizing: border-box;
+            background-color: var(--cor-amarelo);
+            color: #071a40;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+
+        .card-footer .btn-yellow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            background-color: #ffe04a;
+        }
+
+        .card-footer .btn-yellow:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-footer .btn-yellow i {
+            font-size: 18px;
+            transition: transform 0.18s ease;
+        }
+
+        .card-footer .btn-yellow:hover i {
+            transform: scale(1.12);
+        }
 
         /* =========================================================
            RESPONSIVIDADE
@@ -315,6 +413,359 @@
                 width: min(100%, 280px);
             }
 
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-footer .btn-yellow {
+                width: min(100%, 280px);
+            }
+
+        }
+
+
+
+        /* =========================================================
+           RESPONSIVIDADE PARA CELULAR
+           ---------------------------------------------------------
+           Ajusta a página para telas pequenas sem alterar o visual
+           da versão para computador.
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                width: 100%;
+                min-width: 0;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 12px;
+                box-sizing: border-box;
+            }
+
+            .header-logo {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px auto 18px;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+
+            .logo-icon img {
+                max-width: 75px;
+                height: auto;
+            }
+
+            .brand-name {
+                font-size: 28px;
+                line-height: 0.95;
+            }
+
+            .card-config {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 22px 16px;
+                box-sizing: border-box;
+                border-radius: 14px;
+            }
+
+            .card-title {
+                font-size: 30px;
+                margin-bottom: 24px;
+            }
+
+            .content-layout {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100%;
+                gap: 28px;
+                box-sizing: border-box;
+            }
+
+            .form-side,
+            .avatar-side {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box;
+            }
+
+            .input-group {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .input-container {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .input-container input {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .phone-fields {
+                width: 100% !important;
+                gap: 8px !important;
+                box-sizing: border-box;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex: 0 0 62px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 70px !important;
+                min-width: 70px !important;
+                max-width: 70px !important;
+                flex: 0 0 70px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(3) {
+                width: auto !important;
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+            }
+
+            .avatar-side {
+                align-items: center;
+            }
+
+            .avatar-wrapper {
+                width: 150px !important;
+                height: 150px !important;
+            }
+
+            .avatar-img {
+                width: 150px !important;
+                height: 150px !important;
+                min-width: 150px !important;
+                min-height: 150px !important;
+                max-width: 150px !important;
+                max-height: 150px !important;
+            }
+
+            .action-buttons {
+                width: 100%;
+                margin-top: 18px;
+            }
+
+            .action-buttons .btn-yellow {
+                width: min(100%, 280px) !important;
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+                flex: 0 0 48px !important;
+            }
+
+            .card-footer {
+                width: 100%;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 14px;
+                box-sizing: border-box;
+            }
+
+            .card-footer .btn-back,
+            .card-footer .btn-yellow {
+                width: min(100%, 280px) !important;
+                box-sizing: border-box;
+            }
+
+            .card-footer .btn-yellow {
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+
+            .container {
+                padding: 8px;
+            }
+
+            .card-config {
+                padding: 18px 12px;
+            }
+
+            .card-title {
+                font-size: 26px;
+            }
+
+            .brand-name {
+                font-size: 24px;
+            }
+
+            .phone-fields {
+                gap: 5px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 55px !important;
+                min-width: 55px !important;
+                max-width: 55px !important;
+                flex-basis: 55px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex-basis: 62px !important;
+            }
+
+            .avatar-wrapper {
+                width: 135px !important;
+                height: 135px !important;
+            }
+
+            .avatar-img {
+                width: 135px !important;
+                height: 135px !important;
+                min-width: 135px !important;
+                min-height: 135px !important;
+                max-width: 135px !important;
+                max-height: 135px !important;
+            }
+        }
+        /* AJUSTE FINAL PARA CELULAR: ocupa melhor a largura da tela */
+        @media (max-width: 600px) {
+            html,
+            body {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow-x: hidden !important;
+            }
+
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                padding: 10px !important;
+                box-sizing: border-box !important;
+            }
+
+            .card-config {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                padding: 20px 14px !important;
+                box-sizing: border-box !important;
+            }
+
+            .content-layout,
+            .form-side,
+            .avatar-side,
+            .input-group,
+            .input-container {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .input-container input {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+                font-size: 15px !important;
+            }
+
+            .phone-fields {
+                width: 100% !important;
+                max-width: 100% !important;
+                gap: 7px !important;
+                box-sizing: border-box !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 58px !important;
+                min-width: 58px !important;
+                max-width: 58px !important;
+                flex: 0 0 58px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 68px !important;
+                min-width: 68px !important;
+                max-width: 68px !important;
+                flex: 0 0 68px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(3) {
+                width: auto !important;
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+            }
+
+            .phone-fields input {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+                font-size: 14px !important;
+            }
+
+            .action-buttons .btn-yellow,
+            .card-footer .btn-yellow,
+            .card-footer .btn-back {
+                width: 100% !important;
+                max-width: 280px !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container {
+                padding: 6px !important;
+            }
+
+            .card-config {
+                padding: 18px 10px !important;
+            }
+
+            .phone-fields {
+                gap: 5px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 52px !important;
+                min-width: 52px !important;
+                max-width: 52px !important;
+                flex-basis: 52px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex-basis: 62px !important;
+            }
+
+            .phone-fields input {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+                font-size: 13px !important;
+            }
         }
 
 
@@ -588,7 +1039,7 @@
                             aria-label="Editar foto de perfil"
                             onclick="editarFotoPerfil()"
                         >
-                            <i class="fa-solid fa-pencil"></i>
+                            <i class="fa-solid fa-pencil" aria-hidden="true"></i>
                         </button>
 
                     </div>
@@ -622,16 +1073,6 @@
                         </a>
 
 
-                        <button
-                            type="button"
-                            class="btn-yellow"
-                        >
-
-                            <i class="fa-solid fa-right-from-bracket"></i>
-
-                            Sair da conta
-
-                        </button>
 
 
                     </div>
@@ -669,6 +1110,11 @@
 
                 </a>
 
+                <button type="button" class="btn-yellow btn-logout-footer">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair da conta
+                </button>
+
 
             </footer>
 
@@ -689,3 +1135,7 @@
 </body>
 
 </html>
+
+
+
+
