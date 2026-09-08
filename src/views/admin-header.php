@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -49,9 +49,9 @@ body
 
 <header> 
     <div> 
-        <a href="../views/admin-pedidos.php"> 
+        <a href="../views/admin-dashboard.php"> 
             <img class="smolpng" src="images/logo.png" alt="Cantina Conrado"> 
-            <h2 id="title">Cantina<br>Conrado</h2> 
+            <h2 id="title">Portal<br>Administrativo</h2> 
         </a> 
     </div> 
 

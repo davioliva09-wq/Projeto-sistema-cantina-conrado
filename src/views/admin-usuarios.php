@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Administrador</title>
+    <title>Usuários Cadastrados - Cantina Conrado</title>
     <link rel="stylesheet" href="css/style.css">
     <style> 
    
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<?php include 'header.php'; ?>
+<?php include 'admin-header.php' ?>
 
     <div id="wrapper">
 
