@@ -4,44 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Administrador</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style> 
-    .meno a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;        
-    text-decoration: none;
-    color: white;          
-    text-align: left;       
-    padding-left: 10px;     
-    box-sizing: border-box;
-}
-         Sair{
-            margin-left: 145px;
-         }
-        body {
-    background-color: #d3d3d3;
-}
-
-       .tabela {
-            margin-left: 145px;
-            max-width: calc(100% - 145px);
-            }
-        .meno {
-    position: fixed;
-    left: 0;
-    top: 120px;
-    width: 145px;
-    height: 100vh;
-    background-color: #010226;
-    display: flex;
-    flex-direction: column;
-}
-    .barra-de-pesquisa{
-        margin-left: 145px;
-        max-width: calc(100% - 145px);
-
-    }
+   
     </style>
 </head>
 
@@ -112,5 +77,7 @@
             </tr>
         </tbody> 
     </table>
-</body>
+<?php
+//include("footer.php")
+?></body>
 </html>

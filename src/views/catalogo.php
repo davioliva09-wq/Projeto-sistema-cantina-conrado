@@ -1,14 +1,20 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
+
 require_once '../../routes/conexao.php'; 
 require_once '../models/produtos.php'; 
 
-$produtoService = new Produto($conn);
-$termoPesquisa = isset($_GET['q']) ? $_GET['q'] : '';
-$produtos = $produtoService->buscaProdNome($termoPesquisa);
-?>
+$produtoService = new Produto($conn); 
+$termoPesquisa = isset($_GET['q']) ? $_GET['q'] : ''; 
+$produtos = $produtoService->buscaProdNome($termoPesquisa); 
+
+// Filtra os produtos para garantir que apenas os disponíveis entrem na listagem
+$produtosDisponiveis = array_filter($produtos, function($item) {
+    return isset($item['disponivel']) && $item['disponivel'];
+});
+?> 
 <!DOCTYPE html> 
 <html lang="pt-BR"> 
 <head> 
@@ -18,36 +24,34 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
     <link rel="stylesheet" href="css/style.css"> 
 </head> 
 <body> 
-    <?php require_once("header.php"); ?>
-
-    <main class="catalogo-container">
-        <h1>Nosso Cardápio</h1>
+    <?php require_once("header.php"); ?> 
+    
+    <main class="catalogo-container"> 
+        <h1>Nosso Cardápio</h1> 
         
-        <form action="" method="GET">
-            <input name="q" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>">
-            <input type="submit" value="Pesquisar">
-        </form>
+        <form action="" method="GET"> 
+            <input name="q" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>"> 
+            <input type="submit" value="Pesquisar"> 
+        </form> 
         
-        <div class="produtos-grid">
-            <?php if (empty($produtos)): ?>
-                <p>Nenhum produto encontrado no momento.</p>
-            <?php else: ?>
-                <?php foreach ($produtos as $item): ?>
-                    <?php if (isset($item['disponivel']) && $item['disponivel']): ?>
-                        <div class="produto-card">
-                            <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
-                            <h3><?php echo htmlspecialchars($item['nome']); ?></h3>
-                            <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p>
-                            <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p>
-                            <p class="preco">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></p>
-                            <p class="estoque">Qtd: <?php echo $item['estoque']; ?></p>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-    </main>
-    <?php include "footer.php" ?>
-</body>
- 
+        <div class="produtos-grid"> 
+            <?php if (empty($produtosDisponiveis)): ?> 
+                <p>Nenhum produto encontrado no momento.</p> 
+            <?php else: ?> 
+                <?php foreach ($produtosDisponiveis as $item): ?> 
+                    <div class="produto-card"> 
+                        <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>"> 
+                        <h3><?php echo htmlspecialchars($item['nome']); ?></h3> 
+                        <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p> 
+                        <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p> 
+                        <p class="preco">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></p> 
+                        <p class="estoque">Qtd: <?php echo htmlspecialchars($item['estoque']); ?></p> 
+                    </div> 
+                <?php endforeach; ?> 
+            <?php endif; ?> 
+        </div> 
+    </main> 
+    
+    <?php include "footer.php" ?> 
+</body> 
 </html>
