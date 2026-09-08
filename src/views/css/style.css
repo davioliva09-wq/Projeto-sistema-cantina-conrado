@@ -1,3 +1,22 @@
+/*telas responsivas*/
+
+/*mobile*/
+@media screen and (min-width: 360px) and (max-width: 768px){
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .catalogo-container h1 {
+        font-size: 2rem;
+    }
+
+    .lanches-index img {
+        margin-right: 300px;
+        width: 15%;
+        height: 200px;
+    }
+
+}
 
 /* Configurações Gerais */
 body {
@@ -433,18 +452,6 @@ textarea {
     overflow: hidden;
 }
 
-
-
-
-@media (max-width: 480px) {
-    .produtos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .catalogo-container h1 {
-        font-size: 2rem;
-    }
-}
 
   .circle-superior-direito {
     width: 400px;
