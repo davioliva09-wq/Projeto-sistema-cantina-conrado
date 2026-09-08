@@ -117,13 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </main>
 
-    <footer>
-        <nav>
-            <a href="privacidade.php">Políticas de Privacidade</a>
-            <a href="termos.php">Termos de Uso</a>
-        </nav>
-        <p>© 2026 Escola Padre Conrado C. Silva Alves | Todos os direitos reservados.</p>
-    </footer>
+    <?php include "footer.php" ?>
 
 </body>
 </html>
