@@ -17,7 +17,7 @@ main {
             color: #777;
         }
 
-        /* Cards de resumo (KPIs) */
+        
         #cards-resumo {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -66,7 +66,7 @@ main {
         .stat-card.azul .icone      { background-color: #2f80c8; }
         .stat-card.vermelho .icone  { background-color: #e74c3c; }
 
-        /* Grade principal: pedidos recentes + resumo por categoria */
+        
         #dashboard-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -131,7 +131,7 @@ main {
         .status-badge.pendente  { background-color: #fff3da; color: #b3760a; }
         .status-badge.concluido { background-color: #e6f7ee; color: #2e7d57; }
 
-        /* Resumo por categoria (barrinhas) */
+        
         .categoria-linha {
             margin-bottom: 15px;
         }

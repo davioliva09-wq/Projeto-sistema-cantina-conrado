@@ -75,7 +75,6 @@
 
             </div>
 
-            <!-- Pedidos Recentes + Resumo por Categoria -->
             <div id="dashboard-grid">
 
                 <section class="painel">
