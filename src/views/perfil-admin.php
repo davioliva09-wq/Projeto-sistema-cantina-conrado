@@ -36,7 +36,7 @@
 
     <!-- Vínculo com o arquivo externo CSS -->
 
-    <link rel="stylesheet" href="css/perfil-aluno.css">
+    <link rel="stylesheet" href="css/style-perfil.css">
 
 
     <!-- =====================================================

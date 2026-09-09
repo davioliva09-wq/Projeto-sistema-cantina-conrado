@@ -26,10 +26,10 @@
        </aside>
 
     <div class="barra-de-pesquisa">
-    <form action="pesquisa"></form>
-    <label for="campo-busca">Buscar: </label>
-    <input type="Usuário" placeholder="Pesquisar Usuários">
-    <button type="submit">Enviar</button>
+        <form action="pesquisa"></form>
+        <label for="campo-busca">Buscar: </label>
+            <input type="Usuário" placeholder="Pesquisar Usuários">
+        <button type="submit">Enviar</button>
     </div>
 
 

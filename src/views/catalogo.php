@@ -36,7 +36,7 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
         
         <div class="produtos-grid"> 
             <?php if (empty($produtosDisponiveis)): ?> 
-                <p>Nenhum produto encontrado no momento.</p> 
+                <p>Nenhum produto encontrado no momento!</p> 
             <?php else: ?> 
                 <?php foreach ($produtosDisponiveis as $item): ?> 
                     <div class="produto-card"> 

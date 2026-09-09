@@ -37,9 +37,11 @@
                 de forma rápida, prática e sem filas.
             </p>
             
-            <button class="btn-intro">
-                <a href="cadastro.php" style="color: navy; text-decoration: none;">CADASTRE-SE JÁ!</a>
+            <a href="cadastro.php">
+            <button class="btn-intro" style="color: navy; text-decoration: none;">
+                CADASTRE-SE JÁ!
             </button>
+            </a>
             
             <div style="display: flex; align-items: center; margin-top: 15px;">
                 <img src="images/miku-lock.png" alt="" style="width: 15px; height: auto; margin-right: 5px;">

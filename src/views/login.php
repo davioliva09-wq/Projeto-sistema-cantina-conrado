@@ -112,8 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
 
             <div class="login-links">
-                <a href="rec-senha.php">Esqueci a senha</a>
                 <a href="cadastro.php">Primeiro acesso</a>
+                <a href="rec-senha.php">Esqueci a senha</a>
             </div>
         </main>
 
