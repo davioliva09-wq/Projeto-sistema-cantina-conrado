@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <?php include 'header.php'; ?>
+    <?php include 'index-header.php'; ?>
 
     <main style="position: relative; overflow: hidden;">
         

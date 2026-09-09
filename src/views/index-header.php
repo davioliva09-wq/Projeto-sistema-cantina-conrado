@@ -44,17 +44,21 @@ header nav a {
 
 <header> 
     <div> 
-        <a href="../views/catalogo.php"> 
+        <a href="../views/index.php"> 
             <img class="smolpng" src="images/logo.png" alt="Cantina Conrado"> 
             <h2 id="title">Cantina<br>Conrado</h2> 
         </a> 
     </div>
-
+        
     <div style="display: flex; align-items: center;">
-    <img src="images/user-neru.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
-        <nav>
-         <a href="perfil-aluno.php" class="span-intro">Meu Perfil </a> 
-        </nav>
+        
+        <img src="images/users-neru.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
+            <nav>
+            <a href="login.php?tipo=usuario" class="span-intro">Já tem conta? <br> Fazer login</a> 
+            </nav>
+        
+    </div> 
+
     </div> 
 
     
