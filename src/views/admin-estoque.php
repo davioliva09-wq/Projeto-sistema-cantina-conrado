@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/style-estoque.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-estoque.css">
 
 </head>
 <body>
@@ -60,7 +60,7 @@
 
                 <!-- Produto 1 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -73,7 +73,7 @@
 
                 <!-- Produto 2 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -86,7 +86,7 @@
 
                 <!-- Produto 3 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -97,7 +97,7 @@
 
                 <!-- Produto 4 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -110,7 +110,7 @@
 
                 <!-- Produto 5 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -121,7 +121,7 @@
 
                 <!-- Produto 6 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
@@ -132,7 +132,7 @@
 
                 <!-- Produto 7 -->
                 <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
+                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
                     <div class="produto-info">
                         <h2>Hot-dog</h2>
                         <p>R$ 19,99</p>
