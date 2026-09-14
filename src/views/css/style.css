@@ -1,3 +1,22 @@
+/*telas responsivas*/
+
+/*mobile*/
+@media screen and (min-width: 360px) and (max-width: 768px){
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .catalogo-container h1 {
+        font-size: 2rem;
+    }
+
+    .lanches-index img {
+        margin-right: 300px;
+        width: 15%;
+        height: 200px;
+    }
+
+}
 
 /* Configurações Gerais */
 body {
@@ -20,6 +39,11 @@ body {
     align-items: center; 
     gap: 15px; 
     text-decoration: none;
+    transition: 0.2s;
+}
+
+#title:hover {
+    color: #ddac52;
 }
 
 header a {
@@ -249,6 +273,7 @@ textarea {
 .btn-intro:hover {
     background-color: #db9d2a;
     transform: scale(1.2);
+    cursor: pointer;
 
 }
 
@@ -292,12 +317,13 @@ textarea {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+    font-family: Fredoka;
 }
 
 .catalogo-container h1 {
     text-align: center;
     margin-bottom: 40px;
-    color: #2c3e50;
+    color: #e09304;
     font-size: 2.5rem;
     position: relative;
 }
@@ -307,7 +333,7 @@ textarea {
     display: block;
     width: 60px;
     height: 4px;
-    background-color: #e74c3c;
+    background-color: #e09304;
     margin: 10px auto 0;
     border-radius: 2px;
 }
@@ -397,19 +423,42 @@ textarea {
     
 }
 
-
-
-
-
-@media (max-width: 480px) {
-    .produtos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .catalogo-container h1 {
-        font-size: 2rem;
-    }
+/* Garante que o contêiner principal alinhe os elementos em coluna (um abaixo do outro) */
+.catalogo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
+/* Estilização do formulário para que ele ocupe uma linha própria */
+.catalogo-container form {
+    margin-bottom: 30px; /* Cria um espaçamento saudável antes dos produtos */
+    display: flex;
+    gap: 10px; /* Dá espaço entre o input e o botão */
+}
+
+/* O grid de produtos deve ocupar 100% da largura disponível abaixo do form */
+.produtos-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem de linha se não couberem */
+    gap: 20px;       /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza os cards na tela */
+    width: 100%;
+}
+
+/* Ajuste nos cards individuais para não quebrarem o layout */
+.produto-card {
+    width: 250px; /* Defina uma largura fixa ou base para os seus cards */
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 
   .circle-superior-direito {
     width: 400px;
@@ -437,5 +486,13 @@ textarea {
     border-radius: 50%;
     
     z-index: -3;
+  }
+
+/* Usuarios-Admin */
+
+  .tabela {
+    border: solid;
+    border-radius: 10px;
+    border-color: #27ae60;
   }
   

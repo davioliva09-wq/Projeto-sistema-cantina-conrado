@@ -99,10 +99,14 @@
         }
 
         .history-title {
-            font-size: 28px;
+            font-size: 38px;
             font-weight: 600;
             margin-bottom: 20px;
             color: #ffffff;
+            font-family: "Fredoka";
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Item do Histórico */

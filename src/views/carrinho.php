@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
 
-    <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-carrinho.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
 
 </head>
 
@@ -55,11 +57,12 @@
                         <strong>Total</strong>
                         <span class="preco-total">R$ 00,00</span>
                     </div>
+                    <a href="pagamento.php">
                     <button class="botao-finalizar">
-                        <a href="pagamento.php">
                         <i class="sacola"></i> Finalizar pedido
-                        </a>
                     </button>
+                     </a>
+                    
                 </div>
         </div>
 

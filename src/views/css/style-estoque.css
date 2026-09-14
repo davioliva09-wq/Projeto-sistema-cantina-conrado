@@ -169,3 +169,9 @@
             background-color: var(--laranja);
             color: #fff;
         }
+
+        .btn-editar img {
+             width: 20px;        
+             height: auto;        
+              object-fit: contain; /
+        }

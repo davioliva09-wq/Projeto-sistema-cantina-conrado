@@ -66,8 +66,11 @@
                         <p>R$ 19,99</p>
                         <p>Estoque: 99</p>
                     </div>
-                    <form action="admin-edicao.php?id=1" method="get">
-                        <button type="submit" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
+                    <form action="admin-edicao.php?id=2" method="get">
+                        <button type="submit" class="btn-editar"> 
+                        <img src="images/pen_placeholder.png" alt="">    
+                        </button>
+                        
                     </form>
                 </article>
 
@@ -80,7 +83,10 @@
                         <p>Estoque: 99</p>
                     </div>
                     <form action="admin-edicao.php?id=2" method="get">
-                        <button type="submit" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
+                        <button type="submit" class="btn-editar"> 
+                        <img src="images/pen_placeholder.png" alt="">    
+                        </button>
+                        
                     </form>
                 </article>
 

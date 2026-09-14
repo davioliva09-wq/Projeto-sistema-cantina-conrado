@@ -150,3 +150,20 @@
         .btn-cadastrar:hover {
             background-color: #d5a13f;
         }
+
+        .login-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        
+        }
+
+        .login-links a {
+            color: #e09304;
+        }
+
+        .login-links a:hover {
+            color: #f3bc25;
+        }

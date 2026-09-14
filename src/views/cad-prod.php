@@ -3,8 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once("conexao.php");
-require_once("admin.php");
+require_once("../../routes/conexao.php");
+require_once("../models/admin.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = $_POST["nome"] ?? null;
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         echo "<script>
                 alert('Produto cadastrado com sucesso!');
-                window.location.href = 'perfil-admin.php';
+                window.location.href = 'admin-usuarios.php';
               </script>";
         exit;
     } else {

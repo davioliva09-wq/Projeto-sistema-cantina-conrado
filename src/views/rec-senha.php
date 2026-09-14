@@ -35,7 +35,7 @@
         <hr class="divider">
 
         <p style="color: antiquewhite; margin-bottom: 20px;">Insira o E-mail e número cadastrado para receber o código de verificação.</p>
-        <form  method="POST" action="/../models/forgot-password.php">
+        <form  method="POST" action="../models/forgot-password.php">
 
         <div class="form-group">
                 <label for="email">Email</label>

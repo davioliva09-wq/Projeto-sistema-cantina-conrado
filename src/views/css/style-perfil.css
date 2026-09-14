@@ -1,0 +1,989 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #070442;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* Topo com a Logo */
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: transparent; 
+    border-radius: 8px;
+}
+
+.logo-icon img {
+    height: auto;
+    width: 80px;
+}
+
+.brand-name {
+    color: #ffcc00;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+    text-transform: capitalize;
+    font-family: "Rammetto One", sans-serif;
+}
+
+/* Painel Principal de Configurações */
+.card-config {
+    background-color: #162a6b;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #233d8a;
+    padding-bottom: 20px;
+    font-family: "Fredoka";
+    font-weight: "400"
+    
+}
+
+/* Layout estruturado em duas colunas */
+.content-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.form-side {
+    flex: 1;
+}
+
+.avatar-side {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilização do Formulário */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px;
+    color: #a0aec0;
+    font-size: 1.1rem;
+}
+
+.input-container input {
+    width: 100%;
+    background-color: #0b1536;
+    border: 1px solid #1c3580;
+    border-radius: 6px;
+    padding: 14px 14px 14px 45px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-container input:focus {
+    border-color: #ffcc00;
+}
+
+.input-container input::placeholder {
+    color: #4a5568;
+}
+
+/* Campos de Telefone Divididos */
+.phone-fields {
+    display: flex;
+    gap: 15px;
+}
+
+.ddd-input {
+    width: 80px !important;
+    text-align: center;
+}
+
+/* Container do Avatar e Círculo */ 
+.avatar-title { 
+    color: #ffffff; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 15px; 
+    text-align: center;
+} 
+
+.avatar-wrapper { 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    margin-bottom: 30px; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+} 
+
+.avatar-img { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid #1c3580; 
+    display: block;
+}
+
+/* Botão Editar posicionado corretamente sobre a foto */
+.btn-edit-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    background-color: #0a1128;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-edit-avatar:hover {
+    background-color: #ffcc00;
+    color: #0a1128;
+}
+
+/* Botões de Ação da Direita */
+.action-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-top: 1px;
+}
+
+.btn-yellow {
+    width: 100%;
+    background-color: #ffcc00;
+    color: #0d1b46;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s
+}
+
+.btn-yellow:hover {
+    background-color: #0d1b46;
+    color: #ffcc00;
+}
+
+/* Rodapé e Botão Voltar */
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    border-top: 1px solid #233d8a;
+    padding-top: 20px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.seta-img {
+    height: 30px;
+    width: 30px;
+}
+
+.btn-back:hover {
+    background-color: #ffcc00;
+    color: #0d1b46;
+}
+
+
+/* =========================================================
+           PERSONALIZAÇÃO RÁPIDA DA PÁGINA
+           ---------------------------------------------------------
+           Altere aqui quando precisar ajustar somente esta tela.
+        ========================================================= */
+
+        :root {
+            --cor-amarelo: #ffd000;
+            --cor-fundo-input: #071a40;
+            --espaco-botoes: 12px;
+        }
+
+
+        /* =========================================================
+           TELEFONE
+           ---------------------------------------------------------
+           55 = código do país (fixo)
+           DDD = campo separado
+           Número = campo principal
+        ========================================================= */
+
+        .phone-fields {
+            display: flex !important;
+            gap: 12px !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+
+        /* Código do país: 55 */
+        .phone-fields > .input-container:nth-child(1) {
+            width: 85px !important;
+            min-width: 85px !important;
+            max-width: 85px !important;
+            flex: 0 0 85px !important;
+        }
+
+        .phone-fields > .input-container:nth-child(1) input {
+            width: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        /* DDD */
+        .phone-fields > .input-container:nth-child(2) {
+            width: 100px !important;
+            min-width: 100px !important;
+            max-width: 100px !important;
+            flex: 0 0 100px !important;
+        }
+
+        .phone-fields > .input-container:nth-child(2) input {
+            width: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        /* Número do telefone */
+        .phone-fields > .input-container:nth-child(3) {
+            width: auto !important;
+            min-width: 0 !important;
+            flex: 1 1 auto !important;
+        }
+
+        .phone-fields > .input-container:nth-child(3) input {
+            width: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+
+        /* =========================================================
+           DADOS DA CONTA
+           ---------------------------------------------------------
+           Cargo preparado para futuramente receber valor automático.
+        ========================================================= */
+
+        
+
+
+        /* =========================================================
+           FOTO E IDENTIFICAÇÃO
+           ---------------------------------------------------------
+           Foto, tag e espaçamento da coluna direita.
+        ========================================================= */
+
+        .avatar-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar-title {
+            margin-bottom: 12px;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: block;
+            width: 180px !important;
+            height: 180px !important;
+            max-width: 180px !important;
+            margin: 0 auto;
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+        }
+
+        .avatar-img {
+            display: block !important;
+            width: 180px !important;
+            height: 180px !important;
+            min-width: 180px !important;
+            min-height: 180px !important;
+            max-width: 180px !important;
+            max-height: 180px !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            box-sizing: border-box !important;
+            aspect-ratio: 1 / 1 !important;
+            background: transparent !important;
+        }
+
+        /* Botão de editar perfil: somente o ícone de lápis */
+        .btn-edit-profile {
+            position: absolute !important;
+            right: -4px !important;
+            bottom: -4px !important;
+            z-index: 10 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 40px !important;
+            height: 40px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 2px solid var(--cor-amarelo) !important;
+            border-radius: 50% !important;
+            background-color: var(--cor-fundo-input) !important;
+            color: var(--cor-amarelo) !important;
+            font-family: 'Fredoka', sans-serif !important;
+            font-size: 17px !important;
+            line-height: 1 !important;
+            cursor: pointer !important;
+            box-sizing: border-box !important;
+        }
+
+        .btn-edit-profile:hover {
+            opacity: 0.9;
+        }
+
+        .btn-edit-profile i {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .admin-tag {
+            display: none !important;
+        }
+
+
+
+        /* =========================================================
+           BOTÕES DA CANTINA
+           ---------------------------------------------------------
+           Três botões com mesma largura/altura e espaçamento igual.
+        ========================================================= */
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: var(--espaco-botoes);
+            margin-top: 14px;
+        }
+
+        .action-buttons .btn-yellow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            width: min(100%, 280px);
+            height: 48px;
+            min-height: 48px;
+            max-height: 48px;
+            padding: 0 16px;
+            box-sizing: border-box;
+            flex: 0 0 48px;
+            background-color: var(--cor-amarelo);
+            color: #071a40;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        /* BOTÃO SAIR: força o mesmo corpo visual dos outros botões */
+        .action-buttons button.btn-yellow {
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: min(100%, 280px) !important;
+            height: 52px !important;
+            min-height: 52px !important;
+            max-height: 52px !important;
+            padding: 0 16px !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+            flex: 0 0 52px !important;
+            background-color: var(--cor-amarelo) !important;
+            color: #071a40 !important;
+            border: none !important;
+            border-radius: 12px !important;
+            font-family: 'Fredoka', sans-serif !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            line-height: 1 !important;
+            cursor: pointer;
+        }
+
+        .action-buttons button.btn-yellow i {
+            margin: 0 !important;
+        }
+
+        .action-buttons .btn-yellow i {
+            font-size: 18px;
+        }
+
+        /* =========================================================
+           ANIMAÇÃO DOS BOTÕES
+           ---------------------------------------------------------
+           Ao passar o mouse, o botão sobe levemente e ganha sombra.
+           Ao clicar, ele dá uma pequena "pressionada".
+        ========================================================= */
+
+        .action-buttons .btn-yellow {
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background-color 0.18s ease;
+            cursor: pointer;
+        }
+
+        .action-buttons .btn-yellow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            background-color: #ffe04a;
+        }
+
+        .action-buttons .btn-yellow:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ícone também acompanha a animação */
+        .action-buttons .btn-yellow i {
+            transition: transform 0.18s ease;
+        }
+
+        .action-buttons .btn-yellow:hover i {
+            transform: scale(1.12);
+        }
+
+        /* =========================================================
+           BOTÃO SAIR DA CONTA
+           ---------------------------------------------------------
+           Cria um espaço maior entre "Gerenciar Cardápio" e
+           "Sair da conta", deixando o botão mais para baixo.
+        ========================================================= */
+
+
+
+        /* Botão Sair da conta no rodapé */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card-footer .btn-yellow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 240px;
+            height: 48px;
+            padding: 0 16px;
+            box-sizing: border-box;
+            background-color: var(--cor-amarelo);
+            color: #071a40;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+
+        .card-footer .btn-yellow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            background-color: #ffe04a;
+        }
+
+        .card-footer .btn-yellow:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-footer .btn-yellow i {
+            font-size: 18px;
+            transition: transform 0.18s ease;
+        }
+
+        .card-footer .btn-yellow:hover i {
+            transform: scale(1.12);
+        }
+
+        /* =========================================================
+           RESPONSIVIDADE
+           ---------------------------------------------------------
+           Ajustes para telas pequenas.
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .phone-fields {
+                gap: 8px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 70px !important;
+                min-width: 70px !important;
+                max-width: 70px !important;
+                flex-basis: 70px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 75px !important;
+                min-width: 75px !important;
+                max-width: 75px !important;
+                flex-basis: 75px !important;
+            }
+
+            .action-buttons .btn-yellow {
+                width: min(100%, 280px);
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-footer .btn-yellow {
+                width: min(100%, 280px);
+            }
+
+        }
+
+
+
+        /* =========================================================
+           RESPONSIVIDADE PARA CELULAR
+           ---------------------------------------------------------
+           Ajusta a página para telas pequenas sem alterar o visual
+           da versão para computador.
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                width: 100%;
+                min-width: 0;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 12px;
+                box-sizing: border-box;
+            }
+
+            .header-logo {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px auto 18px;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+
+            .logo-icon img {
+                max-width: 75px;
+                height: auto;
+            }
+
+            .brand-name {
+                font-size: 28px;
+                line-height: 0.95;
+            }
+
+            .card-config {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 22px 16px;
+                box-sizing: border-box;
+                border-radius: 14px;
+            }
+
+            .card-title {
+                font-size: 30px;
+                margin-bottom: 24px;
+            }
+
+            .content-layout {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100%;
+                gap: 28px;
+                box-sizing: border-box;
+            }
+
+            .form-side,
+            .avatar-side {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box;
+            }
+
+            .input-group {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .input-container {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .input-container input {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .phone-fields {
+                width: 100% !important;
+                gap: 8px !important;
+                box-sizing: border-box;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex: 0 0 62px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 70px !important;
+                min-width: 70px !important;
+                max-width: 70px !important;
+                flex: 0 0 70px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(3) {
+                width: auto !important;
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+            }
+
+            .avatar-side {
+                align-items: center;
+            }
+
+            .avatar-wrapper {
+                width: 150px !important;
+                height: 150px !important;
+            }
+
+            .avatar-img {
+                width: 150px !important;
+                height: 150px !important;
+                min-width: 150px !important;
+                min-height: 150px !important;
+                max-width: 150px !important;
+                max-height: 150px !important;
+            }
+
+            .action-buttons {
+                width: 100%;
+                margin-top: 18px;
+            }
+
+            .action-buttons .btn-yellow {
+                width: min(100%, 280px) !important;
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+                flex: 0 0 48px !important;
+            }
+
+            .card-footer {
+                width: 100%;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 14px;
+                box-sizing: border-box;
+            }
+
+            .card-footer .btn-back,
+            .card-footer .btn-yellow {
+                width: min(100%, 280px) !important;
+                box-sizing: border-box;
+            }
+
+            .card-footer .btn-yellow {
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+
+            .container {
+                padding: 8px;
+            }
+
+            .card-config {
+                padding: 18px 12px;
+            }
+
+            .card-title {
+                font-size: 26px;
+            }
+
+            .brand-name {
+                font-size: 24px;
+            }
+
+            .phone-fields {
+                gap: 5px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 55px !important;
+                min-width: 55px !important;
+                max-width: 55px !important;
+                flex-basis: 55px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex-basis: 62px !important;
+            }
+
+            .avatar-wrapper {
+                width: 135px !important;
+                height: 135px !important;
+            }
+
+            .avatar-img {
+                width: 135px !important;
+                height: 135px !important;
+                min-width: 135px !important;
+                min-height: 135px !important;
+                max-width: 135px !important;
+                max-height: 135px !important;
+            }
+        }
+        /* AJUSTE FINAL PARA CELULAR: ocupa melhor a largura da tela */
+        @media (max-width: 600px) {
+            html,
+            body {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow-x: hidden !important;
+            }
+
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                padding: 10px !important;
+                box-sizing: border-box !important;
+            }
+
+            .card-config {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                padding: 20px 14px !important;
+                box-sizing: border-box !important;
+            }
+
+            .content-layout,
+            .form-side,
+            .avatar-side,
+            .input-group,
+            .input-container {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .input-container input {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+                font-size: 15px !important;
+            }
+
+            .phone-fields {
+                width: 100% !important;
+                max-width: 100% !important;
+                gap: 7px !important;
+                box-sizing: border-box !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 58px !important;
+                min-width: 58px !important;
+                max-width: 58px !important;
+                flex: 0 0 58px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 68px !important;
+                min-width: 68px !important;
+                max-width: 68px !important;
+                flex: 0 0 68px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(3) {
+                width: auto !important;
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+            }
+
+            .phone-fields input {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+                font-size: 14px !important;
+            }
+
+            .action-buttons .btn-yellow,
+            .card-footer .btn-yellow,
+            .card-footer .btn-back {
+                width: 100% !important;
+                max-width: 280px !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container {
+                padding: 6px !important;
+            }
+
+            .card-config {
+                padding: 18px 10px !important;
+            }
+
+            .phone-fields {
+                gap: 5px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(1) {
+                width: 52px !important;
+                min-width: 52px !important;
+                max-width: 52px !important;
+                flex-basis: 52px !important;
+            }
+
+            .phone-fields > .input-container:nth-child(2) {
+                width: 62px !important;
+                min-width: 62px !important;
+                max-width: 62px !important;
+                flex-basis: 62px !important;
+            }
+
+            .phone-fields input {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+                font-size: 13px !important;
+            }
+        }
+

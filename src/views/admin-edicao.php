@@ -31,14 +31,18 @@ $produtoId = $_GET['id'] ?? 1;
 
     <?php include "admin-header.php" ?>
 
+    <!-- Menu Lateral de Navegação -->
+    <div id="wrapper">
 
-        <nav>
-
-            <a href="perfil-admin.php">
-                Meu Perfil
-            </a>
-
-        </nav>
+        <aside id="sidebar">
+            <nav>
+                <a href="admin-dashboard.php">Dashboard</a>
+                <a href="admin-pedidos.php">Pedidos</a>
+                <a href="admin-estoque.php" class="ativo">Estoque</a>
+                <a href="admin-relatorio.php">Relatórios</a>
+                <a href="admin-usuarios.php">Usuários</a>
+           </nav>
+       </aside>
 
     </header>
 

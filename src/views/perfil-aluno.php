@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
 
     <!-- Vínculo com o arquivo externo css -->
-    <link rel="stylesheet" href="../../css/perfil-aluno.css">
+    <link rel="stylesheet" href="css/style-perfil.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         <!-- Topo: Logo e Nome -->
         <header class="header-logo">
             <div class="logo-icon">
-             <img src="../../images/logo.png" alt="Uwu">
+             <img src="images/logo.png" alt="Uwu">
             </div>
             <h1 class="brand-name">Cantina<br>Conrado</h1>
         </header>
@@ -57,19 +57,97 @@
                         </div>
                     </div>
 
-                    <!-- Campo Telefone -->
+                     <!-- =================================================
+                         CAMPO TELEFONE
+                    ================================================== -->
+
                     <div class="input-group">
-                        <label>Telefone</label>
+
+                        <label>
+
+                            Telefone
+
+                        </label>
+
+
                         <div class="phone-fields">
+
+
+                            <!-- =================================================
+                                 CÓDIGO DO PAÍS - 55
+                            ================================================== -->
+
                             <div class="input-container">
+
+                                <input
+                                    type="text"
+                                    value="55"
+                                    class="codigo-pais"
+                                    readonly
+                                >
+
+                            </div>
+
+
+
+                            <!-- =================================================
+                                 DDD - 11
+                            ================================================== -->
+
+                            <div class="input-container">
+
                                 <i class="fa-solid fa-phone"></i>
-                                <input type="text" class="ddd-input" placeholder="(00)">
+
+
+                                <input
+                                    type="tel"
+                                    class="ddd-input"
+                                    placeholder="11"
+                                    maxlength="2"
+                                    inputmode="numeric"
+
+                                    oninput="
+                                        this.value = this.value
+                                            .replace(/\D/g, '')
+                                            .slice(0, 2);
+                                    "
+                                >
+
                             </div>
-                            <div class="input-container" style="flex: 1;">
-                                <input type="text" placeholder="00000-0000">
+
+
+
+                            <!-- =================================================
+                                 NÚMERO DO TELEFONE
+                                 99999-9999
+                            ================================================== -->
+
+                            <div
+                                class="input-container"
+                                style="flex: 1;"
+                            >
+
+                                <input
+                                    type="tel"
+                                    placeholder="99999-9999"
+                                    maxlength="10"
+                                    inputmode="numeric"
+
+                                    oninput="
+                                        this.value = this.value
+                                            .replace(/\D/g, '')
+                                            .slice(0, 9)
+                                            .replace(/(\d{5})(\d)/, '$1-$2');
+                                    "
+                                >
+
                             </div>
+
+
                         </div>
+
                     </div>
+
                 </section>
 
                 <!-- Coluna Direita: Avatar e Botões -->
@@ -78,13 +156,12 @@
                     
                     <div class="avatar-wrapper">
                         <!-- Substitua o link abaixo pelo caminho ou link da sua imagem final -->
-                        <img src="../../images/kibe.jpg"  class="avatar-img">
+                        <img src="images/kibe.jpg"  class="avatar-img">
                         <button class="btn-edit-avatar">Editar</button>
                     </div>
 
                     <div class="action-buttons">
                         <a href="historico.php" class="btn-yellow">Histórico</a>
-                        <button class="btn-yellow">Sair da conta</button>
                     </div>
                 </section>
 
@@ -95,6 +172,11 @@
                 <a href="catalogo.php" class="btn-back">
                     <img src="https://cdn.creazilla.com/icons/3213492/arrow-left-icon-lg.png" alt="voltar" class="seta-img"> Voltar
                 </a>
+
+                <button type="button" class="btn-back btn-logout-footer">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair da conta
+                </button>
             </footer>
 
         </main>
