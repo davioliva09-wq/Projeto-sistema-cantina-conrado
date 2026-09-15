@@ -14,8 +14,7 @@ $usuarios = $usuarioModel->buscaUsuario($termoPesquisa);
 if (!$usuarios) { 
     $usuarios = []; 
 } 
-?> 
-
+?>
 <!DOCTYPE html> 
 <html lang="pt-br"> 
 <head> 

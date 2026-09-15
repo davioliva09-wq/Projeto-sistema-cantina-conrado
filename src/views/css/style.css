@@ -522,14 +522,204 @@ textarea {
         .tabela tbody tr:hover { background-color: #f7f7f7; }
         .status { display: flex; align-items: center; gap: 9px; font-weight: bold; }
         @media (max-width: 600px) {
-            .conteudo-usuarios { padding: 15px; box-sizing: border-box; width: 100%; max-width: 100%; overflow: hidden; }
-            .conteudo-usuarios h1 { font-size: 26px; margin: 0 0 12px 0; }
-            .barra-de-pesquisa { width: 100%; margin-top: 0; margin-bottom: 20px; }
-            .barra-de-pesquisa form { width: 100%; display: flex; align-items: center; gap: 8px; }
-            .barra-de-pesquisa input { width: auto; flex: 1; min-width: 0; height: 38px; }
-            .barra-de-pesquisa button { height: 38px; padding: 0 15px; flex-shrink: 0; }
-            .tabela { width: 100%; min-width: 600px; table-layout: fixed; display: table; }
-            .tabela th, .tabela td { padding: 11px 10px; font-size: 13px; white-space: nowrap; }
-            .status { gap: 6px; }
-            .conteudo-usuarios { overflow-x: auto; }
+             /* =========================================
+       AJUSTE GERAL PARA CELULAR
+       ========================================= */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+
+    /* =========================================
+       SIDEBAR
+       ========================================= */
+
+    #sidebar {
+        width: 80px;
+        min-width: 80px;
+        padding: 10px 5px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    #sidebar nav {
+        width: 100%;
+        gap: 10px;
+    }
+
+    #sidebar nav a {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 3px;
+        text-align: center;
+        font-size: 11px;
+        word-break: break-word;
+    }
+
+
+    /* =========================================
+       CONTEÚDO DOS USUÁRIOS
+       ========================================= */
+
+    .conteudo-usuarios {
+        padding: 15px 8px;
+        box-sizing: border-box;
+        width: calc(100% - 80px);
+        min-width: 0;
+        max-width: calc(100% - 80px);
+        overflow: hidden;
+    }
+
+    .conteudo-usuarios h1 {
+        font-size: 24px;
+        margin: 0 0 12px 0;
+    }
+
+
+    /* =========================================
+       PESQUISA
+       ========================================= */
+
+    .barra-de-pesquisa {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .barra-de-pesquisa form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .barra-de-pesquisa input {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+        height: 36px;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    .barra-de-pesquisa button {
+        height: 36px;
+        padding: 0 8px;
+        flex-shrink: 0;
+        font-size: 11px;
+    }
+
+
+    /* =========================================
+       TABELA
+       ========================================= */
+
+    .tabela {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        table-layout: fixed;
+        display: table;
+        box-sizing: border-box;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 7px 3px;
+        font-size: 9px;
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Largura das colunas */
+
+    .tabela th:nth-child(1),
+    .tabela td:nth-child(1) {
+        width: 8%;
+    }
+
+    .tabela th:nth-child(2),
+    .tabela td:nth-child(2) {
+        width: 24%;
+    }
+
+    .tabela th:nth-child(3),
+    .tabela td:nth-child(3) {
+        width: 28%;
+    }
+
+    .tabela th:nth-child(4),
+    .tabela td:nth-child(4) {
+        width: 22%;
+    }
+
+    .tabela th:nth-child(5),
+    .tabela td:nth-child(5) {
+        width: 18%;
+    }
+
+    .status {
+        gap: 4px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================
+   AJUSTE ESPECÍFICO PARA 320px
+   ========================================= */
+
+@media (max-width: 320px) {
+
+    #sidebar {
+        width: 70px;
+        min-width: 70px;
+        padding: 8px 3px;
+    }
+
+    #sidebar nav a {
+        font-size: 10px;
+        padding: 9px 2px;
+    }
+
+    .conteudo-usuarios {
+        width: calc(100% - 70px);
+        max-width: calc(100% - 70px);
+        padding: 12px 5px;
+    }
+
+    .conteudo-usuarios h1 {
+        font-size: 21px;
+    }
+
+    .barra-de-pesquisa form {
+        gap: 3px;
+    }
+
+    .barra-de-pesquisa input {
+        height: 34px;
+        font-size: 11px;
+        padding: 0 6px;
+    }
+
+    .barra-de-pesquisa button {
+        height: 34px;
+        padding: 0 6px;
+        font-size: 10px;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 6px 2px;
+        font-size: 8px;
+    }
         }
