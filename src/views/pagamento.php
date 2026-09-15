@@ -22,10 +22,9 @@
 
     <?php include "header.php" ?>
 
+    <h1>Pagamento</h1>
 
     <main>
-
-        <h1>Pagamento</h1>
 
         <div class="pagamento">
 
