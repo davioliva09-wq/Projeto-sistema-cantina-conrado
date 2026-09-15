@@ -1,24 +1,32 @@
+<?php 
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
+
+require_once '../../routes/conexao.php'; 
+require_once '../models/produtos.php'; 
+
+$produtoService = new Produto($conn); 
+$termoPesquisa = isset($_GET['busca']) ? $_GET['busca'] : ''; 
+
+$produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa); 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Cantina Conrado</title>
-
-    <!-- Google Font Links pro Rammeto One-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-estoque.css">
-
 </head>
 <body>
 
-    <!-- Cabeçalho Principal -->
     <?php include "admin-header.php" ?>
 
-    <!-- Menu Lateral de Navegação -->
     <div id="wrapper">
 
         <aside id="sidebar">
@@ -33,11 +41,10 @@
 
         <main>
 
-            <!-- Barra de busca e botão de novo produto -->
             <div id="topo-produtos">
-                <form id="form-busca" role="search">
+                <form id="form-busca" role="search" method="GET" action="">
                     <i class="bi bi-search"></i>
-                    <input type="search" name="busca" placeholder="Pesquisar...">
+                    <input type="search" name="busca" placeholder="Pesquisar..." value="<?php echo htmlspecialchars($termoPesquisa); ?>">
                 </form>
 
                 <form action="admin-prod-cad.php" method="get">
@@ -45,7 +52,6 @@
                 </form>
             </div>
 
-            <!-- Filtros de Categorias -->
             <nav id="filtros-categoria">
                 <ul>
                     <li><a href="#">Todos</a></li>
@@ -55,120 +61,31 @@
                 </ul>
             </nav>
 
-            <!-- Grade de Produtos -->
             <section id="grade-produtos">
+                <?php if (!empty($produtosDoEstoque)): ?>
+                    <?php foreach($produtosDoEstoque as $item): ?>
+                        <article class="produto-card">
+                            <img class="smolpng" src="/Sistema%20cantina/src/images/<?php echo htmlspecialchars($item['imagem']); ?>.jpg" alt="<?php echo htmlspecialchars($item['nome']); ?>">
+                            
+                            <div class="produto-info">
+                                <h3><?php echo htmlspecialchars($item['nome']); ?></h3> 
+                                <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p> 
+                                <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p> 
+                                <p class="preco">R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></p> 
+                                <p class="estoque">Qtd: <?php echo htmlspecialchars($item['estoque']); ?></p> 
+                            </div>
 
-                <!-- Produto 1 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <form action="admin-edicao.php?id=2" method="get">
-                        <button type="submit" class="btn-editar"> 
-                        <img src="images/pen_placeholder.png" alt="">    
-                        </button>
-                        
-                    </form>
-                </article>
-
-                <!-- Produto 2 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <form action="admin-edicao.php?id=2" method="get">
-                        <button type="submit" class="btn-editar"> 
-                        <img src="images/pen_placeholder.png" alt="">    
-                        </button>
-                        
-                    </form>
-                </article>
-
-                <!-- Produto 3 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
-                <!-- Produto 4 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <a href="admin-edicao">
-                        <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                    </a>
-                </article>
-
-                <!-- Produto 5 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
-                <!-- Produto 6 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
-                <!-- Produto 7 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
-                <!-- Produto 8 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="../../images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
-                <!-- Produto 9 -->
-                <article class="produto-card">
-                    <img class="smolpng" src="..././images/hotdog.png" alt="Hot-dog">
-                    <div class="produto-info">
-                        <h2>Hot-dog</h2>
-                        <p>R$ 19,99</p>
-                        <p>Estoque: 99</p>
-                    </div>
-                    <button type="button" class="btn-editar"><i class="bi bi-pencil-square"></i></button>
-                </article>
-
+                            <form action="admin-edicao.php" method="get">
+                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                <button type="submit" class="btn-editar"> 
+                                    <img src="images/pen_placeholder.png" alt="Editar">    
+                                </button>
+                            </form>
+                        </article>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="sem-produtos">Nenhum produto cadastrado ou encontrado.</p>
+                <?php endif; ?>
             </section>
 
         </main>

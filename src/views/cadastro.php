@@ -3,6 +3,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     require_once("processar-cadastro.php");
     header("location:login.php");
     exit();
+
+    $email = $_POST["email"];
+
+if ($usuario->emailExiste($email)) {
+    echo "Erro: Este e-mail já está cadastrado!";
+    exit;
+} else {
+    $usuario->cadastrar($nome, $email, $senha);
+    echo "Cadastro realizado com sucesso!";
+}
+
 }
 ?>
 <!DOCTYPE html>

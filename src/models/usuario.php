@@ -21,7 +21,7 @@ class UsuarioComum extends Usuario {
     }
 
     public function cadastrar($nome, $email, $telefone, $senha) {
-        if (strlen($senha) > 8) {
+        if (strlen($senha) < 8) {
             echo "<script> alert('A senha deve ter pelo menos 8 caracteres!');
              </script>";
             return false;
@@ -50,6 +50,12 @@ class UsuarioComum extends Usuario {
         }
         return false;
     }
+
+    public function emailExist($email){
+        $sql = "SELECT * FROM id from users where email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam("email", $email);
+ return $stmt->rowCount() > 0;    }
 
 public function buscarPorEmail($email){
 $sql = "SELECT email from users WHERE email = :email";
@@ -82,6 +88,14 @@ public function alterarSenha($id, $senha){
 }
 
 
+public function buscaUsuario($busca= ''){
+    $sql = "SELECT id, nome, email, telefone FROM users WHERE id LIKE :busca or nome LIKE :busca or email LIKE :busca or telefone LIKE :busca";
+    $stmt = $this->db->prepare($sql);
+    $termo = "%" . $busca . "%";
+    $stmt->bindParam(":busca", $termo);
+    $stmt->execute();
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
+}
 
 
 

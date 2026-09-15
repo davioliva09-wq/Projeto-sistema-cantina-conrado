@@ -1,4 +1,4 @@
-<?php /* 
+<?php 
 ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL); 
@@ -8,12 +8,12 @@ require_once '../models/produtos.php';
 
 $produtoService = new Produto($conn); 
 $termoPesquisa = isset($_GET['q']) ? $_GET['q'] : ''; 
+
 $produtos = $produtoService->buscaProdNome($termoPesquisa); 
 
-// Filtra os produtos para garantir que apenas os disponíveis entrem na listagem
-$produtosDisponiveis = array_filter($produtos, function($item) {
-    return isset($item['disponivel']) && $item['disponivel'];
-}); */
+$produtosDisponiveis = array_filter($produtos, function($item) { 
+    return isset($item['disponivel']) && $item['disponivel']; 
+}); 
 ?> 
 <!DOCTYPE html> 
 <html lang="pt-BR"> 
@@ -25,22 +25,22 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
 </head> 
 <body> 
     <?php require_once("header.php"); ?> 
-    
+
     <main class="catalogo-container"> 
         <h1>Nosso Cardápio</h1> 
-        
+
         <form action="" method="GET"> 
-            <input name="q" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>"> 
+            <input name="q" class="campo-busca" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>"> 
             <input type="submit" value="Pesquisar"> 
         </form> 
-        
+
         <div class="produtos-grid"> 
             <?php if (empty($produtosDisponiveis)): ?> 
-                <p>Nenhum produto encontrado no momento!</p> 
+                <p>Nenhum produto disponível encontrado no momento.</p> 
             <?php else: ?> 
                 <?php foreach ($produtosDisponiveis as $item): ?> 
                     <div class="produto-card"> 
-                        <img src="images/<?php echo htmlspecialchars($item['imagem']); ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>"> 
+<img src="/Sistema%20cantina/src/images/<?php echo htmlspecialchars($item['imagem']); ?>.jpg" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                         <h3><?php echo htmlspecialchars($item['nome']); ?></h3> 
                         <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p> 
                         <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p> 
@@ -51,7 +51,7 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
             <?php endif; ?> 
         </div> 
     </main> 
-    
-    <?php include "footer.php" ?> 
+
+    <?php require_once("footer.php"); ?> 
 </body> 
 </html>
