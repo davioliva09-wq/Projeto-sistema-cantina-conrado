@@ -41,7 +41,7 @@ if (!$usuarios) {
             <h1>Usuários</h1> 
             <div class="barra-de-pesquisa"> 
                 <form action="" method="get"> 
-                    <input type="text" id="campo-busca" name="campo-busca" value="<?php echo htmlspecialchars($termoPesquisa); ?>" placeholder="Pesquisar usuário..." class="campo-busca" > 
+                    <input type="text" class="campo-busca" id="campo-busca" name="campo-busca" value="<?php echo htmlspecialchars($termoPesquisa); ?>" placeholder="Pesquisar usuário..." class="campo-busca" > 
                     <button type="submit">Enviar</button> 
                 </form> 
             </div> 

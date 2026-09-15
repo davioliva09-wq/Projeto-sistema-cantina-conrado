@@ -4,6 +4,7 @@
 @media screen and (min-width: 360px) and (max-width: 768px){
     .produtos-grid {
         grid-template-columns: 1fr;
+    
     }
     
     .catalogo-container h1 {
@@ -343,6 +344,7 @@ textarea {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     padding: 20px 0;
+    cursor: pointer;
 }
 
 .produto-card {

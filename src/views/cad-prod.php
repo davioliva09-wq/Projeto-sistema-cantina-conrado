@@ -12,11 +12,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $estoque = $_POST["estoque"] ?? null;
     $categoria = $_POST["categoria"] ?? null;
     $descricao = $_POST["descricao"] ?? null;
-    $imagem = $_FILES["imagem"] ?? null;
+$nome_imagem_final = null; 
+
+if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
+    $diretorio_destino = "../images/"; 
+
+    
+
+    $extensao = pathinfo($_FILES["imagem"]["name"], PATHINFO_EXTENSION);
+    $nome_imagem_final = uniqid() . "." . $extensao; 
+    
+    move_uploaded_file($_FILES["imagem"]["tmp_name"], $diretorio_destino . $nome_imagem_final);
+}
 
     if (!empty($nome) && $preco !== null && $preco !== '') {
         $admService = new ADM($conn);
-        $admService->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem);
+        $admService->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $nome_imagem_final);
         
         echo "<script>
                 alert('Produto cadastrado com sucesso!');

@@ -10,7 +10,7 @@ if ($usuario->emailExiste($email)) {
     echo "Erro: Este e-mail já está cadastrado!";
     exit;
 } else {
-    $usuario->cadastrar('Davi Oliva', $email, '', 'Conrado@123');
+    $usuario->cadastrar($nome, $email, $senha);
     echo "Cadastro realizado com sucesso!";
 }
 
