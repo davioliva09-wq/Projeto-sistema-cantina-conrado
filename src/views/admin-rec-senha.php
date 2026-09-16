@@ -9,76 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-cadastro.css">
-    
-        <style>
-            
-            /*header {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-            }
-    
-            nav {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-            }
-
-
-            main {
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;
-                 width: 100%;
-                 margin-top: 30px;
-            }
-
-             section {
-                 display: flex;
-                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                max-width: 400px;
-                width: 100%;
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                width: 100%;
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
-
-
-            input {
-                width: 100%;
-                padding: 8px;
-                box-sizing: border-box;
-                }
-
-
-            a {
-                color: #ffffff; 
-            }*/
-            
-
-        </style>
-
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
+  <?php include "header.php"?>
 
 <body>
-
-  <?php include "header.php"?>
 
     <main>
         <section>

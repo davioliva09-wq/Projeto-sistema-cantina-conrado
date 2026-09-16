@@ -12,27 +12,11 @@
 
     <style>
 
-        :root {
-            --verde: #4eae7b;
-            --verde-claro: #eaf7f0;
-            --verde-escuro: #2e7d57;
-            --laranja: #ffa805;
-            --azul: #2f80c8;
-            --vermelho: #e74c3c;
-            --cinza-fundo: #efece6;
-
-            --cor-1: #f2c744;
-            --cor-2: #4a90d9;
-            --cor-3: #e74c3c;
-            --cor-4: #4eae7b;
-        }
-
         main {
             flex: 1;
             display: block;
             justify-content: initial;
             padding: 30px 40px;
-            background-color: var(--cinza-fundo);
         }
 
         main h1 {
@@ -53,6 +37,7 @@
 
         main section {
             margin-bottom: 30px;
+            background-color: #fff;
         }
 
         /* FILTROS */
@@ -60,7 +45,6 @@
         .filtros {
             display: flex;
             gap: 15px;
-            align-items: end;
             flex-wrap: wrap;
         }
 
@@ -328,14 +312,14 @@
     <main>
 
         <!-- TÍTULO -->
-        <section>
-            <h1>Relatório de Vendas</h1>
+        <div>
+            <h1 style="color: var(--azul-marinho);">Relatório de Vendas</h1>
             <p>Consulte os dados de vendas da cantina.</p>
-        </section>
+        </div>
 
         <!-- FILTROS -->
         <section>
-            <h2>Período</h2>
+            <h1 style="color: var(--laranja);">Período</h1>
             <form action="admin-relatorio.php" method="GET" class="filtros">
                 <div>
                     <label for="data_inicio">Data inicial</label>
@@ -394,7 +378,7 @@
 
         <!-- RESUMO -->
         <section>
-            <h2>Resumo</h2>
+            <h2 class="relatorio-title">Resumo</h2>
             <div class="cards-resumo">
 
                 <div class="stat-card azul">
@@ -434,7 +418,7 @@
 
         <!-- RESUMO RÁPIDO -->
         <section>
-            <h2>Resumo Rápido</h2>
+            <h2 class="relatorio-title">Resumo Rápido</h2>
             <div class="tags-produtos">
                 <span class="tag-produto">X-Burguer — 31 unidades</span>
                 <span class="tag-produto">Coxinha — 27 unidades</span>
@@ -445,7 +429,7 @@
 
         <!-- TABELA -->
         <section>
-            <h2>Vendas por Produto</h2>
+            <h2 class="relatorio-title">Vendas por Produto</h2>
             <div class="painel tabela-container">
                 <table>
                     <thead>

@@ -27,6 +27,22 @@ body {
     font-family: sans-serif; /* Altere para sua fonte preferida */
 }
 
+:root {
+            --verde: #4eae7b;
+            --verde-claro: #eaf7f0;
+            --verde-escuro: #2e7d57;
+            --laranja: #ffa805;
+            --azul: #2f80c8;
+            --vermelho: #e74c3c;
+            --cinza-fundo: #efece6;
+            --azul-marinho: #071a40;
+
+            --cor-1: #f2c744;
+            --cor-2: #4a90d9;
+            --cor-3: #e74c3c;
+            --cor-4: #4eae7b;
+        }
+
 
 /* Cabeçalho */
 
@@ -499,6 +515,11 @@ textarea {
   }
   
 
+/* Relatórios-Admin */
+
+.relatorio-title {
+    color: var(--laranja);
+}
 
 
   .conteudo-usuarios { padding: 25px; }
