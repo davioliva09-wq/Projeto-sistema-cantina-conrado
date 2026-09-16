@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios - Cantina Conrado</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <style>
 
-        main {
-            width: 90%;
-            max-width: 1000px;
-            margin: 30px auto;
-            box-sizing: border-box;
+        :root {
+            --verde: #4eae7b;
+            --verde-claro: #eaf7f0;
+            --verde-escuro: #2e7d57;
+            --laranja: #ffa805;
+            --azul: #2f80c8;
+            --vermelho: #e74c3c;
+            --cinza-fundo: #efece6;
+
+            --cor-1: #f2c744;
+            --cor-2: #4a90d9;
+            --cor-3: #e74c3c;
+            --cor-4: #4eae7b;
         }
 
-        section {
+        main {
+            flex: 1;
+            display: block;
+            justify-content: initial;
+            padding: 30px 40px;
+            background-color: var(--cinza-fundo);
+        }
+
+        main h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #222;
+        }
+
+        main h2 {
+            margin: 0 0 15px;
+            font-size: 1.1rem;
+            color: #222;
+        }
+
+        main p {
+            color: #777;
+        }
+
+        main section {
             margin-bottom: 30px;
         }
 
@@ -43,35 +71,71 @@
 
         .filtros label {
             margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: #555;
         }
 
         .filtros input {
-            height: 36px;
+            height: 38px;
+            padding: 0 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
             box-sizing: border-box;
         }
 
         .filtros button {
-            height: 36px;
-            padding: 0 15px;
+            height: 38px;
+            padding: 0 20px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--laranja);
+            color: #040227;
+            font-weight: bold;
             cursor: pointer;
         }
 
+        .filtros button:hover {
+            background-color: #e09304;
+        }
 
-        /* RESUMO */
+        /* PAINEL */
 
-        .resumo {
+        .painel {
+            background-color: #fff;
+            border: 1.5px solid #eee;
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .painel-topo {
             display: flex;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: start;
+            gap: 15px;
             flex-wrap: wrap;
+            margin-bottom: 10px;
         }
 
-        .card {
-            border: 1px solid #333;
-            padding: 15px;
-            min-width: 180px;
-            box-sizing: border-box;
+        .painel-topo h2 {
+            margin: 0;
         }
 
+        .subtitulo {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .badge-periodo {
+            background-color: #f2f2f2;
+            color: #555;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
 
         /* GRÁFICO */
 
@@ -79,10 +143,10 @@
             display: flex;
             align-items: end;
             justify-content: center;
-            gap: 25px;
-            height: 250px;
-            padding: 20px;
-            border-bottom: 2px solid #333;
+            gap: 35px;
+            height: 220px;
+            padding: 20px 10px 0;
+            border-bottom: 2px solid #eee;
             box-sizing: border-box;
         }
 
@@ -91,36 +155,99 @@
             flex-direction: column;
             align-items: center;
             justify-content: end;
+            gap: 8px;
             height: 100%;
         }
 
+        .valor-barra {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #333;
+        }
+
         .barra {
+            width: 45px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .nome-produto {
+            font-size: 0.8rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* RESUMO */
+
+        .cards-resumo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #fff;
+            border: 1.5px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card .icone {
             width: 50px;
-            background-color: #444;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #fff;
+            flex-shrink: 0;
         }
 
-        .barra-1 {
-            height: 100px;
+        .stat-card .valor {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #222;
         }
 
-        .barra-2 {
-            height: 160px;
+        .stat-card .rotulo {
+            margin: 2px 0 0;
+            font-size: 0.85rem;
+            color: #888;
         }
 
-        .barra-3 {
-            height: 130px;
+        .stat-card.laranja .icone  { background-color: var(--laranja); }
+        .stat-card.verde .icone    { background-color: var(--verde); }
+        .stat-card.azul .icone     { background-color: var(--azul); }
+        .stat-card.vermelho .icone { background-color: var(--vermelho); }
+
+        /* RESUMO RÁPIDO */
+
+        .tags-produtos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .barra-4 {
-            height: 200px;
+        .tag-produto {
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+            border: 1px solid var(--verde);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
-
 
         /* TABELA */
 
         .tabela-container {
-            width: 100%;
-            overflow-x: auto;
+            padding: 0;
+            overflow: hidden;
         }
 
         table {
@@ -128,222 +255,57 @@
             border-collapse: collapse;
         }
 
-        th,
-        td {
-            border: 1px solid #333;
-            padding: 10px;
+        th, td {
+            padding: 12px 15px;
             text-align: left;
+            font-size: 0.9rem;
+            color: #333;
+            border-bottom: 1px solid #f2f2f2;
         }
 
+        th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #999;
+            border-bottom: 2px solid #eee;
+        }
 
-        /* ========================= */
-        /* AJUSTE PARA CELULAR */
-        /* ========================= */
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* RESPONSIVO */
 
         @media (max-width: 768px) {
-
-            /* Esconde a barra lateral no celular */
 
             #sidebar {
                 display: none;
             }
 
-
-            /* Conteúdo ocupa a tela */
-
             main {
-                width: 100%;
-                max-width: none;
-                margin: 20px 0;
-                padding: 0 15px;
-                box-sizing: border-box;
+                padding: 20px 15px;
             }
 
-
-            /* Títulos */
-
-            main h1 {
-                font-size: 26px;
-                line-height: 1.2;
-            }
-
-            main h2 {
-                font-size: 21px;
-            }
-
-            main h3 {
-                font-size: 17px;
-            }
-
-
-            /* Texto */
-
-            main p {
-                font-size: 15px;
-            }
-
-
-            /* FILTROS */
-
-            .filtros {
-                display: flex;
+            .painel-topo {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-                width: 100%;
             }
 
-            .filtros div {
-                width: 100%;
+            .cards-resumo {
+                grid-template-columns: 1fr;
             }
-
-            .filtros label {
-                font-size: 14px;
-                margin-bottom: 5px;
-            }
-
-            .filtros input {
-                width: 100%;
-                height: 40px;
-            }
-
-            .filtros button {
-                width: 100%;
-                height: 40px;
-            }
-
-
-            /* CARDS */
-
-            .resumo {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-            }
-
-            .card {
-                width: 100%;
-                min-width: 0;
-                padding: 15px;
-            }
-
-
-            /* GRÁFICO */
 
             .grafico {
-                width: 100%;
-                height: 260px;
-                padding: 15px 5px;
-                gap: 10px;
-                justify-content: space-around;
-                overflow: hidden;
-            }
-
-            .barra-produto {
-                width: 22%;
-                min-width: 0;
+                gap: 12px;
+                height: 200px;
             }
 
             .barra {
                 width: 30px;
-                max-width: 100%;
-            }
-
-            .barra-produto span {
-                font-size: 12px;
-                text-align: center;
-                word-break: break-word;
-            }
-
-            .barra-1 {
-                height: 80px;
-            }
-
-            .barra-2 {
-                height: 120px;
-            }
-
-            .barra-3 {
-                height: 100px;
-            }
-
-            .barra-4 {
-                height: 150px;
-            }
-
-
-            /* TABELA */
-
-            .tabela-container {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            table {
-                width: 100%;
-                min-width: 450px;
-            }
-
-            th,
-            td {
-                padding: 9px;
-                font-size: 14px;
-            }
-
-        }
-
-
-        /* CELULARES PEQUENOS */
-
-        @media (max-width: 400px) {
-
-            main {
-                padding: 0 10px;
-            }
-
-            main h1 {
-                font-size: 23px;
-            }
-
-            main h2 {
-                font-size: 19px;
-            }
-
-            .grafico {
-                height: 230px;
-                gap: 5px;
-            }
-
-            .barra {
-                width: 25px;
-            }
-
-            .barra-1 {
-                height: 70px;
-            }
-
-            .barra-2 {
-                height: 105px;
-            }
-
-            .barra-3 {
-                height: 90px;
-            }
-
-            .barra-4 {
-                height: 130px;
-            }
-
-            .barra-produto span {
-                font-size: 11px;
             }
 
         }
 
     </style>
-
 </head>
 
 
@@ -351,343 +313,172 @@
 
 <?php include 'admin-header.php'; ?>
 
-
 <div id="wrapper">
 
     <aside id="sidebar">
-
         <nav>
-
-            <a href="admin-dashboard.php">
-                Dashboard
-            </a>
-
-            <a href="admin-pedidos.php">
-                Pedidos
-            </a>
-
-            <a href="admin-estoque.php">
-                Estoque
-            </a>
-
-            <a href="admin-relatorio.php" class="ativo">
-                Relatórios
-            </a>
-
-            <a href="admin-usuarios.php">
-                Usuários
-            </a>
-
+            <a href="admin-dashboard.php">Dashboard</a>
+            <a href="admin-pedidos.php">Pedidos</a>
+            <a href="admin-estoque.php">Estoque</a>
+            <a href="admin-relatorio.php" class="ativo">Relatórios</a>
+            <a href="admin-usuarios.php">Usuários</a>
         </nav>
-
     </aside>
-
 
     <main>
 
-
         <!-- TÍTULO -->
-
         <section>
-
-            <h1>
-                Relatório de Vendas
-            </h1>
-
-            <p>
-                Consulte os dados de vendas da cantina.
-            </p>
-
+            <h1>Relatório de Vendas</h1>
+            <p>Consulte os dados de vendas da cantina.</p>
         </section>
-
-
 
         <!-- FILTROS -->
-
         <section>
-
-            <h2>
-                Período
-            </h2>
-
-            <form
-                action="admin-relatorio.php"
-                method="GET"
-                class="filtros"
-            >
-
+            <h2>Período</h2>
+            <form action="admin-relatorio.php" method="GET" class="filtros">
                 <div>
-
-                    <label for="data_inicio">
-                        Data inicial
-                    </label>
-
-                    <input
-                        type="date"
-                        id="data_inicio"
-                        name="data_inicio"
-                    >
-
+                    <label for="data_inicio">Data inicial</label>
+                    <input type="date" id="data_inicio" name="data_inicio">
                 </div>
-
-
                 <div>
-
-                    <label for="data_fim">
-                        Data final
-                    </label>
-
-                    <input
-                        type="date"
-                        id="data_fim"
-                        name="data_fim"
-                    >
-
+                    <label for="data_fim">Data final</label>
+                    <input type="date" id="data_fim" name="data_fim">
                 </div>
-
-
-                <button type="submit">
-                    Gerar Relatório
-                </button>
-
+                <button type="submit">Gerar Relatório</button>
             </form>
-
         </section>
-
-
-
-        <!-- RESUMO -->
-
-        <section>
-
-            <h2>
-                Resumo
-            </h2>
-
-
-            <div class="resumo">
-
-
-                <div class="card">
-
-                    <h3>
-                        Total de Pedidos
-                    </h3>
-
-                    <p>
-                        72
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>
-                        Total Vendido
-                    </h3>
-
-                    <p>
-                        R$ 1.250,00
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>
-                        Produtos Vendidos
-                    </h3>
-
-                    <p>
-                        145
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
 
         <!-- GRÁFICO -->
-
         <section>
+            <div class="painel">
 
-            <h2>
-                Produtos Mais Vendidos
-            </h2>
-
-
-            <div class="grafico">
-
-
-                <div class="barra-produto">
-
-                    <span>
-                        31
-                    </span>
-
-                    <div class="barra barra-1"></div>
-
-                    <span>
-                        X-Burguer
-                    </span>
-
+                <div class="painel-topo">
+                    <div>
+                        <h2>Produtos Mais Vendidos</h2>
+                        <p class="subtitulo">Veja quais produtos tiveram mais saída no período.</p>
+                    </div>
+                    <span class="badge-periodo">Maio/2025</span>
                 </div>
 
+                <div class="grafico">
 
-                <div class="barra-produto">
+                    <div class="barra-produto">
+                        <span class="valor-barra">31</span>
+                        <div class="barra" style="height: 125px; background-color: var(--cor-1);"></div>
+                        <span class="nome-produto">X-Burguer</span>
+                    </div>
 
-                    <span>
-                        27
-                    </span>
+                    <div class="barra-produto">
+                        <span class="valor-barra">27</span>
+                        <div class="barra" style="height: 110px; background-color: var(--cor-2);"></div>
+                        <span class="nome-produto">Coxinha</span>
+                    </div>
 
-                    <div class="barra barra-2"></div>
+                    <div class="barra-produto">
+                        <span class="valor-barra">42</span>
+                        <div class="barra" style="height: 170px; background-color: var(--cor-3);"></div>
+                        <span class="nome-produto">Coca-Cola</span>
+                    </div>
 
-                    <span>
-                        Coxinha
-                    </span>
-
-                </div>
-
-
-                <div class="barra-produto">
-
-                    <span>
-                        42
-                    </span>
-
-                    <div class="barra barra-3"></div>
-
-                    <span>
-                        Coca-Cola
-                    </span>
+                    <div class="barra-produto">
+                        <span class="valor-barra">45</span>
+                        <div class="barra" style="height: 180px; background-color: var(--cor-4);"></div>
+                        <span class="nome-produto">Suco</span>
+                    </div>
 
                 </div>
-
-
-                <div class="barra-produto">
-
-                    <span>
-                        45
-                    </span>
-
-                    <div class="barra barra-4"></div>
-
-                    <span>
-                        Suco
-                    </span>
-
-                </div>
-
 
             </div>
-
         </section>
 
+        <!-- RESUMO -->
+        <section>
+            <h2>Resumo</h2>
+            <div class="cards-resumo">
 
+                <div class="stat-card azul">
+                    <div class="icone"><i class="bi bi-receipt-cutoff"></i></div>
+                    <div>
+                        <p class="valor">72</p>
+                        <p class="rotulo">Total de pedidos</p>
+                    </div>
+                </div>
+
+                <div class="stat-card verde">
+                    <div class="icone"><i class="bi bi-cash-stack"></i></div>
+                    <div>
+                        <p class="valor">R$ 1.250,00</p>
+                        <p class="rotulo">Total vendido</p>
+                    </div>
+                </div>
+
+                <div class="stat-card laranja">
+                    <div class="icone"><i class="bi bi-basket2-fill"></i></div>
+                    <div>
+                        <p class="valor">145</p>
+                        <p class="rotulo">Produtos vendidos</p>
+                    </div>
+                </div>
+
+                <div class="stat-card vermelho">
+                    <div class="icone"><i class="bi bi-star-fill"></i></div>
+                    <div>
+                        <p class="valor">Suco</p>
+                        <p class="rotulo">Produto mais vendido</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RESUMO RÁPIDO -->
+        <section>
+            <h2>Resumo Rápido</h2>
+            <div class="tags-produtos">
+                <span class="tag-produto">X-Burguer — 31 unidades</span>
+                <span class="tag-produto">Coxinha — 27 unidades</span>
+                <span class="tag-produto">Coca-Cola — 42 unidades</span>
+                <span class="tag-produto">Suco — 45 unidades</span>
+            </div>
+        </section>
 
         <!-- TABELA -->
-
         <section>
-
-            <h2>
-                Vendas por Produto
-            </h2>
-
-
-            <div class="tabela-container">
-
+            <h2>Vendas por Produto</h2>
+            <div class="painel tabela-container">
                 <table>
-
                     <thead>
-
                         <tr>
-
-                            <th>
-                                Produto
-                            </th>
-
-                            <th>
-                                Quantidade Vendida
-                            </th>
-
+                            <th>Produto</th>
+                            <th>Quantidade Vendida</th>
                         </tr>
-
                     </thead>
-
-
                     <tbody>
-
                         <tr>
-
-                            <td>
-                                Suco
-                            </td>
-
-                            <td>
-                                45
-                            </td>
-
+                            <td>Suco</td>
+                            <td>45</td>
                         </tr>
-
-
                         <tr>
-
-                            <td>
-                                Coca-Cola
-                            </td>
-
-                            <td>
-                                42
-                            </td>
-
+                            <td>Coca-Cola</td>
+                            <td>42</td>
                         </tr>
-
-
                         <tr>
-
-                            <td>
-                                X-Burguer
-                            </td>
-
-                            <td>
-                                31
-                            </td>
-
+                            <td>X-Burguer</td>
+                            <td>31</td>
                         </tr>
-
-
                         <tr>
-
-                            <td>
-                                Coxinha
-                            </td>
-
-                            <td>
-                                27
-                            </td>
-
+                            <td>Coxinha</td>
+                            <td>27</td>
                         </tr>
-
                     </tbody>
-
                 </table>
-
             </div>
-
         </section>
-
 
     </main>
 
 </div>
 
-
 </body>
-
 </html>
