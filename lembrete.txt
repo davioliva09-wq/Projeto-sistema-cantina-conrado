@@ -1,0 +1,13 @@
+requestReset: Verifica se o e-mail informado existe no sistema,
+ gera um código de recuperação seguro com prazo de validade de uma hora,
+  salva esse registro criptografado na tabela tok-senha e disponibiliza o link para envio.
+
+validateToken: Intercepta o código enviado pelo link do e-mail,
+ verifica se ele corresponde a um pedido real gravado no banco de dados e confirma se o prazo
+  de validade ainda não expirou.
+
+
+updatePassword:
+ Transforma a nova senha informada em um hash de segurança intransferível,
+  atualiza o cadastro do usuário na tabela principal e apaga definitivamente o código temporário do 
+  banco de dados para impedir reutilizações.
