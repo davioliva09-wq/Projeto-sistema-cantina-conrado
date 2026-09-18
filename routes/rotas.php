@@ -1,11 +1,13 @@
 <?php
-
+function load(string $controller, string $action){
+    
+}
 $routes = [
     'GET' => [
-        '/' => 'HomeController',
-        '/contact' => 'ContactController'
+        '/' => load('homeController', 'index'),
+        '/contact' => load('ContactController', 'index')
     ],
     'POST' => [
-        '/contact' => 'ContactController'
+        '/contact' => load('ContactController', 'index')
     ]
 ];
