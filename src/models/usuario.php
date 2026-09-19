@@ -30,7 +30,7 @@ class UsuarioComum extends Usuario {
             </script>";
         }
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
+        $sql = "INSERT INTO usuarios (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
@@ -40,25 +40,35 @@ class UsuarioComum extends Usuario {
     }
 
     public function login($email, $senha) {
-        $sql = "SELECT id, email, senha FROM users where email = :email";
+
+        $sql = "SELECT id, email, senha, cargo FROM usuarios where email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($usuario && password_verify($senha, $usuario['senha'])) {
-            return $usuario;
-        }
-        return false;
+            if(session_status() === PHP_SESSION_NONE){
+                session_start();
+            }
+            $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['usuario_cargo'] = $usuario['cargo'];
+        
+        if($usuario["cargo"] === "admin"){
+            header("location: admin.php");
+            exit();}
+             return $usuario;
     }
-
+    
+    return false;
+}
     public function emailExist($email){
-        $sql = "SELECT * FROM id from users where email = :email";
+        $sql = "SELECT * FROM id from usuarios where email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam("email", $email);
  return $stmt->rowCount() > 0;    }
 
 public function buscarPorEmail($email){
-$sql = "SELECT email from users WHERE email = :email";
+$sql = "SELECT email from usuarios WHERE email = :email";
 
 $stmt = $this->db->prepare($sql);
 $stmt->bindParam(":email", $email);
@@ -78,7 +88,7 @@ public function alterarSenha($id, $senha){
     ]);
 }
     public function buscaPorNome($nome){
-    $sql = "SELECT * from users WHERE nome = :nome";
+    $sql = "SELECT * from usuarios WHERE nome = :nome";
     $stmt = $this->db->prepare($sql); 
     
     $stmt->bindParam(":nome", $nome);
@@ -89,7 +99,7 @@ public function alterarSenha($id, $senha){
 
 
 public function buscaUsuario($busca= ''){
-    $sql = "SELECT id, nome, email, telefone FROM users WHERE id LIKE :busca or nome LIKE :busca or email LIKE :busca or telefone LIKE :busca";
+    $sql = "SELECT id, nome, email, telefone FROM usuarios WHERE id LIKE :busca or nome LIKE :busca or email LIKE :busca or telefone LIKE :busca";
     $stmt = $this->db->prepare($sql);
     $termo = "%" . $busca . "%";
     $stmt->bindParam(":busca", $termo);

@@ -1,2 +1,6 @@
 <?php
-class HomeController{}
+class HomeController{
+  public function(){  header('Location: ../src/views/index.php');
+exit;
+  }
+}
