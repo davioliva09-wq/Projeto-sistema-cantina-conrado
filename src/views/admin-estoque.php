@@ -1,4 +1,4 @@
-<?php 
+<?php /*
 ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL); 
@@ -10,7 +10,7 @@ $produtoService = new Produto($conn);
 $termoPesquisa = isset($_GET['busca']) ? $_GET['busca'] : ''; 
 
 $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa); 
-?>
+*/ ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

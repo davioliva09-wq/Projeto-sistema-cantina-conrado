@@ -30,7 +30,7 @@
 
         <section class="pedidos">
 
-            <h1>Pedidos</h1>
+            <h1 style="color: #071a40">Pedidos</h1>
 
             <div class="pedidos-container">
 
@@ -45,7 +45,7 @@
 
                         <div class="pedido-topo">
                             <h3>Pedido #001</h3>
-                            <span>14:32</span>
+                            <span>10:30</span>
                         </div>
 
                         <p>
@@ -75,7 +75,7 @@
 
                         <div class="pedido-topo">
                             <h3>Pedido #002</h3>
-                            <span>14:35</span>
+                            <span>09:30</span>
                         </div>
 
                         <p>
