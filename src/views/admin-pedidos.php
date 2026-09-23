@@ -3,385 +3,297 @@
 <html lang="pt-BR">
 
 <head>
-
-    <meta charset="UTF-8">
-
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Pedidos - Cantina Conrado</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <title>Pedidos</title>
 
     <link rel="stylesheet" href="css/style.css">
+ </head>
 
-</head>
+ <body>
 
-<body>
+ <?php include "admin-header.php" ?>
 
-    <?php include "admin-header.php" ?>
+ <div id="wrapper">
 
+    <aside id="sidebar">
+        <nav>
+            <a href="admin-dashboard.php">Dashboard</a>
+            <a href="admin-pedidos.php" class="ativo">Pedidos</a>
+            <a href="admin-estoque.php">Estoque</a>
+            <a href="admin-relatorio.php">Relatórios</a>
+            <a href="admin-usuarios.php">Usuários</a>
+        </nav>
+    </aside>
 
-    <div id="wrapper">
+    <main>
 
-        <aside id="sidebar">
+        <section class="pedidos">
 
-            <nav>
+            <h1>Pedidos</h1>
 
-                <a href="admin-dashboard.php">Dashboard</a>
+            <div class="pedidos-container">
 
-                <a href="admin-pedidos.php" class="ativo">Pedidos</a>
+                <!-- NOVOS PEDIDOS -->
+                <div class="coluna-pedidos novos">
 
-                <a href="admin-estoque.php">Estoque</a>
+                    <h2>Novos pedidos</h2>
 
-                <a href="admin-relatorio.php">Relatórios</a>
+                    <article class="pedido-card"
+                        data-pedido="001"
+                        data-status="novo">
 
-                <a href="admin-usuarios.php">Usuários</a>
+                        <div class="pedido-topo">
+                            <h3>Pedido #001</h3>
+                            <span>14:32</span>
+                        </div>
 
-            </nav>
+                        <p>
+                            <strong>Cliente:</strong> João Silva
+                        </p>
 
-        </aside>
+                        <p>
+                            <strong>Produtos:</strong><br>
+                            X-Burguer<br>
+                            Coca-Cola
+                        </p>
 
+                        <p class="total">
+                            Total: R$ 18,00
+                        </p>
 
-        <main>
+                        <button type="button" onclick="aceitarPedido(this)">
+                            Aceitar
+                        </button>
 
-            <section class="pedidos">
+                    </article>
 
-                <h1>Pedidos</h1>
 
+                    <article class="pedido-card"
+                        data-pedido="002"
+                        data-status="novo">
 
-                <div class="pedidos-container">
+                        <div class="pedido-topo">
+                            <h3>Pedido #002</h3>
+                            <span>14:35</span>
+                        </div>
 
+                        <p>
+                            <strong>Cliente:</strong> Maria Souza
+                        </p>
 
-                    <!-- =================================================
-                         NOVOS PEDIDOS
-                         Futuramente estes pedidos virão do banco de dados.
-                         ================================================= -->
+                        <p>
+                            <strong>Produtos:</strong><br>
+                            Coxinha<br>
+                            Suco
+                        </p>
 
-                    <div class="coluna-pedidos novos">
+                        <p class="total">
+                            Total: R$ 10,00
+                        </p>
 
-                        <h2>Novos pedidos</h2>
+                        <button type="button" onclick="aceitarPedido(this)">
+                            Aceitar
+                        </button>
 
-
-                        <article class="pedido-card" data-pedido="001" data-status="novo">
-
-                            <div class="pedido-topo">
-
-                                <h3>Pedido #001</h3>
-
-                                <span>14:32</span>
-
-                            </div>
-
-
-                            <p>
-                                <strong>Cliente:</strong>
-                                João Silva
-                            </p>
-
-
-                            <p>
-                                <strong>Produtos:</strong><br>
-                                X-Burguer<br>
-                                Coca-Cola
-                            </p>
-
-
-                            <p class="total">
-                                Total: R$ 18,00
-                            </p>
-
-
-                            <button type="button" onclick="aceitarPedido(this)">
-                                Aceitar
-                            </button>
-
-                        </article>
-
-
-
-                        <article class="pedido-card" data-pedido="002" data-status="novo">
-
-                            <div class="pedido-topo">
-
-                                <h3>Pedido #002</h3>
-
-                                <span>14:35</span>
-
-                            </div>
-
-
-                            <p>
-                                <strong>Cliente:</strong>
-                                Maria Souza
-                            </p>
-
-
-                            <p>
-                                <strong>Produtos:</strong><br>
-                                Coxinha<br>
-                                Suco
-                            </p>
-
-
-                            <p class="total">
-                                Total: R$ 10,00
-                            </p>
-
-
-                            <button type="button" onclick="aceitarPedido(this)">
-                                Aceitar
-                            </button>
-
-                        </article>
-
-                    </div>
-
-
-
-                    <!-- =================================================
-                         PEDIDOS PRONTOS
-                         ================================================= -->
-
-                    <div class="coluna-pedidos prontos">
-
-                        <h2>Prontos</h2>
-
-                    </div>
-
-
-
-                    <!-- =================================================
-                         PEDIDOS ENTREGUES
-                         ================================================= -->
-
-                    <div class="coluna-pedidos entregues">
-
-                        <h2>Entregues</h2>
-
-                    </div>
-
+                    </article>
 
                 </div>
 
-            </section>
 
-        </main>
+                <!-- PRONTOS -->
+                <div class="coluna-pedidos prontos">
 
-    </div>
+                    <h2>Prontos</h2>
 
+                </div>
 
 
-    <style>
+                <!-- ENTREGUES -->
+                <div class="coluna-pedidos entregues">
 
-        /* ==========================================
-           ÁREA DE PEDIDOS
-           Não altera a sidebar nem o cabeçalho.
-           ========================================== */
+                    <h2>Entregues</h2>
 
-        .pedidos {
-            width: 100%;
-        }
+                </div>
 
+            </div>
 
-        .pedidos h1 {
-            margin-bottom: 25px;
-        }
+        </section>
 
+    </main>
 
-        .pedidos-container {
+ </div>
 
-            display: grid;
+ <style>
 
-            grid-template-columns: repeat(3, 1fr);
+ /* =========================================
+   ÁREA DOS PEDIDOS
+   ========================================= */
 
-            gap: 20px;
+ .pedidos {
+    width: 100%;
+    max-width: none !important;
 
-            width: 100%;
+    /* Tira o azul escuro do section */
+    background: transparent !important;
 
-        }
+    /* Tira a sombra do quadrado externo */
+    box-shadow: none !important;
 
+    box-sizing: border-box;
+ }
 
 
-        /* ==========================================
-           COLUNAS
-           ========================================== */
+ /* Título */
 
-        .coluna-pedidos {
+ .pedidos h1 {
+    margin-bottom: 25px;
+    color: white;
+ }
 
-            background: #f5f6f8;
 
-            border: 1px solid #ddd;
+ /* =========================================
+   TRÊS COLUNAS
+   ========================================= */
 
-            border-radius: 10px;
+ .pedidos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+ }
 
-            padding: 15px;
 
-            min-height: 400px;
 
-        }
+ /* Mantém as três caixas claras da imagem */
 
+ .coluna-pedidos {
+    background: #f5f6f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 
-        .coluna-pedidos h2 {
+    padding: 15px;
+    min-height: 400px;
 
-            margin: 0 0 15px 0;
+    box-sizing: border-box;
+ }
 
-            font-size: 20px;
 
-            color: #071a40;
+ /* Títulos das colunas */
 
-        }
+ .coluna-pedidos h2 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    color: #071a40;
+ }
 
 
-        /* ==========================================
-           CARD DO PEDIDO
-           ========================================== */
+ /* =========================================
+   CARDS DOS PEDIDOS
+   ========================================= */
 
-        .pedido-card {
+ .pedido-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 
-            background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+ }
 
-            border: 1px solid #ddd;
 
-            border-radius: 8px;
+ /* Topo do pedido */
 
-            padding: 15px;
+ .pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-            margin-bottom: 15px;
+    margin-bottom: 10px;
+ }
 
-        }
+ .pedido-topo h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #071a40;
+ }
 
+ .pedido-topo span {
+    font-size: 13px;
+    color: #777;
+ }
 
-        .pedido-topo {
 
-            display: flex;
+ /* Texto */
 
-            justify-content: space-between;
+ .pedido-card p {
+    margin: 8px 0;
 
-            align-items: center;
+    font-size: 14px;
+    color: #444;
 
-            margin-bottom: 10px;
+    line-height: 1.5;
+ }
 
-        }
 
+ /* Total */
 
-        .pedido-topo h3 {
+ .pedido-card .total {
+    text-align: right;
 
-            margin: 0;
+    font-weight: bold;
+    color: #071a40;
+ }
 
-            font-size: 16px;
 
-            color: #071a40;
+ /* Botão */
 
-        }
+ .pedido-card button {
+    width: 100%;
 
+    border: none;
+    border-radius: 6px;
 
-        .pedido-topo span {
+    padding: 10px;
+    margin-top: 8px;
 
-            font-size: 13px;
+    background: #071a40;
+    color: white;
 
-            color: #777;
+    font-weight: bold;
+    cursor: pointer;
+ }
 
-        }
+ .pedido-card button:hover {
+    opacity: .9;
+ }
 
 
-        .pedido-card p {
+ /* Botões das outras colunas */
 
-            margin: 8px 0;
+ .prontos .pedido-card button {
+    background: #22a861;
+ }
 
-            font-size: 14px;
+ .entregues .pedido-card button {
+    background: #aaa;
+    cursor: default;
+ }
 
-            color: #444;
 
-            line-height: 1.5;
+ /* =========================================
+   CELULAR
+   ========================================= */
 
-        }
+ @media (max-width: 1000px) {
 
+    .pedidos-container {
+        grid-template-columns: 1fr;
+    }
 
-        .pedido-card .total {
+ }
 
-            text-align: right;
+ </style>
 
-            font-weight: bold;
-
-            color: #071a40;
-
-        }
-
-
-        /* ==========================================
-           BOTÕES
-           ========================================== */
-
-        .pedido-card button {
-
-            width: 100%;
-
-            border: none;
-
-            border-radius: 6px;
-
-            padding: 10px;
-
-            margin-top: 8px;
-
-            background: #071a40;
-
-            color: white;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-        .pedido-card button:hover {
-
-            opacity: 0.9;
-
-        }
-
-
-        /* Botão da coluna Prontos */
-
-        .prontos .pedido-card button {
-
-            background: #22a861;
-
-        }
-
-
-        /* Botão dos pedidos entregues */
-
-        .entregues .pedido-card button {
-
-            background: #aaa;
-
-            cursor: default;
-
-        }
-
-
-        /* ==========================================
-           RESPONSIVIDADE
-           ========================================== */
-
-        @media (max-width: 1000px) {
-
-            .pedidos-container {
-
-                grid-template-columns: 1fr;
-
-            }
-
-        }
-
-    </style>
-
-</body>
-
+ </body>
 </html>
