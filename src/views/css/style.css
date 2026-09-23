@@ -119,9 +119,9 @@ main {
     justify-content: center;
 }
 
-section {
+section:not(section-pedidos) {
     width: 100%;
-    max-width: 600px; /* Limita a largura para o formulário não esticar demais */
+    max-width: 600px;
     background-color: #040227;
     padding: 30px;
     border-radius: 8px;

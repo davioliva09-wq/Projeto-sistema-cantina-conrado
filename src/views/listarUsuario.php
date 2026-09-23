@@ -13,6 +13,13 @@ body {
      .sair {
     margin-top: 185px;
     }
+
+    .sair:hover {
+        cursor:block;
+        background-color: crimson;
+        font-size: 100px;
+        font-family: Fredoka One; 
+    }
         nav a {
     position: relative;
     top: 20px;
@@ -90,11 +97,11 @@ body {
     </div>
 
     <nav class=meno>
-        <a href="admin-dashboard.html">Dashboard</a>
-        <a href="Produtos.html">Produtos</a>
-        <a href="Pedidos.html">Pedidos</a>
-        <a href="Usuários1.html" class="ativo">Usuários</a>
-        <a href="Sair.html" class="sair">Sair</a>
+        <a href="admin-dashboard.php">Dashboard</a>
+        <a href="admin-estoque.php">Produtos</a>
+        <a href=".php">Pedidos</a>
+        <a href="Usuários1.php" class="ativo">Usuários</a>
+        <a href="Sair." class="sair">Sair</a>
     </nav>
         
     <br>

@@ -1,20 +1,4 @@
-<?php 
-ini_set("display_errors", 1); 
-ini_set("display_startup_errors", 1); 
-error_reporting(E_ALL); 
 
-require_once '../../routes/conexao.php'; 
-require_once '../models/usuario.php'; 
-
-$usuarioModel = new UsuarioComum($conn); 
-$termoPesquisa = $_GET['campo-busca'] ?? ''; 
-
-$usuarios = $usuarioModel->buscaUsuario($termoPesquisa); 
-
-if (!$usuarios) { 
-    $usuarios = []; 
-} 
-?>
 <!DOCTYPE html> 
 <html lang="pt-br"> 
 <head> 
@@ -37,7 +21,7 @@ if (!$usuarios) {
         </aside> 
         
         <div class="conteudo-usuarios"> 
-            <h1>Usuários</h1> 
+            <h1 style="color: var(--azul-marinho);">Usuários</h1> 
             <div class="barra-de-pesquisa"> 
                 <form action="" method="get"> 
                     <input type="text" class="campo-busca" id="campo-busca" name="campo-busca" value="<?php echo htmlspecialchars($termoPesquisa); ?>" placeholder="Pesquisar usuário..." class="campo-busca" > 

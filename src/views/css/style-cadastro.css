@@ -58,6 +58,11 @@
             font-size: 50px;
             line-height: 1.1;
             text-transform: none;
+            transition: 0.2s;
+        }
+
+        .logo-text:hover {
+            color: #cdaf79;
         }
 
         /* Caixa de Cadastro */

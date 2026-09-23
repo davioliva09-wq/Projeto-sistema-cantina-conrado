@@ -13,7 +13,7 @@
 
 </head>
 
-  <?php include "header.php"?>
+  <?php include "index-header.php"?>
 
 <body>
 
