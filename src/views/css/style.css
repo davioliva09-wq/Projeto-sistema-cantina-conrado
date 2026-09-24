@@ -601,10 +601,6 @@ textarea {
         top: 150px;
     }
 
-    .lanches-index img:last-child {
-        
-    }
-
     .circle-superior-direito,
     .circle-inferior-esquerdo {
         width: 200px;
@@ -648,6 +644,7 @@ textarea {
         font-size: 20px;
         height: 55px;
     }
+}
 }
 
 /* == FIM INDEX == */
@@ -895,5 +892,4 @@ textarea {
         padding: 6px 2px;
         font-size: 8px;
     }
-}
 }
