@@ -580,14 +580,19 @@ textarea {
     }
 
     .lanches-index img {
-        width: 80%;
-        max-width: 280px;
+       width: 290px;
+        max-width: 290px;
+
         height: auto;
         margin: 0 auto;
+
+        position: absolute;
+        left: 350px;
+        top: 150px;
     }
 
     .lanches-index img:last-child {
-        display: none;
+        
     }
 
     .circle-superior-direito,
@@ -607,7 +612,22 @@ textarea {
         bottom: -80px;
         left: -80px;
     }
-}
+    
+
+    @media  screen and (min-width: 360px) and (max-width: 500px) {
+        .lanches-index img {
+        width: 290px;
+        max-width: 290px;
+
+        height: auto;
+        margin: 0 auto;
+
+        position: absolute;
+        left: 230px;
+        top: 150px;
+    }
+
+    }
 
 @media screen and (max-width: 359px) {
     .section-index h1.intro {
