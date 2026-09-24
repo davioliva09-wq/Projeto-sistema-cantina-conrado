@@ -244,6 +244,10 @@ textarea {
     font-family: "Fredoka"; 
 }
 
+.span-intro:hover {
+    color: #ddac52;
+}
+
 .btn-intro {
         font-family: "Fredoka";
         font-weight: bold;
@@ -527,6 +531,12 @@ textarea {
 /* == INDEX == */
 
 @media screen and (min-width: 360px) and (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+        user-select: transparent;
+
+    }
+    
     .produtos-grid {
         grid-template-columns: 1fr;
     }
@@ -653,10 +663,21 @@ textarea {
     font-size: 26px;
     cursor: pointer;
     padding: 5px 15px;
+    transition: 0.2s;
+}
+
+.btn-menu-mobile:active {
+    color: #e09304;
+    font-size: 20px;
 }
 
 .fechar-sidebar {
     display: none;
+    color: #e09304;
+}
+
+.fechar-sidebar:hover {
+    color: #d4a54c
 }
 
 @media screen and (max-width: 768px) {

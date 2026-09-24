@@ -45,10 +45,38 @@ body
         background-color: #d3d3d3
     }
 
+@media screen and (max-width: 768px) {
+    header {
+        flex-wrap: wrap; /* Permite que os itens caiam para a próxima linha */
+        gap: 15px;
+    }
+    
+    /* Faz o bloco do Portal Administrativo ocupar toda a largura na primeira linha */
+    header > div:first-child {
+        flex: 1 1 100%; 
+    }
+
+    header > div:nth-child(2) {
+        margin-left: 0;
+    }
+
+    #title {
+        font-size: 20px;
+    }
+
+    .btn-menu-mobile {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
 </style>
 
 <header> 
-    <div> 
+    <div class="admin-cabecitas"> 
         <a href="../views/admin-dashboard.php"> 
             <img class="smolpng" src="images/logo.png" alt="Cantina Conrado"> 
             <h2 id="title">Portal<br>Administrativo</h2> 
@@ -61,9 +89,7 @@ body
          <a href="perfil-admin.php" class="span-intro">Meu Perfil </a> 
         </nav>
     </div>
-    
     <button class="btn-menu-mobile" onclick="alternarSidebar()">☰</button>
-
 </header>
 
 <script>

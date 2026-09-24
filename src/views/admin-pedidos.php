@@ -17,6 +17,7 @@
  <div id="wrapper">
 
     <aside id="sidebar">
+        <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
         <nav>
             <a href="admin-dashboard.php">Dashboard</a>
             <a href="admin-pedidos.php" class="ativo">Pedidos</a>
@@ -215,7 +216,7 @@
  .pedido-topo h3 {
     margin: 0;
     font-size: 16px;
-    color: #071a40;
+    color: #ffa805;
  }
 
  .pedido-topo span {
@@ -257,7 +258,7 @@
     padding: 10px;
     margin-top: 8px;
 
-    background: #071a40;
+    background: #ffa805;
     color: white;
 
     font-weight: bold;
