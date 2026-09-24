@@ -258,37 +258,6 @@
             border-bottom: none;
         }
 
-        /* RESPONSIVO */
-
-        @media (max-width: 768px) {
-
-            #sidebar {
-                display: none;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-
-            .painel-topo {
-                flex-direction: column;
-            }
-
-            .cards-resumo {
-                grid-template-columns: 1fr;
-            }
-
-            .grafico {
-                gap: 12px;
-                height: 200px;
-            }
-
-            .barra {
-                width: 30px;
-            }
-
-        }
-
     </style>
 </head>
 
@@ -300,6 +269,7 @@
 <div id="wrapper">
 
     <aside id="sidebar">
+        <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
         <nav>
             <a href="admin-dashboard.php">Dashboard</a>
             <a href="admin-pedidos.php">Pedidos</a>

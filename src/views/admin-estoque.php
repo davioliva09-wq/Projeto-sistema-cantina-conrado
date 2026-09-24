@@ -30,6 +30,7 @@ $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa);
     <div id="wrapper">
 
         <aside id="sidebar">
+            <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
             <nav>
                 <a href="admin-dashboard.php">Dashboard</a>
                 <a href="admin-pedidos.php">Pedidos</a>

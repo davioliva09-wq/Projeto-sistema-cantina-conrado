@@ -60,5 +60,14 @@ body
         <nav>
          <a href="perfil-admin.php" class="span-intro">Meu Perfil </a> 
         </nav>
-    </div> 
+    </div>
+    
+    <button class="btn-menu-mobile" onclick="alternarSidebar()">☰</button>
+
 </header>
+
+<script>
+function alternarSidebar() {
+    document.getElementById('sidebar').classList.toggle('sidebar-aberta');
+}
+</script>

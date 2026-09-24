@@ -521,11 +521,8 @@ textarea {
         .tabela tbody tr:last-child td { border-bottom: none; }
         .tabela tbody tr:hover { background-color: #f7f7f7; }
         .status { display: flex; align-items: center; gap: 9px; font-weight: bold; }
-        @media (max-width: 600px) {
-
 
 /*telas responsivas*/
-
 
 /* == INDEX == */
 
@@ -626,9 +623,58 @@ textarea {
 /* == FIM INDEX == */
 
 
-    /* =========================================
-    AJUSTE GERAL PARA CELULAR
-    ========================================= */
+/* == Sidebar MOBILE == */
+
+.btn-menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+.fechar-sidebar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-menu-mobile {
+        display: block;
+    }
+
+    #sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100% !important;
+        width: 220px !important;
+        min-width: 220px !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease;
+        z-index: 999;
+        box-sizing: border-box;
+    }
+
+    #sidebar.sidebar-aberta {
+        transform: translateX(0) !important;
+    }
+
+    #sidebar .fechar-sidebar {
+        display: block;
+        text-align: right;
+        font-size: 26px;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+    }
+}
+
+/* == FIM SIDEBAR == */
+
+
+@media (max-width: 600px) {
+    /* AJUSTE GERAL PARA CELULAR */
 
     html,
     body {
@@ -639,10 +685,7 @@ textarea {
         overflow-x: hidden;
     }
 
-
-    /* =========================================
-       SIDEBAR
-       ========================================= */
+    /* SIDEBAR (colapsada, telas bem pequenas) */
 
     #sidebar {
         width: 80px;
@@ -666,10 +709,7 @@ textarea {
         word-break: break-word;
     }
 
-
-    /* =========================================
-       CONTEÚDO DOS USUÁRIOS
-       ========================================= */
+    /* CONTEÚDO DOS USUÁRIOS */
 
     .conteudo-usuarios {
         padding: 15px 8px;
@@ -685,10 +725,7 @@ textarea {
         margin: 0 0 12px 0;
     }
 
-
-    /* =========================================
-       PESQUISA
-       ========================================= */
+    /* PESQUISA */
 
     .barra-de-pesquisa {
         width: 100%;
@@ -719,10 +756,7 @@ textarea {
         font-size: 11px;
     }
 
-
-    /* =========================================
-       TABELA
-       ========================================= */
+    /* TABELA */
 
     .tabela {
         width: 100%;
@@ -741,9 +775,6 @@ textarea {
         word-break: break-word;
         overflow-wrap: anywhere;
     }
-
-
-    /* Largura das colunas */
 
     .tabela th:nth-child(1),
     .tabela td:nth-child(1) {
@@ -774,13 +805,10 @@ textarea {
         gap: 4px;
         font-size: 9px;
     }
-
 }
 
 
-/* =========================================
-   AJUSTE ESPECÍFICO PARA 320px
-   ========================================= */
+/* AJUSTE ESPECÍFICO PARA 320px */
 
 @media (max-width: 320px) {
 
@@ -826,4 +854,4 @@ textarea {
         padding: 6px 2px;
         font-size: 8px;
     }
-        }
+}

@@ -54,8 +54,6 @@
         <!-- Seção da Imagem dos Lanches -->
         <section class="lanches-index">
 
-            <img src="  images/indexlanchitos.png" alt="Lanches saborosos da cantina">
-
             <img src="images/indexlanchitos.png" alt="Lanches saborosos da cantina">
         </section>
 

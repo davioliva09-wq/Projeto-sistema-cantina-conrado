@@ -9,7 +9,8 @@
 </head> 
 <body> 
     <?php include 'admin-header.php'; ?> 
-    <div id="wrapper"> 
+    <div id="wrapper">
+        <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a> 
         <aside id="sidebar"> 
             <nav> 
                 <a href="admin-dashboard.php">Dashboard</a> 
