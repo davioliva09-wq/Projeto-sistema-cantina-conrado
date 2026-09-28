@@ -1,4 +1,4 @@
-<?php /*
+<?php 
 ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL); 
@@ -14,7 +14,8 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
 $produtosDisponiveis = array_filter($produtos, function($item) { 
     return isset($item['disponivel']) && $item['disponivel']; 
 }); 
-*/?> 
+
+?> 
 <!DOCTYPE html> 
 <html lang="pt-BR"> 
 <head> 
@@ -40,7 +41,15 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
             <?php else: ?> 
                 <?php foreach ($produtosDisponiveis as $item): ?> 
                     <div class="produto-card"> 
-<img src="/Sistema%20cantina/src/images/<?php echo htmlspecialchars($item['imagem']); ?>.jpg" alt="<?php echo htmlspecialchars($item['nome']); ?>">
+<?php
+$imagemLimpa = str_ireplace('.jpg', '', $item['imagem']);
+if (!empty($imagemLimpa) && $imagemLimpa !== 'Array' && $item["estoque"] >0) {
+    $urlImagem = "images/" . htmlspecialchars($imagemLimpa) . ".jpg";
+} else {
+    $urlImagem = "images/sem-foto.jpg"; 
+}
+?>
+<img src="<?php echo $urlImagem; ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                         <h3><?php echo htmlspecialchars($item['nome']); ?></h3> 
                         <p class="categoria"><?php echo htmlspecialchars($item['categoria']); ?></p> 
                         <p class="descricao"><?php echo htmlspecialchars($item['descricao']); ?></p> 

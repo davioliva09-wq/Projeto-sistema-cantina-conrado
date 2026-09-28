@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 require_once __DIR__ . "/../models/cad-prod.php";    
-    header("Location: index.php");
+    header("Location: catalogo.php");
     exit();
 } 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -149,8 +150,7 @@ require_once __DIR__ . "/../models/cad-prod.php";
         </aside>
         <main>
             <section>
-                <!-- Formulário estruturado com tratamento de multipart para a imagem -->
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="proc-cad-prod.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id_produto" value="">
                     
                     <label for="nome">Nome do Produto</label>

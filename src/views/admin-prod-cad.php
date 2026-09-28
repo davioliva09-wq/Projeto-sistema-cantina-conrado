@@ -1,8 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once("cad-prod.php");
+    require_once("../models/cad-prod.php");
     
-    header("Location: index.php");
+    header("Location: catalogo.php");
     exit();
 } 
 ?>

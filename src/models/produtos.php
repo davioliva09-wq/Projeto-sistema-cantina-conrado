@@ -6,12 +6,13 @@ class Produto {
         $this->db = $conn;
     }
 
-    public function listarProdutos(): array {
-        $sql = "SELECT id_produto, nome, preco, estoque, categoria, descricao, imagem, disponivel FROM produtos";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+   public function listarProdutos(): array {
+    $sql = "SELECT id_produto AS id, nome, preco, estoque, categoria, descricao, imagem, disponivel FROM produtos";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
     public function deletarProduto(int $id_produto): bool {
         try {

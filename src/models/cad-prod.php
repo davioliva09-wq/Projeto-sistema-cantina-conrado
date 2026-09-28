@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once("conexao.php");
+require_once("../../routes/conexao.php");
 require_once("admin.php");
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
