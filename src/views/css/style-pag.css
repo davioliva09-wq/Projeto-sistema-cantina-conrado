@@ -1,124 +1,315 @@
-    h1 {
-        color: #ffa805;
-        font-family: "Rammetto One";
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+/* =========================================================
+PAGAMENTO
+========================================================= */
 
-    }
-    
-    body {
-            background-color: #070442;
-        }
+body {
+background-color: #070442;
+}
 
-        header {
-            padding: 20px 30px;
-        }
+/* Título da página */
 
-        main {
-            display: flex;
-            flex-direction: column;
-            align-self: self-start;
-            height: auto;
-            width: auto;
-            max-width: 1600px;
-            margin: auto;
-        }
+h1 {
+color: #ffa805;
+font-family: "Rammetto One", sans-serif;
+text-align: center;
+margin: 35px 0 30px;
+font-size: 32px;
+}
 
-        .pagamento {
-            background-color: #24207c;
-            padding: 25px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            border-radius: 6px;
-        }
+/* Área principal */
 
-        .resumo,
-        .metodo {
-            background-color: #070442;
-            padding: 15px;
-            border-radius: 6px;
-            
-        }
+main {
+width: 100%;
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 30px 50px;
+box-sizing: border-box;
+}
 
-        .resumo h2,
-        .metodo h2 {
-            font-size: 18px;
-            margin-top: 0;
-        }
+/* Painel geral do pagamento */
 
-        .produto {
-            padding: 15px 0;
-            border-bottom: 1px solid #555;
-        }
+.pagamento {
+display: grid;
+grid-template-columns: 0.9fr 1.1fr;
+gap: 0;
 
-        .produto p {
-            margin: 5px 0;
-        }
+background-color: #24207c;
+border-radius: 10px;
+overflow: hidden;
 
-        .total {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            font-weight: bold;
-        }
+border: 1px solid rgba(255, 168, 5, 0.25);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 
-        .total span:last-child {
-            color: #ffa805;
-        }
+}
 
-        .opcoes {
-            display: flex;
-            gap: 15px;
-            margin: 20px 0;
-        }
+/* =========================================================
+SEÇÕES
+========================================================= */
 
-        .opcao {
-            border: 1px solid #aaa;
-            padding: 15px;
-            width: 100px;
-            text-align: center;
-            cursor: pointer;
-        }
+.resumo,
+.metodo {
+padding: 30px;
+background-color: #070442;
+box-sizing: border-box;
+}
 
-        .opcao input {
-            margin-bottom: 10px;
-        }
+/* Separação entre as duas áreas */
 
-        .api-area {
-            border: 1px dashed #aaa;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
-        }
+.resumo {
+border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-        .botoes {
-            margin-top: 25px;
-            display: flex;
-            gap: 15px;
-        }
+.metodo {
+background-color: #090551;
+}
 
-        button,
-        .cancelar {
-            padding: 10px 20px;
-            border: 1px solid #ffa805;
-            background-color: transparent;
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-        }
+/* Títulos das seções */
 
-        button:hover,
-        .cancelar:hover {
-            background-color: #ffa805;
-            color: #080f5c;
-        }
+.resumo h2,
+.metodo h2 {
+margin: 0 0 8px;
+color: #ffffff;
+font-size: 20px;
+font-weight: 600;
+}
 
-        @media (max-width: 700px) {
+/* Pequena linha amarela abaixo do título */
 
-            .pagamento {
-                grid-template-columns: 1fr;
-            }
+.resumo h2::after,
+.metodo h2::after {
+content: "";
+display: block;
 
-        }
+width: 35px;
+height: 3px;
+
+margin-top: 10px;
+
+background-color: #ffa805;
+border-radius: 2px;
+
+}
+
+/* Texto introdutório */
+
+.metodo > p {
+margin: 18px 0 0;
+color: #bdbbd6;
+font-size: 14px;
+}
+
+/* =========================================================
+RESUMO DO PEDIDO
+========================================================= */
+
+.produto {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 18px 0;
+
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.produto p {
+margin: 0;
+color: #ffffff;
+font-size: 15px;
+}
+
+.produto p {
+color: #d8d7e8;
+white-space: nowrap;
+}
+
+/* Total */
+
+.total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-top: 25px;
+padding-top: 20px;
+
+border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+font-size: 18px;
+font-weight: bold;
+
+}
+
+.total span {
+color: #ffffff;
+}
+
+.total span {
+color: #ffa805;
+font-size: 22px;
+}
+
+/* =========================================================
+MÉTODO DE PAGAMENTO
+========================================================= */
+
+.opcoes {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+
+margin: 22px 0;
+
+}
+
+/* Cada método */
+
+.opcao {
+display: flex;
+align-items: center;
+gap: 10px;
+
+min-height: 55px;
+padding: 0 15px;
+
+box-sizing: border-box;
+
+border: 1px solid rgba(255, 255, 255, 0.18);
+border-radius: 6px;
+
+color: #ffffff;
+background-color: #070442;
+
+cursor: pointer;
+transition: 0.15s ease;
+
+}
+
+/* Radio */
+
+.opcao input {
+margin: 0;
+accent-color: #ffa805;
+}
+
+/* Hover da opção */
+
+.opcao {
+border-color: #ffa805;
+background-color: #0b0854;
+}
+
+/* =========================================================
+ÁREA DE PAGAMENTO
+========================================================= */
+
+.api-area {
+min-height: 130px;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+box-sizing: border-box;
+
+padding: 25px;
+
+margin-top: 10px;
+
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 6px;
+
+background-color: #070442;
+
+text-align: center;
+
+}
+
+/* Título da área */
+
+.api-area p {
+margin: 0 0 8px;
+
+color: #ffa805;
+font-size: 15px;
+font-weight: bold;
+
+}
+
+/* Texto explicativo */
+
+.api-area p {
+max-width: 400px;
+
+margin: 0;
+
+color: #9290ae;
+font-size: 13px;
+line-height: 1.5;
+
+}
+
+/* =========================================================
+BOTÕES
+========================================================= */
+
+.botoes {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 12px;
+
+margin-top: 25px;
+
+}
+
+/* Botão principal */
+
+.botoes button {
+padding: 11px 25px;
+
+border: 1px solid #ffa805;
+border-radius: 5px;
+
+background-color: #ffa805;
+color: #070442;
+
+font-size: 14px;
+font-weight: bold;
+
+cursor: pointer;
+
+transition: 0.15s ease;
+
+}
+
+.botoes button {
+background-color: #ffb82e;
+border-color: #ffb82e;
+}
+
+/* Cancelar */
+
+.botoes .cancelar {
+padding: 10px 20px;
+
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 5px;
+
+background-color: transparent;
+color: #bdbbd6;
+
+font-size: 14px;
+text-decoration: none;
+
+transition: 0.15s ease;
+
+}
+
+.botoes .cancelar {
+border-color: rgba(255, 255, 255, 0.4);
+background-color: rgba(255, 255, 255, 0.05);
+color: #ffffff;
+}
