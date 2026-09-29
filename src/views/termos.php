@@ -8,19 +8,51 @@
     <title>Termos de Uso</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
     <?php include 'index-header.php'; ?>
 
+    <style>
+
+        h2 {
+            color: #e09304;
+        }
+
+        p {
+            font-family: Roboto;
+            font-strength: 10px;
+        }
+
+        .centering {
+            font-family: "Fredoka";
+            color: #e09304;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        
+        .p-intro {
+            font-size: 20px;
+            margin-bottom: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-text: center;
+        }
+        
+    </style>
+
     <main class="termos-container">
 
         <section class="termos">
 
-            <h1>Termos de Uso</h1>
+            <h1 class="centering">Termos de Uso</h1>
 
-            <p class="intro">
+            <p class="p-intro">
                 Estes Termos de Uso estabelecem as condições para utilização
                 do sistema e dos serviços disponibilizados aos usuários.
             </p>
