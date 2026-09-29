@@ -38,6 +38,9 @@
         main section {
             margin-bottom: 30px;
             background-color: #fff;
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
         }
 
         /* FILTROS */
@@ -257,6 +260,267 @@
         tr:last-child td {
             border-bottom: none;
         }
+
+    @media screen and (max-width: 768px) {
+
+    main {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 15px;
+    }
+
+    main > div:first-child h1 {
+        font-size: 1.5rem !important;
+        line-height: 1.25;
+    }
+
+    main > div:first-child p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    main section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Filtros */
+    .filtros {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .filtros div {
+        width: 100%;
+    }
+
+    .filtros input {
+        width: 100%;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .filtros button {
+        width: 100%;
+        height: 42px;
+        margin-top: 2px;
+    }
+
+    /* Painel */
+    .painel {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    .painel-topo {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .painel-topo h2 {
+        font-size: 1.05rem;
+    }
+
+    .subtitulo {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .badge-periodo {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+    }
+
+    /* Gráfico */
+    .grafico {
+        width: 100%;
+        height: 210px;
+        justify-content: flex-start;
+        gap: 22px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 15px 5px 10px;
+        box-sizing: border-box;
+    }
+
+    .barra-produto {
+        min-width: 55px;
+        flex-shrink: 0;
+    }
+
+    .barra {
+        width: 38px;
+    }
+
+    .valor-barra {
+        font-size: 0.75rem;
+    }
+
+    .nome-produto {
+        font-size: 0.72rem;
+        max-width: 70px;
+        line-height: 1.2;
+    }
+
+    /* Cards de resumo */
+    .cards-resumo {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        min-width: 0;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .stat-card .icone {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .stat-card .valor {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .stat-card .rotulo {
+        font-size: 0.75rem;
+        line-height: 1.25;
+    }
+
+    /* Resumo rápido */
+    .tags-produtos {
+        gap: 8px;
+    }
+
+    .tag-produto {
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 7px 12px;
+        font-size: 0.78rem;
+        line-height: 1.3;
+    }
+
+    /* Tabela */
+    .tabela-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabela-container table {
+        min-width: 380px;
+    }
+
+    .tabela-container th,
+    .tabela-container td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    main {
+        padding: 15px 10px;
+    }
+
+    main > div:first-child h1 {
+        font-size: 1.3rem !important;
+    }
+
+    main > div:first-child p {
+        font-size: 0.82rem;
+    }
+
+    .painel {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .grafico {
+        gap: 18px;
+        height: 195px;
+    }
+
+    .barra {
+        width: 34px;
+    }
+
+    .nome-produto {
+        max-width: 62px;
+        font-size: 0.68rem;
+    }
+
+    .cards-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tag-produto {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tabela-container table {
+        min-width: 350px;
+    }
+
+    .tabela-container th,
+    .tabela-container td {
+        padding: 9px 7px;
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    main {
+        padding: 12px 8px;
+    }
+
+    main > div:first-child h1 {
+        font-size: 1.2rem !important;
+    }
+
+    .painel {
+        padding: 10px;
+    }
+
+    .grafico {
+        gap: 15px;
+    }
+
+    .cards-resumo {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px;
+    }
+
+    .stat-card .icone {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+
+    .stat-card .valor {
+        font-size: 0.95rem;
+    }
+
+    .stat-card .rotulo {
+        font-size: 0.7rem;
+    }
+}
 
     </style>
 </head>
