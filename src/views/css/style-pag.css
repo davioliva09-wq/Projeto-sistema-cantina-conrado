@@ -1,12 +1,6 @@
-/* =========================================================
-PAGAMENTO
-========================================================= */
-
 body {
 background-color: #070442;
 }
-
-/* Título da página */
 
 h1 {
 color: #ffa805;
@@ -16,8 +10,6 @@ margin: 35px 0 30px;
 font-size: 32px;
 }
 
-/* Área principal */
-
 main {
 width: 100%;
 max-width: 1100px;
@@ -25,8 +17,6 @@ margin: 0 auto;
 padding: 0 30px 50px;
 box-sizing: border-box;
 }
-
-/* Painel geral do pagamento */
 
 .pagamento {
 display: grid;
@@ -42,18 +32,12 @@ box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 
 }
 
-/* =========================================================
-SEÇÕES
-========================================================= */
-
 .resumo,
 .metodo {
 padding: 30px;
 background-color: #070442;
 box-sizing: border-box;
 }
-
-/* Separação entre as duas áreas */
 
 .resumo {
 border-right: 1px solid rgba(255, 255, 255, 0.08);
@@ -63,8 +47,6 @@ border-right: 1px solid rgba(255, 255, 255, 0.08);
 background-color: #090551;
 }
 
-/* Títulos das seções */
-
 .resumo h2,
 .metodo h2 {
 margin: 0 0 8px;
@@ -72,8 +54,6 @@ color: #ffffff;
 font-size: 20px;
 font-weight: 600;
 }
-
-/* Pequena linha amarela abaixo do título */
 
 .resumo h2::after,
 .metodo h2::after {
@@ -90,17 +70,15 @@ border-radius: 2px;
 
 }
 
-/* Texto introdutório */
-
 .metodo > p {
 margin: 18px 0 0;
 color: #bdbbd6;
 font-size: 14px;
 }
 
-/* =========================================================
+/*
 RESUMO DO PEDIDO
-========================================================= */
+*/
 
 .produto {
 display: flex;
@@ -150,9 +128,9 @@ color: #ffa805;
 font-size: 22px;
 }
 
-/* =========================================================
+/*
 MÉTODO DE PAGAMENTO
-========================================================= */
+*/
 
 .opcoes {
 display: grid;
@@ -162,8 +140,6 @@ gap: 12px;
 margin: 22px 0;
 
 }
-
-/* Cada método */
 
 .opcao {
 display: flex;
@@ -186,23 +162,16 @@ transition: 0.15s ease;
 
 }
 
-/* Radio */
-
 .opcao input {
 margin: 0;
 accent-color: #ffa805;
 }
-
-/* Hover da opção */
 
 .opcao {
 border-color: #ffa805;
 background-color: #0b0854;
 }
 
-/* =========================================================
-ÁREA DE PAGAMENTO
-========================================================= */
 
 .api-area {
 min-height: 130px;
@@ -227,8 +196,6 @@ text-align: center;
 
 }
 
-/* Título da área */
-
 .api-area p {
 margin: 0 0 8px;
 
@@ -237,8 +204,6 @@ font-size: 15px;
 font-weight: bold;
 
 }
-
-/* Texto explicativo */
 
 .api-area p {
 max-width: 400px;
@@ -251,9 +216,9 @@ line-height: 1.5;
 
 }
 
-/* =========================================================
+/*
 BOTÕES
-========================================================= */
+*/
 
 .botoes {
 display: flex;
@@ -265,51 +230,272 @@ margin-top: 25px;
 
 }
 
-/* Botão principal */
-
 .botoes button {
 padding: 11px 25px;
-
-border: 1px solid #ffa805;
+background-color: #e09304;
+border-color: #ffb82e;
 border-radius: 5px;
-
-background-color: #ffa805;
 color: #070442;
-
 font-size: 14px;
 font-weight: bold;
-
 cursor: pointer;
-
 transition: 0.15s ease;
 
+
 }
 
-.botoes button {
-background-color: #ffb82e;
-border-color: #ffb82e;
+.botoes button:hover {
+    background-color: #f7c45f;
 }
-
-/* Cancelar */
 
 .botoes .cancelar {
 padding: 10px 20px;
-
 border: 1px solid rgba(255, 255, 255, 0.2);
 border-radius: 5px;
-
 background-color: transparent;
 color: #bdbbd6;
-
 font-size: 14px;
 text-decoration: none;
-
 transition: 0.15s ease;
-
-}
-
-.botoes .cancelar {
 border-color: rgba(255, 255, 255, 0.4);
 background-color: rgba(255, 255, 255, 0.05);
 color: #ffffff;
+
+}
+
+
+.botoes .cancelar:hover {
+    background-color: #070442;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 900px) {
+
+main {
+    max-width: 800px;
+    padding: 0 20px 40px;
+}
+
+.pagamento {
+    grid-template-columns: 1fr 1fr;
+}
+
+.resumo,
+.metodo {
+    padding: 25px;
+}
+
+}
+
+/* Mobile */
+
+@media screen and (max-width: 700px) {
+
+h1 {
+    font-size: 26px;
+    margin: 25px 0 20px;
+}
+
+main {
+    width: 100%;
+    padding: 0 15px 35px;
+    box-sizing: border-box;
+}
+
+.pagamento {
+    grid-template-columns: 1fr;
+    border-radius: 8px;
+}
+
+.resumo,
+.metodo {
+    padding: 22px;
+}
+
+.resumo {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.produto {
+    padding: 15px 0;
+}
+
+.produto p {
+    font-size: 14px;
+}
+
+.total {
+    margin-top: 20px;
+    padding-top: 17px;
+    font-size: 17px;
+}
+
+.total span:last-child {
+    font-size: 20px;
+}
+
+.metodo > p {
+    font-size: 13px;
+}
+
+.opcoes {
+    gap: 10px;
+}
+
+.opcao {
+    min-height: 52px;
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.api-area {
+    min-height: 120px;
+    padding: 20px;
+}
+
+.api-area p:first-child {
+    font-size: 14px;
+}
+
+.api-area p:last-child {
+    font-size: 12px;
+}
+
+.botoes {
+    justify-content: stretch;
+}
+
+.botoes button,
+.botoes .cancelar {
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+
+h1 {
+    font-size: 23px;
+    margin: 20px 0 18px;
+}
+
+main {
+    padding: 0 10px 25px;
+}
+
+.pagamento {
+    border-radius: 7px;
+}
+
+.resumo,
+.metodo {
+    padding: 18px;
+}
+
+.resumo h2,
+.metodo h2 {
+    font-size: 18px;
+}
+
+.produto p {
+    font-size: 13px;
+}
+
+.total {
+    font-size: 16px;
+}
+
+.total span:last-child {
+    font-size: 19px;
+}
+
+.opcoes {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.opcao {
+    min-height: 50px;
+    padding: 0 9px;
+    font-size: 13px;
+}
+
+.api-area {
+    padding: 18px 12px;
+}
+
+.botoes {
+    gap: 8px;
+}
+
+.botoes button,
+.botoes .cancelar {
+    padding: 11px 10px;
+    font-size: 13px;
+}
+
+}
+
+@media screen and (max-width: 360px) {
+
+h1 {
+    font-size: 21px;
+}
+
+main {
+    padding: 0 7px 20px;
+}
+
+.resumo,
+.metodo {
+    padding: 15px;
+}
+
+.resumo h2,
+.metodo h2 {
+    font-size: 17px;
+}
+
+.produto {
+    padding: 13px 0;
+}
+
+.produto p {
+    font-size: 12px;
+}
+
+.total {
+    font-size: 15px;
+}
+
+.total span:last-child {
+    font-size: 18px;
+}
+
+.opcoes {
+    grid-template-columns: 1fr;
+}
+
+.opcao {
+    min-height: 48px;
+}
+
+.api-area {
+    min-height: 110px;
+}
+
+.botoes {
+    flex-direction: column;
+}
+
+.botoes button,
+.botoes .cancelar {
+    width: 100%;
+    flex: none;
+}
+
 }
