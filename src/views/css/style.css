@@ -261,6 +261,7 @@ textarea {
 .span-intro {
     color: #e09304;
     font-family: "Fredoka"; 
+    transition: 0.2s;
 }
 
 .span-intro:hover {
@@ -545,6 +546,23 @@ textarea {
         .tabela tbody tr:last-child td { border-bottom: none; }
         .tabela tbody tr:hover { background-color: #f7f7f7; }
         .status { display: flex; align-items: center; gap: 9px; font-weight: bold; }
+
+.btn-busca {
+    background-color: #e09304;
+    color: #0b065f;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn-busca:hover {
+    background-color: #d5a13f;
+}
 
 /*telas responsivas*/
 

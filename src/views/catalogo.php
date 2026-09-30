@@ -32,7 +32,7 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
 
         <form action="" method="GET"> 
             <input name="q" class="campo-busca" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>"> 
-            <input type="submit" value="Pesquisar"> 
+            <input class="btn-busca" type="submit" value="Pesquisar"> 
         </form> 
 
         <div class="produtos-grid"> 

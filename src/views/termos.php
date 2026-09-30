@@ -19,11 +19,13 @@
 
         h2 {
             color: #e09304;
+            margin-top: 50px;
+            font-family: "Cascadia Code";
         }
 
         p {
             font-family: Roboto;
-            font-strength: 10px;
+            font-size: 20px;
         }
 
         .centering {
@@ -36,12 +38,11 @@
         }
         
         .p-intro {
-            font-size: 20px;
-            margin-bottom: 65px;
+            font-family: Cascadia Code;
+            font-size: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            justify-text: center;
         }
         
     </style>
@@ -53,6 +54,7 @@
             <h1 class="centering">Termos de Uso</h1>
 
             <p class="p-intro">
+                <img src="images/warning-neru.png" alt="!" style="width: 25px; height: auto; margin-right: 10px;">
                 Estes Termos de Uso estabelecem as condições para utilização
                 do sistema e dos serviços disponibilizados aos usuários.
             </p>
