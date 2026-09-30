@@ -531,8 +531,9 @@ textarea {
         .barra-de-pesquisa form { display: flex; align-items: center; gap: 10px; }
         .barra-de-pesquisa label { display: none; }
         .barra-de-pesquisa input { width: 250px; height: 36px; padding: 0 12px; border: 1px solid #c8c8c8; border-radius: 6px; box-sizing: border-box; outline: none; }
-        .barra-de-pesquisa input:focus { border-color: #999; }
-        .barra-de-pesquisa button { height: 36px; padding: 0 18px; border: none; border-radius: 6px; cursor: pointer; }
+        .barra-de-pesquisa input:focus { border-color: #6e6d6d; }
+        .barra-de-pesquisa button { height: 36px; padding: 0 18px; border: none; border-radius: 6px; cursor: alias; transition: 0.2s;}
+        .barra-de-pesquisa button:hover { background-color: #777777; color: #fff }
         .tabela { width: 100%; border-collapse: separate; border-spacing: 0; background-color: #ffffff; border: 1px solid #d5d5d5; border-radius: 12px; overflow: hidden; table-layout: fixed; }
         .tabela th { background-color: #e9e9e9; color: #222; text-align: left; padding: 15px; font-size: 16px; border-bottom: 1px solid #d0d0d0; }
         .tabela td { padding: 15px; color: #333; border-bottom: 1px solid #e5e5e5; }

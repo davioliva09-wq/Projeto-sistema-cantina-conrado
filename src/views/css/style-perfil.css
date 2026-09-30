@@ -209,7 +209,7 @@ body {
 
 .btn-yellow {
     width: 100%;
-    background-color: #ffcc00;
+    background-color: #e09304;
     color: #0d1b46;
     border: none;
     padding: 14px;
@@ -225,7 +225,7 @@ body {
 
 .btn-yellow:hover {
     background-color: #0d1b46;
-    color: #ffcc00;
+    color: #ffb82e;
 }
 
 /* Rodapé e Botão Voltar */
@@ -242,8 +242,8 @@ body {
     align-items: center;
     gap: 8px;
     background-color: transparent;
-    color: #ffcc00;
-    border: 1px solid #ffcc00;
+    color: #e09304;
+    border: 1px solid #e09304;
     padding: 10px 24px;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -259,7 +259,7 @@ body {
 }
 
 .btn-back:hover {
-    background-color: #ffcc00;
+    background-color: #ffb82e;
     color: #0d1b46;
 }
 
@@ -271,7 +271,7 @@ body {
         ========================================================= */
 
         :root {
-            --cor-amarelo: #ffd000;
+            --cor-amarelo: #e09304;
             --cor-fundo-input: #071a40;
             --espaco-botoes: 12px;
         }
