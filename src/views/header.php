@@ -40,6 +40,26 @@ header nav a {
     color: white;
     text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-wrap: wrap; /* Permite que os itens caiam para a próxima linha */
+        gap: 15px;
+    }
+    
+    /* Faz o bloco do Portal Administrativo ocupar toda a largura na primeira linha */
+    header > div:first-child {
+        flex: 1 1 100%; 
+    }
+
+    header > div:nth-child(2) {
+        margin-left: 0;
+    }
+
+    #title {
+        font-size: 25px;
+    }
+}
 </style>
 
 <header> 
