@@ -12,4 +12,3 @@ updatePassword:
   atualiza o cadastro do usuário na tabela principal e apaga definitivamente o código temporário do 
   banco de dados para impedir reutilizações.
 
-uwu 
