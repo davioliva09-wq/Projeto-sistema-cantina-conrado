@@ -35,6 +35,7 @@ $produtoId = $_GET['id'] ?? 1;
     <div id="wrapper">
 
         <aside id="sidebar">
+            <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
             <nav>
                 <a href="admin-dashboard.php">Dashboard</a>
                 <a href="admin-pedidos.php">Pedidos</a>
@@ -184,11 +185,11 @@ $produtoId = $_GET['id'] ?? 1;
 
                 <div>
 
-                    <button type="submit">
+                    <button type="submit" id="btn-salvar">
                         Salvar Alterações
                     </button>
 
-                    <button type="button" onclick="alert('Produto excluído!')">
+                    <button type="button" id="btn-delete" onclick="alert('Produto excluído!')">
                         Excluir Produto
                     </button>
 

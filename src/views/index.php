@@ -23,7 +23,7 @@
         <!-- Seção de Introdução / Boas-vindas -->
         <section class="section-index">
             <p style="color: #ffa805; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 20px;">
-                BEM VINDO(A)!
+                BEM-VINDO(A)!
             </p>
             
             <h1 class="intro" style="font-size: 70px;">
@@ -32,8 +32,8 @@
             </h1>
             
             <p>
-                Com o Sistema de Cantina Conrado, você consulta o <br> 
-                cardápio, faz seus pedidos e acompanha suas compras <br> 
+                Com o Sistema de Cantina Conrado, você consulta o 
+                cardápio, faz seus pedidos e acompanha suas compras  
                 de forma rápida, prática e sem filas.
             </p>
             
@@ -53,7 +53,6 @@
 
         <!-- Seção da Imagem dos Lanches -->
         <section class="lanches-index">
-            <img src="images/indexlanchitos.png" alt="Lanches saborosos da cantina">
             <img src="images/indexlanchitos.png" alt="Lanches saborosos da cantina">
         </section>
 

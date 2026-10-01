@@ -1,4 +1,4 @@
-<?php 
+<?php /*
 ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL); 
@@ -14,7 +14,7 @@ $produtos = $produtoService->buscaProdNome($termoPesquisa);
 $produtosDisponiveis = array_filter($produtos, function($item) { 
     return isset($item['disponivel']) && $item['disponivel']; 
 }); 
-
+*/
 ?> 
 <!DOCTYPE html> 
 <html lang="pt-BR"> 
@@ -26,13 +26,13 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
 </head> 
 <body> 
     <?php require_once("header.php"); ?> 
-
+    
     <main class="catalogo-container"> 
         <h1>Nosso Cardápio</h1> 
 
         <form action="" method="GET"> 
             <input name="q" class="campo-busca" type="text" placeholder="Procure o produto" value="<?php echo htmlspecialchars($termoPesquisa); ?>"> 
-            <input type="submit" value="Pesquisar"> 
+            <input class="btn-busca" type="submit" value="Pesquisar"> 
         </form> 
 
         <div class="produtos-grid"> 

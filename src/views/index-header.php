@@ -40,6 +40,13 @@ header nav a {
     color: white;
     text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+    #title {
+        font-size: 25px;
+    }
+    
+}
 </style>
 
 <header> 
@@ -54,7 +61,7 @@ header nav a {
         
         <img src="images/users-neru.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
             <nav>
-            <a href="login.php?tipo=usuario" class="span-intro">Já tem conta? <br> Fazer login</a> 
+            <a href="login.php?tipo=usuario" class="span-intro" style="font-size: 14px";>Já tem conta? <br> Fazer login</a> 
             </nav>
         
     </div> 

@@ -93,7 +93,7 @@ body {
     <form action="pesquisa"></form>
     <label for="campo-busca">Buscar: </label>
     <input type="Usuário" placeholder="Pesquisar Usuários">
-    <button type="submit">Enviar</button>
+    <button type="submit">Dis shit broken as</button>
     </div>
 
     <nav class=meno>
@@ -105,6 +105,18 @@ body {
     </nav>
         
     <br>
+            <aside id="sidebar">
+            <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
+            <nav>
+                <a href="admin-dashboard.php">Dashboard</a>
+                <a href="admin-pedidos.php">Pedidos</a>
+                <a href="admin-estoque.php" class="ativo">Estoque</a>
+                <a href="admin-relatorio.php">Relatórios</a>
+                <a href="admin-usuarios.php">Usuários</a>
+           </nav>
+       </aside>
+
+       <br>
 
     <table class="tabela">
         <thead>
