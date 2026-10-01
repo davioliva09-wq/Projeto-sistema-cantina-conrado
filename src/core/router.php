@@ -1,5 +1,5 @@
 <?php 
-class Router{
+/*class Router{
     public function dispatch($url){
         $url = trim($url, '/');
 
@@ -27,4 +27,4 @@ class Router{
         echo "<hr>";
         echo($controllerName2) . " controller"; 
     }
-}
+}*/
