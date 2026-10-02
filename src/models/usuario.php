@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../routes/conexao.php';
+require_once('../routes/conexao.php');
 abstract class Usuario{
     public function login($email, $senha){
 
@@ -20,22 +20,25 @@ class UsuarioComum extends Usuario {
         $this->db = $conexao;
     }
 
-    public function cadastrar($nome, $email, $telefone, $senha) {
+      public function cadastrar($nome, $email, $telefone, $senha) {
         if (strlen($senha) < 8) {
-            echo "<script> alert('A senha deve ter pelo menos 8 caracteres!');
-             </script>";
+            echo "<script> alert('A senha deve ter pelo menos 8 caracteres!'); </script>";
             return false;
-        }else{
-            echo "<script> alert('bela senha')
-            </script>";
+        } else {
+            echo "<script> alert('bela senha') </script>";
         }
+
+        // CORREÇÃO AQUI: Criando a senha criptografada antes de enviar para o banco
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO usuarios (nome, email, telefone, senha) VALUES (:nome, :email, :telefone, :senha)";
+
+        $sql = "INSERT INTO usuarios (nome_completo, email, telefone, senha) VALUES (:nome_completo, :email, :telefone, :senha)";
+
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':nome_completo', $nome);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':senha', $senhaCriptografada);
+        $stmt->bindParam(':senha', $senhaCriptografada); // Agora ela existe!
+
         return $stmt->execute();
     }
 
