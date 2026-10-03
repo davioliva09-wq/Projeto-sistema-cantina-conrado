@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../../routes/conexao.php';
+require_once ('../routes/conexao.php');
 require_once("usuario.php");
 
 
@@ -17,14 +17,11 @@ class ADM extends Usuario {
     } 
 
 public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem) {
-    // 1. Correção da query SQL adicionando vírgulas e marcadores identificados por dois pontos (:)
-    $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem, disponivel) 
-            VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem, 1)";
+    $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem) 
+            VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem)";
     
-    // 2. Preparação da query utilizando a instância do PDO
     $stmt = $this->db->prepare($sql);
     
-    // 3. Vinculação correta dos parâmetros (Bind)
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':preco', $preco);
     $stmt->bindParam(':estoque', $estoque);
@@ -32,7 +29,6 @@ public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':imagem', $imagem);
     
-    // 4. Executa e retorna true em caso de sucesso ou false em caso de falha
     return $stmt->execute();
 }
 
@@ -63,4 +59,14 @@ public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao
             echo "Produto indisponível"; 
         } 
     } 
+   public function veriStatus($status, $estoque) {
+    if ($estoque < 1) {
+        return 'indisponivel';
+    } else {
+        return 'disponivel';
+    }
 }
+}
+
+
+

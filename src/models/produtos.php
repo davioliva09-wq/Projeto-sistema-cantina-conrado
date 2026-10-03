@@ -33,7 +33,6 @@ class Produto {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
 }
 
 
