@@ -1,30 +1,20 @@
-<?php 
+<?php
+require_once __DIR__ . '/../routes/HomeController.php';
+
 class Router{
+
     public function dispatch($url){
-        $url = trim($url, '/');
-
+        
+        $url = trim($url, "/");
         $parts = $url ? explode("/", $url) : [];
-        echo $url;
+        $controllerName = $parts[0] ?? 'Home';
 
-        echo '<br>';
-        var_dump($parts);
+        $controllerName = ucfirst($controllerName) . "Controller";
+        $controller = new $controllerName();
 
+        var_dump($controller);
 
-        $controllerName = $parts[0] ?? "HomeController";
-        echo '<hr>';
-        echo "controller " .($controllerName);
+        $controller->inicial();
 
-
-
-
-
-
-
-
-
-
-        $controllerName2 = $parts[1] ?? "Homecontrucker";
-        echo "<hr>";
-        echo($controllerName2) . " controller"; 
     }
 }

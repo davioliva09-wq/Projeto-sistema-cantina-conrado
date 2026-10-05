@@ -7,6 +7,6 @@ require_once("../src/core/router.php");
 
 $url = $_GET["url"] ?? '';
         echo "url: ".$url;
-
+        
 $nada = new Router();
 $nada->dispatch($url);
