@@ -77,3 +77,34 @@ RNF08 - O sistema deve manter registro das operações realizadas pelos funcion�
 RNF09 - O sistema deve estar disponível durante o horário de funcionamento da cantina.
 
 RNF10 - O sistema deve seguir boas práticas de segurança para proteção dos dados dos usuários.
+
+
+
+
+
+
+
+
+
+
+PÁGINAS QUE UTILIZARAO MÉTODOS CRUD
+
+C(CREATE)
+-CADASTRO
+-CADASTRO DE PRODUTO
+
+
+
+R(READ)
+-LOGIN(LOGOUT SERÁ UM MÉTODO DELETE)
+-ADMIN-USUARIOS
+-ÁDMIN-RELATORIO
+-EXIBIR-PEDIDOS
+-CATALOGO
+-CARRINHO
+
+
+U(UPDATE)
+-REC-SENHA(PROCESSO DIFERENTE)
+-EDIÇÃO-PRODUTO(INCLUI DELETE)
+
