@@ -34,7 +34,7 @@
             <p>
                 Com o Sistema de Cantina Conrado, você consulta o 
                 cardápio, faz seus pedidos e acompanha suas compras  
-                de forma rápida, prática e sem filas.
+                de a rápida, prática e sem filas.
             </p>
             
             <a href="cadastro.php">
