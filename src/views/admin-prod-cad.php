@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <main>
             <section>
                 <!-- Formulário puro pronto para estilização -->
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="proc-cad-prod.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id_produto" value="">
                     
                     <label for="nome">Nome do Produto</label>
@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label for="descricao">Descrição</label>
                     <textarea id="descricao" name="descricao" rows="6"></textarea>
                     
-                    <label for="imagem">Imagem do Produto</label>
-                    <input type="file" id="imagem" name="imagem" accept="image/*">
+                    <label for="image">Imagem do Produto</label>
+                    <input type="file" id="image" name="image" accept="image/*">
                     
                     <div id="linha-botoes">
                         <button type="submit" id="btn-salvar">Salvar Produto</button>

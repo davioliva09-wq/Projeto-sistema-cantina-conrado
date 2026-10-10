@@ -17,7 +17,7 @@ $nome_imagem_final = null;
 if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
     $diretorio_destino = "images/"; 
 
-    
+        
 
     $extensao = pathinfo($_FILES["imagem"]["name"], PATHINFO_EXTENSION);
     $nome_imagem_final = uniqid() . "." . $extensao; 
