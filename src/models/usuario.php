@@ -28,7 +28,6 @@ class UsuarioComum extends Usuario {
             echo "<script> alert('bela senha') </script>";
         }
 
-        // CORREÇÃO AQUI: Criando a senha criptografada antes de enviar para o banco
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO usuarios (nome_completo, email, telefone, senha) VALUES (:nome_completo, :email, :telefone, :senha)";
@@ -37,7 +36,7 @@ class UsuarioComum extends Usuario {
         $stmt->bindParam(':nome_completo', $nome);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':senha', $senhaCriptografada); // Agora ela existe!
+        $stmt->bindParam(':senha', $senhaCriptografada); 
 
         return $stmt->execute();
     }
@@ -111,7 +110,13 @@ public function buscaUsuario($busca= ''){
 }
 
 
-
+public function validateEmail(string $email){
+$sql = "SELECT id, email FROM usuarios where email = :email LIMIT 1";
+$stmt = $this->db->prepare($sql);
+$stmt->bindParam(":email", $email);
+$stmt->execute();
+return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
 
 }
