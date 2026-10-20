@@ -2,6 +2,7 @@
 
 class Controller {
     protected function view($view) {
-        $viewFile = __DIR__ . '/../../views/' . $view . '.php';
+        $viewFile = __DIR__ . '/../views/' . $view . '.php';
+        require_once($viewFile);
     }
 }
