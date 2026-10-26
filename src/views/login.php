@@ -1,10 +1,10 @@
-<?php /*
+<?php 
 //ob_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . '/../../routes/conexao.php';
+require_once __DIR__ . '/../routes/conexao.php';
 require_once __DIR__ . '/../models/usuario.php';
 
 $mensagemErro = "";
@@ -17,18 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $usuarioClasse->login($email, $senha);
 
     if ($resultado) {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        $_SESSION['usuario_id'] = $resultado['id'];
-
+     
         header("Location: catalogo.php");
         exit();
     } else {
         $mensagemErro = "E-mail ou senha incorretos.";
     }
 }
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login - Cantina Conrado</title>
 
     <style>
-        /* Ajustes específicos da página de login que não estão no style-cadastro.css */
         .erro-login {
             color: #ffffff;
             background-color: rgba(255, 51, 51, 0.25);
@@ -67,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .card-cadastro a:hover {
             text-decoration: none;
         }
-
     </style>
 </head>
 
@@ -90,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="erro-login"><?php echo $mensagemErro; ?></div>
             <?php endif; ?>
 
-            <form action="catalogo.php" method="POST">
+            <form action="" method="POST">
 
                 <div class="form-group">
                     <label for="email">Email</label>

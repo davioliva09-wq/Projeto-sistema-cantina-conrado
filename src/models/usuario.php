@@ -55,10 +55,11 @@ class UsuarioComum extends Usuario {
             $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['usuario_cargo'] = $usuario['cargo'];
         
-        if($usuario["cargo"] === "admin"){
-            header("location: admin.php");
+        if($usuario["cargo"] === "ADM"){
+            header("location: admin-pedidos.php");
             exit();}
              return $usuario;
+         
     }
     
     return false;
