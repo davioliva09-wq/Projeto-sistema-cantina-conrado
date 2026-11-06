@@ -5,6 +5,17 @@ body {
     margin: 0;
     font-family: sans-serif; /* Altere para sua fonte preferida */
 }
+/* Adicione isso no final do seu arquivo css/style-perfil.css */
+.phone-fields {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.phone-fields .input-container:last-child {
+    flex: 2 !important; /* Aumenta a proporção do campo do telefone para não cortar */
+}
+
 
 :root {
             --verde: #4eae7b;

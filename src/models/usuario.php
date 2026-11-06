@@ -1,5 +1,6 @@
 <?php
 require_once('../routes/conexao.php');
+
 abstract class Usuario{
     public function login($email, $senha){
 
@@ -43,7 +44,7 @@ class UsuarioComum extends Usuario {
 
     public function login($email, $senha) {
 
-        $sql = "SELECT id, email, senha, cargo FROM usuarios where email = :email";
+        $sql = "SELECT id_usuario, email, senha, cargo FROM usuarios where email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
@@ -65,7 +66,7 @@ class UsuarioComum extends Usuario {
     return false;
 }
     public function emailExist($email){
-        $sql = "SELECT * FROM id from usuarios where email = :email";
+        $sql = "SELECT * FROM id_usuario from usuarios where email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam("email", $email);
  return $stmt->rowCount() > 0;    }
@@ -87,14 +88,14 @@ public function alterarSenha($id, $senha){
     $stmt = $this->db->prepare($sql);
     $stmt->execute([
         ":senha" => $senha,
-        ":id" => $id
+        ":id_usuario" => $id
     ]);
 }
     public function buscaPorNome($nome){
-    $sql = "SELECT * from usuarios WHERE nome = :nome";
+    $sql = "SELECT * from usuarios WHERE nome_usuario = :nome_usuario";
     $stmt = $this->db->prepare($sql); 
     
-    $stmt->bindParam(":nome", $nome);
+    $stmt->bindParam(":nome_completo", $nome_completo);
     $stmt->execute();
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -102,7 +103,7 @@ public function alterarSenha($id, $senha){
 
 
 public function buscaUsuario($busca= ''){
-    $sql = "SELECT id, nome, email, telefone FROM usuarios WHERE id LIKE :busca or nome LIKE :busca or email LIKE :busca or telefone LIKE :busca";
+    $sql = "SELECT id_usuario, nome, email, telefone FROM usuarios WHERE id LIKE :busca or nome LIKE :busca or email LIKE :busca or telefone LIKE :busca";
     $stmt = $this->db->prepare($sql);
     $termo = "%" . $busca . "%";
     $stmt->bindParam(":busca", $termo);
@@ -112,15 +113,23 @@ public function buscaUsuario($busca= ''){
 
 
 public function validateEmail(string $email){
-$sql = "SELECT id, email FROM usuarios where email = :email LIMIT 1";
+$sql = "SELECT id_usuario, email FROM usuarios where email = :email LIMIT 1";
 $stmt = $this->db->prepare($sql);
 $stmt->bindParam(":email", $email);
 $stmt->execute();
 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
-
+ public function mostDados($id) {
+    $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id = :id"; 
+    $stmt = $this->db->prepare($sql); 
+    $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT); 
+    $stmt->execute(); 
+    
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
 }
+
 
 
 
