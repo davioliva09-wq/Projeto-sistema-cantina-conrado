@@ -1,39 +1,61 @@
 <?php
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
 
-// ID do produto que será editado.
-// Futuramente, o Back-End poderá receber esse ID pela URL:
-// admin-edicao.php?id=1
+require_once '../routes/conexao.php'; 
+require_once("../models/produtos.php");
 
-$produtoId = $_GET['id'] ?? 1;
+$prod = new Produto($conn);
+$produtoId = (int) ($_GET['id'] ?? $_POST['produto_id'] ?? 0);
 
+$dados = $prod->buscarPorId($produtoId);
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $id_produto = (int) $_POST['produto_id'];
+    $nome       = $_POST['nome'];
+    $categoria  = $_POST['tipo'];
+    $descricao  = $_POST['descricao'];
+    $preco      = (float) $_POST['preco'];
+    $estoque    = (int) $_POST['quantidade'];
+    $disponivel = ($_POST['disponibilidade'] === 'disponivel');
+
+    $imagem = $dados['imagem'] ?? '';
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
+        if (!is_dir('../uploads')) {
+            mkdir('../uploads', 0777, true);
+        }
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], '../uploads/' . $nomeArquivo)) {
+            $imagem = $nomeArquivo;
+        }
+    }
+
+    if ($prod->editarProduto($id_produto, $nome, $preco, $estoque, $categoria, $descricao, $imagem, $disponivel)) {
+        header("Location: admin-estoque.php");
+        exit;
+    } else {
+        $erro = "Erro ao atualizar produto.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Editar Produto - Cantina Conrado</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
-
 <body>
 
     <?php include "admin-header.php" ?>
 
-    <!-- Menu Lateral de Navegação -->
     <div id="wrapper">
-
         <aside id="sidebar">
             <a href="javascript:void(0)" class="fechar-sidebar" onclick="alternarSidebar()">×</a>
             <nav>
@@ -45,163 +67,57 @@ $produtoId = $_GET['id'] ?? 1;
            </nav>
        </aside>
 
-    </header>
-
-
     <main>
-
         <section>
-
             <h1>Editar Produto</h1>
 
+            <?php if (isset($erro)): ?>
+                <p style="color: red;"><?= $erro ?></p>
+            <?php endif; ?>
 
-            <form
-                action="#"
-                method="POST"
-                enctype="multipart/form-data"
-            >
+            <form action="" method="POST" enctype="multipart/form-data">
 
-                <!-- ID do produto -->
+                <input type="hidden" name="produto_id" value="<?= $dados['id_produto'] ?? $produtoId ?>">
 
-                <input
-                    type="hidden"
-                    name="produto_id"
-                    value="<?php echo $produtoId; ?>"
-                >
+                <label for="nome">Nome do Produto</label>
+                <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($dados['nome'] ?? '') ?>" required>
 
-
-                <!-- Nome -->
-
-                <label for="nome">
-                    Nome do Produto
-                </label>
-
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    value="X-Burguer"
-                    required
-                >
-
-
-                <!-- Tipo -->
-
-                <label for="tipo">
-                    Tipo
-                </label>
-
-                <select
-                    id="tipo"
-                    name="tipo"
-                    required
-                >
-
-                    <option value="lanches" selected>
-                        Lanches
-                    </option>
-
-                    <option value="bebidas">
-                        Bebidas
-                    </option>
-
-                    <option value="doces">
-                        Doces
-                    </option>
-
-                    <option value="salgados">
-                        Salgados
-                    </option>
-
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo" required>
+                    <?php $catAtual = strtolower($dados['categoria'] ?? ''); ?>
+                    <option value="lanches" <?= $catAtual === 'lanches' ? 'selected' : '' ?>>Lanches</option>
+                    <option value="bebidas" <?= $catAtual === 'bebidas' ? 'selected' : '' ?>>Bebidas</option>
+                    <option value="doces" <?= $catAtual === 'doces' ? 'selected' : '' ?>>Doces</option>
+                    <option value="salgados" <?= $catAtual === 'salgados' ? 'selected' : '' ?>>Salgados</option>
                 </select>
 
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" rows="6"><?= htmlspecialchars($dados['descricao'] ?? '') ?></textarea>
 
-                <!-- Descrição -->
+                <label for="preco">Preço</label>
+                <input type="number" id="preco" name="preco" value="<?= $dados['preco'] ?? '' ?>" step="0.01" min="0" required>
 
-                <label for="descricao">
-                    Descrição
-                </label>
-
-                <textarea
-                    id="descricao"
-                    name="descricao"
-                    rows="6"
-                >Hambúrguer com queijo e molho especial.</textarea>
-
-
-                <!-- Preço -->
-
-                <label for="preco">
-                    Preço
-                </label>
-
-                <input
-                    type="number"
-                    id="preco"
-                    name="preco"
-                    value="12.00"
-                    step="0.01"
-                    min="0"
-                    required
-                >
-
-
-                <!-- Imagem -->
-
-                <label for="imagem">
-                    Alterar Imagem
-                </label>
+                <label for="imagem">Alterar Imagem</label>
                 <input type="file" id="imagem" name="imagem" accept="image/*">
 
+                <label for="quantidade">Quantidade em Estoque</label>
+                <input type="number" id="quantidade" name="quantidade" value="<?= $dados['estoque'] ?? '' ?>" min="0" required>
 
-                <!-- Estoque -->
-
-                <label for="quantidade">
-                    Quantidade em Estoque
-                </label>
-                <input type="number" id="quantidade" name="quantidade" value="15" min="0" required>
-
-
-                <!-- Disponibilidade -->
-
-                <label for="disponibilidade">
-                    Disponibilidade
-                </label>
-
+                <label for="disponibilidade">Disponibilidade</label>
                 <select id="disponibilidade" name="disponibilidade" required>
-
-                    <option value="disponivel" selected>
-                        Disponível
-                    </option>
-
-                    <option value="indisponivel">
-                        Indisponível
-                    </option>
-
+                    <?php $dispAtual = $dados['disponivel'] ?? 1; ?>
+                    <option value="disponivel" <?= $dispAtual ? 'selected' : '' ?>>Disponível</option>
+                    <option value="indisponivel" <?= !$dispAtual ? 'selected' : '' ?>>Indisponível</option>
                 </select>
 
-
-                <!-- Botões -->
-
                 <div>
-
-                    <button type="submit" id="btn-salvar">
-                        Salvar Alterações
-                    </button>
-
-                    <button type="button" id="btn-delete" onclick="alert('Produto excluído!')">
-                        Excluir Produto
-                    </button>
-
+                    <button type="submit" id="btn-salvar">Salvar Alterações</button>
+                    <a href="admin-estoque.php"><button type="button" id="btn-cancelar">Cancelar</button></a>
                 </div>
 
             </form>
-
         </section>
-
     </main>
-
-
+    </div>
 </body>
-
 </html>

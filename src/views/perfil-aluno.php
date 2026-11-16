@@ -78,11 +78,7 @@ $usuario = $dados ? $dados : [
 
                 </section>
                 <section class="avatar-side">
-                    <h3 class="avatar-title">Foto de perfil</h3>
-                    <div class="avatar-wrapper">
-                        <img src="images/kibe.jpg" class="avatar-img" alt="Foto">
-                        <!-- O botão "Editar" foi removido daqui -->
-                    </div>
+                 
                     <div class="action-buttons">
                         <a href="historico.php" class="btn-yellow">Histórico</a>
                     </div>

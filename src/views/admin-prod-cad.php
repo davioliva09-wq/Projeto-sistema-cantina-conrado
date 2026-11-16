@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Cantina Conrado</title>
     <!-- Google Fonts — Importação Correta da Fonte Rammetto One -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <!-- Linkagem do seu arquivo CSS Local -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label for="descricao">Descrição</label>
                     <textarea id="descricao" name="descricao" rows="6"></textarea>
                     
-                    <label for="image">Imagem do Produto</label>
-                    <input type="file" id="image" name="image" accept="image/*">
+                    <label for="imagem">Imagem do Produto</label>
+                    <input type="file" id="imagem" name="imagem" accept="image/*">
                     
                     <div id="linha-botoes">
                         <button type="submit" id="btn-salvar">Salvar Produto</button>

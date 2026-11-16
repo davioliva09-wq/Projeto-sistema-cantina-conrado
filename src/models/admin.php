@@ -1,72 +1,68 @@
-<?php 
-require_once ('../routes/conexao.php');
+<?php
+require_once('../routes/conexao.php');
 require_once("usuario.php");
 
+class ADM extends Usuario {
+    private string $nome;
+    private float $preco;
+    private int $estoque;
+    private string $categoria;
+    private string $descricao;
+    private string $imagem;
+    private $db;
 
-class ADM extends Usuario {     
-    private string $nome; 
-    private float $preco; 
-    private int $estoque; 
-    private string $categoria; 
-    private string $descricao; 
-    private string $imagem; 
-    private $db; 
+    public function __construct(PDO $conexao) {
+        $this->db = $conexao;
+    }
 
-    public function __construct(PDO $conexao) { 
-        $this->db = $conexao; 
-    } 
+    public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem) {
+        $disponivel = ($estoque > 0) ? 1 : 0;
 
-public function cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem) {
-    $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem) 
-            VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem)";
+        $sql = "INSERT INTO produtos (nome, preco, estoque, categoria, descricao, imagem, disponivel) 
+                VALUES (:nome, :preco, :estoque, :categoria, :descricao, :imagem, :disponivel)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':preco', $preco);
+        $stmt->bindParam(':estoque', $estoque);
+        $stmt->bindParam(':categoria', $categoria);
+        $stmt->bindParam(':descricao', $descricao);
+        $stmt->bindParam(':imagem', $imagem);
+        $stmt->bindParam(':disponivel', $disponivel);
+        return $stmt->execute();
+    }
+
+    public function loginAdm($email, $senha) {
+        $sql = "SELECT id, senha FROM users WHERE email = :email AND tipo = 'admin' LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            unset($usuario['senha']);
+            return $usuario;
+        }
+        return false;
+    }
+
     
-    $stmt = $this->db->prepare($sql);
-    
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':preco', $preco);
-    $stmt->bindParam(':estoque', $estoque);
-    $stmt->bindParam(':categoria', $categoria);
-    $stmt->bindParam(':descricao', $descricao);
-    $stmt->bindParam(':imagem', $imagem);
-    
-    return $stmt->execute();
-}
+
+    public function veriStatus($status, $estoque) {
+        if ($estoque < 1) {
+            return 'indisponivel';
+        } else {
+            return 'disponivel';
+        }
+    }
 
 
-    public function loginAdm($email, $senha) { 
-        $sql = "SELECT id, senha FROM users WHERE email = :email AND tipo = 'admin' LIMIT 1"; 
-        $stmt = $this->db->prepare($sql); 
-        $stmt->bindParam(':email', $email); 
-        $stmt->execute(); 
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC); 
-        
-        if ($usuario && password_verify($senha, $usuario['senha'])) { 
-            unset($usuario['senha']); 
-            return $usuario; 
-        } 
-        return false; 
-    } 
+     public function mostDadosAdm($id_usuario) {
+    $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id_usuario = :id_usuario"; 
+    $stmt = $this->db->prepare($sql); 
+    $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT); 
+    $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
 
-    public function verificaEstoque(int $id) { 
-        $sql = "SELECT estoque FROM produtos WHERE id = :id"; 
-        $stmt = $this->db->prepare($sql); 
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
-        $stmt->execute(); 
-        
-        $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($produto && (int)$produto['estoque'] === 0) { 
-            echo "Produto indisponível"; 
-        } 
-    } 
-   public function veriStatus($status, $estoque) {
-    if ($estoque < 1) {
-        return 'indisponivel';
-    } else {
-        return 'disponivel';
     }
 }
-}
-
-
-
+?>

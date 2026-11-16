@@ -73,6 +73,9 @@ header nav a {
     <div style="display: flex; align-items: center;">
     <img src="images/user-neru.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
         <nav>
+            <!-- Se estiver na pasta views, ajuste o caminho se necessário -->
+<a href="http://localhost:8501" target="_blank" style="padding: 10px 20px; background-color: #040227; color: white; text-decoration: none; border-radius: 5px;">💬 Abrir Chat</a>
+
          <a href="perfil-aluno.php" class="span-intro">Meu Perfil </a> 
         </nav>
     </div> 

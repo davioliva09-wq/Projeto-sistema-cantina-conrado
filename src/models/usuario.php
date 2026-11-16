@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
 require_once('../routes/conexao.php');
 
 abstract class Usuario{
@@ -119,8 +122,8 @@ $stmt->bindParam(":email", $email);
 $stmt->execute();
 return $stmt->fetch(PDO::FETCH_ASSOC);
 }
- public function mostDados($id) {
-    $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id = :id"; 
+ public function mostDados($id_usuario) {
+    $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id_usuario = :id_usuario"; 
     $stmt = $this->db->prepare($sql); 
     $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT); 
     $stmt->execute(); 
