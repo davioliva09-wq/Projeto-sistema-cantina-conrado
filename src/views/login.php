@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . '/../routes/conexao.php';
 require_once __DIR__ . '/../models/usuario.php';
+require_once __DIR__ . '/../models/admin.php';
 
 $mensagemErro = "";
 

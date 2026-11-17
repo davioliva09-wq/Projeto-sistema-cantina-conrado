@@ -36,8 +36,25 @@ class UsuarioComum extends Usuario {
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':senha', $senhaCriptografada); 
 
-        return $stmt->execute();
+        if ($stmt->execute()) {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            session_unset();
+            session_regenerate_id(true);
+
+            $_SESSION['usuario_id'] = $this->db->lastInsertId();
+            $_SESSION['usuario_cargo'] = 'COMUM'; 
+            $_SESSION['usuario_email'] = $email;
+            $_SESSION['logado'] = true;
+
+            return true;
+        }
+
+        return false;
     }
+
 
     public function login($email, $senha) {
         $sql = "SELECT id_usuario, email, senha, cargo FROM usuarios WHERE email = :email";

@@ -32,7 +32,7 @@ class ADM extends Usuario {
     }
 
     public function loginAdm($email, $senha) {
-        $sql = "SELECT id, senha FROM users WHERE email = :email AND tipo = 'admin' LIMIT 1";
+        $sql = "SELECT id_usuario, senha FROM users WHERE email = :email AND tipo = 'admin' LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -55,14 +55,16 @@ class ADM extends Usuario {
         }
     }
 
-
-     public function mostDadosAdm($id_usuario) {
-    $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id_usuario = :id_usuario"; 
-    $stmt = $this->db->prepare($sql); 
-    $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT); 
-    $stmt->execute();
+    public function mostDadosAdm($id_usuario) {
+        
+        $sql = "SELECT id_usuario, nome_completo, email, telefone 
+                FROM usuarios 
+                WHERE cargo = 'ADM' AND id_usuario = :id_usuario";
+                
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
+        $stmt->execute();
+        
         return $stmt->fetch(PDO::FETCH_ASSOC);
-
     }
 }
-?>

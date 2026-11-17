@@ -7,7 +7,7 @@ require_once '../routes/conexao.php';
 require_once '../models/produtos.php'; 
 
 $produtoService = new Produto($conn); 
-$termoPesquisa = isset($_GET['busca']) ? $_GET['busca'] : ''; 
+$termoPesquisa = $_GET['busca'] ?? ''; 
 
 $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa); 
 ?>
@@ -20,12 +20,13 @@ $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa);
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://jsdelivr.net">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-estoque.css">
 </head>
 <body>
 
-    <?php include "admin-header.php" ?>
+    <?php include "admin-header.php"; ?>
 
     <div id="wrapper">
 
@@ -53,15 +54,6 @@ $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa);
                 </form>
             </div>
 
-            <nav id="filtros-categoria">
-                <ul>
-                    <li><a href="#">Todos</a></li>
-                    <li><a href="#" class="ativo">Salgados</a></li>
-                    <li><a href="#">Doces</a></li>
-                    <li><a href="#">Bebidas</a></li>
-                </ul>
-            </nav>
-
             <section id="grade-produtos">
                 <?php if (!empty($produtosDoEstoque)): ?>
                     <?php foreach($produtosDoEstoque as $item): ?>
@@ -77,7 +69,7 @@ $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa);
                             </div>
 
                             <form action="admin-edicao.php" method="get">
-                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo (int)$item['id']; ?>">
                                 <button type="submit" class="btn-editar"> 
                                     <img src="images/pen_placeholder.png" alt="Editar">    
                                 </button>
@@ -92,6 +84,13 @@ $produtosDoEstoque = $produtoService->buscaProdNome($termoPesquisa);
         </main>
 
     </div>
+
+    <script>
+        function alternarSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('aberta');
+        }
+    </script>
 
 </body>
 </html>
