@@ -247,7 +247,7 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
 
         function adicionarCarrinho() {
             const qtd = document.getElementById('modalQtd').value;
-            window.location.href = `carrinho.php?acao=add&id=${produtoAtualId}&qtd=${qtd}`;
+            window.location.href = `carrinho-usuario.php?acao=add&id=${produtoAtualId}&qtd=${qtd}`;
         }
 
         function comprarDireto() {

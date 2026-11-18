@@ -138,11 +138,14 @@ class UsuarioComum extends Usuario {
     
 
     public function mostDados($id_usuario) {
-        $sql = "SELECT id_usuario, nome_completo, email, telefone FROM usuarios WHERE id_usuario = :id_usuario"; 
+        $sql = "SELECT id_usuario, nome_completo, email, telefone 
+                FROM usuarios 
+                WHERE id_usuario = :id_usuario AND cargo = 'usuario'"; 
         $stmt = $this->db->prepare($sql); 
         $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT); 
         $stmt->execute(); 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 }
 ?>

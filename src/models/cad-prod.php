@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         if($produto->cadastrarProduto($nome, $preco, $estoque, $categoria, $descricao, $imagem)){
             echo "<script>
                     alert('Produto cadastrado com sucesso!');
-                    window.location.href='catalogo.php';
+                    window.location.href='admin-prod-cad.php';
                   </script>";
         } else {
             echo "erro ao cadastrar produto";

@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once("../models/cad-prod.php");
     
-    header("Location: catalogo.php");
+    header("Location: admin-prod-cad.php");
     exit();
 } 
 ?>

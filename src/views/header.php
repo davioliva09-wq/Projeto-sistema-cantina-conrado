@@ -71,10 +71,15 @@ header nav a {
     </div>
 
     <div style="display: flex; align-items: center;">
+    <a href="http://localhost:8501" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px; margin-right: 25px; background-color: #0b0e36; color: #ffae00; text-decoration: none; border-radius: 50px; border: 2px solid #ffae00; font-family: sans-serif; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+  <img src="images/conradoGPT.jpg" alt="ConradoGPT" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: white;">
+  <span>ConradoGPT</span>
+</a>
+
+
     <img src="images/user-neru.png" alt="login"  style="width: 25px; height: auto; margin-right: 10px;">
         <nav>
             <!-- Se estiver na pasta views, ajuste o caminho se necessário -->
-<a href="http://localhost:8501" target="_blank" style="padding: 10px 20px; background-color: #040227; color: white; text-decoration: none; border-radius: 5px;">💬 Abrir Chat</a>
 
          <a href="perfil-aluno.php" class="span-intro">Meu Perfil </a> 
         </nav>
