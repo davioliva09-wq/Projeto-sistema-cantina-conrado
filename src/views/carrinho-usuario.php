@@ -8,7 +8,6 @@ require_once '../models/produtos.php';
 require_once '../models/carrinho.php';
 
 $carrinhoService = new Carrinho();
-$msg = ""; 
 
 if (isset($_GET['acao']) && $_GET['acao'] === 'add' && isset($_GET['id'])) {
     $id = (int) $_GET['id'];
@@ -34,7 +33,6 @@ if (isset($_GET['acao']) && $_GET['acao'] === 'add' && isset($_GET['id'])) {
 
 $msgErro = $_SESSION['msg_erro'] ?? '';
 unset($_SESSION['msg_erro']);
-
 
 if (isset($_GET['remover'])) {
     $carrinhoService->remover($_GET['remover']);
@@ -86,7 +84,7 @@ if (!empty($carrinhoSessao)) {
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-carrinho.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 
 <body>
@@ -96,6 +94,13 @@ if (!empty($carrinhoSessao)) {
     <div class="card">
         <div>
             <h2>Itens (<?php echo str_pad($totalItens, 2, '0', STR_PAD_LEFT); ?>)</h2>
+
+            <?php if (!empty($msgErro)): ?>
+                <div style="background-color: #fee2e2; color: #b91c1c; border: 1px solid #f87171; padding: 12px 16px; border-radius: 8px; margin: 15px 0; display: flex; align-items: center; gap: 10px; font-size: 0.95rem;">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span><?php echo htmlspecialchars($msgErro); ?></span>
+                </div>
+            <?php endif; ?>
             
             <?php if (empty($itensDetalhados)): ?>
                 <hr>

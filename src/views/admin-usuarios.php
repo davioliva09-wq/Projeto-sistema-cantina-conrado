@@ -1,13 +1,24 @@
-<?php
-session_start();
-require_once("../models/usuario.php");
-require_once("../routes/conexao.php");
+<?php 
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL); 
 
-$termoPesquisa = $_GET['campo-busca'] ?? '';
-$use = new UsuarioComum($conn);
+require_once '../routes/conexao.php'; 
+require_once '../models/produtos.php'; 
 
-// Usa o método buscaUsuario que retorna todos os registros ou filtra pelo termo
-$usuarios = $use->buscaUsuario($termoPesquisa); 
+$produtoService = new Produto($conn); 
+$termoPesquisa = isset($_GET['q']) ? $_GET['q'] : ''; 
+$produtos = $produtoService->buscaProdNome($termoPesquisa); 
+
+// Filtra produtos que tenham estoque > 0 e (caso a coluna disponivel exista e seja usada) não estejam marcados como indisponíveis 
+$produtosDisponiveis = array_filter($produtos, function($item) { 
+    $temEstoque = isset($item['estoque']) && (int)$item['estoque'] > 0; 
+    
+    // Aceita se 'disponivel' não estiver definido, se for 1/true, ou se for a string 'disponivel' 
+    $estaDisponivel = !isset($item['disponivel']) || $item['disponivel'] == 1 || $item['disponivel'] === true || $item['disponivel'] === 'disponivel'; 
+    
+    return $temEstoque && $estaDisponivel; 
+});
 ?>
 <!DOCTYPE html> 
 <html lang="pt-br"> 
@@ -47,20 +58,22 @@ $usuarios = $use->buscaUsuario($termoPesquisa);
                         <th>Nome completo</th> 
                         <th>E-mail</th> 
                         <th>Telefone</th> 
+                        <th>Status</th> 
                     </tr> 
                 </thead> 
                 <tbody> 
                     <?php if (empty($usuarios)): ?> 
                         <tr>
-                            <td colspan="4" style="text-align: center;">Nenhum estudante encontrado no momento!</td>
+                            <td colspan="5" style="text-align: center;">Nenhum estudante encontrado no momento!</td>
                         </tr>
                     <?php else: ?> 
                         <?php foreach ($usuarios as $user): ?> 
                             <tr> 
-                                <td><?php echo htmlspecialchars($user['id_usuario'] ?? ''); ?></td> 
-                                <td><?php echo htmlspecialchars($user['nome_completo'] ?? ''); ?></td> 
+                                <td><?php echo htmlspecialchars($user['id'] ?? ''); ?></td> 
+                                <td><?php echo htmlspecialchars($user['nome'] ?? ''); ?></td> 
                                 <td><?php echo htmlspecialchars($user['email'] ?? ''); ?></td> 
                                 <td><?php echo htmlspecialchars($user['telefone'] ?? ''); ?></td> 
+                                <td><?php echo htmlspecialchars($user['status'] ?? ''); ?></td> 
                             </tr> 
                         <?php endforeach; ?> 
                     <?php endif; ?> 

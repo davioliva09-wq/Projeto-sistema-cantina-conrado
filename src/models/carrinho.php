@@ -1,6 +1,7 @@
 <?php
 
 class Carrinho {
+
     public function __construct() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -22,11 +23,21 @@ class Carrinho {
         $novaQtd = $qtdAtual + $quantidade;
 
         if ($estoque !== null && $novaQtd > (int)$estoque) {
+            $_SESSION['erro_carrinho'] = "Quantidade indisponível! Temos apenas {$estoque} unidade(s) em estoque.";
             return false;
         }
 
         $_SESSION['carrinho'][$id_produto] = $novaQtd;
         return true;
+    }
+
+    public function getMensagemErro() {
+        if (isset($_SESSION['erro_carrinho'])) {
+            $msg = $_SESSION['erro_carrinho'];
+            unset($_SESSION['erro_carrinho']); 
+            return $msg;
+        }
+        return null;
     }
 
     public function remover($id_produto) {
