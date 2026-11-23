@@ -1,4 +1,13 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['usuario_id']) || empty($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -7,18 +16,12 @@ require_once '../routes/conexao.php';
 require_once '../models/produtos.php';
 
 $produtoService = new Produto($conn);
-
 $termoPesquisa = isset($_GET['q']) ? $_GET['q'] : '';
 $produtos = $produtoService->buscaProdNome($termoPesquisa);
 
 $produtosDisponiveis = array_filter($produtos, function($item) {
     $temEstoque = isset($item['estoque']) && (int)$item['estoque'] > 0;
-    
-    $estaDisponivel = !isset($item['disponivel']) 
-        || $item['disponivel'] == 1 
-        || $item['disponivel'] === true 
-        || $item['disponivel'] === 'disponivel';
-
+    $estaDisponivel = !isset($item['disponivel']) || $item['disponivel'] == 1 || $item['disponivel'] === true || $item['disponivel'] === 'disponivel';
     return $temEstoque && $estaDisponivel;
 });
 ?>
@@ -147,7 +150,6 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
     </style>
 </head>
 <body>
-
     <?php require_once("header.php"); ?>
 
     <main class="catalogo-container">
@@ -163,12 +165,12 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
                 <p>Nenhum produto disponível encontrado no momento.</p>
             <?php else: ?>
                 <?php foreach ($produtosDisponiveis as $item): ?>
-                    <?php 
+                    <?php
                         $arquivoImagem = !empty($item['imagem']) ? basename($item['imagem']) : 'sem-foto.jpg';
                         $urlImagem = "images/" . htmlspecialchars($arquivoImagem);
                         $precoFormatado = "R$ " . number_format((float)$item['preco'], 2, ',', '.');
                     ?>
-                    <div class="produto-card" 
+                    <div class="produto-card"
                          onclick="abrirProduto(this)"
                          data-id="<?php echo htmlspecialchars($item['id'] ?? ''); ?>"
                          data-nome="<?php echo htmlspecialchars($item['nome']); ?>"
@@ -176,7 +178,6 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
                          data-preco="<?php echo $precoFormatado; ?>"
                          data-estoque="<?php echo htmlspecialchars($item['estoque']); ?>"
                          data-imagem="<?php echo $urlImagem; ?>">
-                         
                         <img src="<?php echo $urlImagem; ?>" alt="<?php echo htmlspecialchars($item['nome']); ?>">
                         <h3><?php echo htmlspecialchars($item['nome']); ?></h3>
                         <p class="categoria"><?php echo htmlspecialchars($item['categoria'] ?? 'Geral'); ?></p>
@@ -189,7 +190,6 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
         </div>
     </main>
 
-    <!-- Estrutura do Pop-up (Modal) -->
     <div id="modalProduto" class="modal-overlay" onclick="fecharModalFora(event)">
         <div class="modal-conteudo">
             <span class="modal-fechar" onclick="fecharModal()">&times;</span>
@@ -197,12 +197,10 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
             <h2 id="modalNome"></h2>
             <p id="modalDesc" class="modal-descricao"></p>
             <p id="modalPreco" class="modal-preco"></p>
-            
             <div class="modal-qtd-box">
                 <label for="modalQtd">Quantidade:</label>
                 <input type="number" id="modalQtd" value="1" min="1" max="1">
             </div>
-
             <div class="modal-acoes">
                 <button type="button" class="btn-carrinho" onclick="adicionarCarrinho()">Adicionar ao Carrinho</button>
                 <button type="button" class="btn-comprar" onclick="comprarDireto()">Comprar Agora</button>
@@ -255,6 +253,6 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
             window.location.href = `checkout.php?id=${produtoAtualId}&qtd=${qtd}`;
         }
     </script>
-
 </body>
 </html>
+                    

@@ -13,6 +13,7 @@
     ],
     "require": {
         "phpmailer/phpmailer": "^7.1",
-        "mercadopago/dx-php": "^3.16"
+        "mercadopago/dx-php": "^3.16",
+        "vlucas/phpdotenv": "^5.8"
     }
 }

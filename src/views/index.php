@@ -20,7 +20,6 @@
 
     <main style="position: relative; overflow: hidden;">
         
-        <!-- Seção de Introdução / Boas-vindas -->
         <section class="section-index">
             <p style="color: #ffa805; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 20px;">
                 BEM-VINDO(A)!

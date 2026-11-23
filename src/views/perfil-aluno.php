@@ -1,13 +1,16 @@
 <?php
-session_start();
-require_once __DIR__ . '/../routes/conexao.php';
-require_once __DIR__ . '/../models/usuario.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Se não estiver logado, redireciona para o login
-if (!isset($_SESSION['usuario_id'])) {
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_id']) || empty($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit();
 }
+
+require_once __DIR__ . '/../routes/conexao.php';
+require_once __DIR__ . '/../models/usuario.php';
 
 $usuarioObjeto = new UsuarioComum($conn);
 $id_usuario = $_SESSION['usuario_id'];
@@ -26,10 +29,10 @@ $usuario = $dados ? $dados : [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cantina Conrado - Perfil do Aluno</title>
     <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-    <link href="https://googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="css/style-perfil.css">
 </head>
 <body>
@@ -85,6 +88,7 @@ $usuario = $dados ? $dados : [
                 <a href="catalogo.php" class="btn-back">
                     <i class="fa-solid fa-arrow-left"></i> Voltar
                 </a>
+                <!-- Alterado de index.php para logout.php -->
                 <a href="logout.php" class="btn-back btn-logout-footer" style="text-decoration: none;">
                     <i class="fa-solid fa-right-from-bracket"></i> Sair da conta
                 </a>
