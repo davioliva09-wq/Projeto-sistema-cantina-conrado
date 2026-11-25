@@ -156,10 +156,10 @@
 
 
                     <div class="botoes">
+<button type="submit">
+    <a href="confirmacao.php" style="display: block; text-decoration: none; color: inherit;">Continuar</a>
+</button>
 
-                        <button type="submit">
-                            Continuar
-                        </button>
 
                         <a
                             href="carrinho.php"
