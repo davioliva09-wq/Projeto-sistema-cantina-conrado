@@ -50,47 +50,17 @@
                         </div>
 
                         <p>
-                            <strong>Cliente:</strong> João Silva
+                            <strong>Cliente:</strong> Milena
                         </p>
 
                         <p>
                             <strong>Produtos:</strong><br>
-                            X-Burguer<br>
+                            Hamburgão<br>
                             Coca-Cola
                         </p>
 
                         <p class="total">
-                            Total: R$ 18,00
-                        </p>
-
-                        <button type="button" onclick="aceitarPedido(this)">
-                            Aceitar
-                        </button>
-
-                    </article>
-
-
-                    <article class="pedido-card"
-                        data-pedido="002"
-                        data-status="novo">
-
-                        <div class="pedido-topo">
-                            <h3>Pedido #002</h3>
-                            <span>09:30</span>
-                        </div>
-
-                        <p>
-                            <strong>Cliente:</strong> Maria Souza
-                        </p>
-
-                        <p>
-                            <strong>Produtos:</strong><br>
-                            Coxinha<br>
-                            Suco
-                        </p>
-
-                        <p class="total">
-                            Total: R$ 10,00
+                            Total: R$ 9,00
                         </p>
 
                         <button type="button" onclick="aceitarPedido(this)">
@@ -107,6 +77,35 @@
 
                     <h2>Prontos</h2>
 
+                    <article class="pedido-card"
+                        data-pedido="001"
+                        data-status="pronto">
+
+                        <div class="pedido-topo">
+                            <h3>Pedido #001</h3>
+                            <span>10:30</span>
+                        </div>
+
+                        <p>
+                            <strong>Cliente:</strong> Milena
+                        </p>
+
+                        <p>
+                            <strong>Produtos:</strong><br>
+                            Hamburgão<br>
+                            Coca-Cola
+                        </p>
+
+                        <p class="total">
+                            Total: R$ 9,00
+                        </p>
+
+                        <button type="button">
+                            Pronto
+                        </button>
+
+                    </article>
+
                 </div>
 
 
@@ -114,6 +113,35 @@
                 <div class="coluna-pedidos entregues">
 
                     <h2>Entregues</h2>
+
+                    <article class="pedido-card"
+                        data-pedido="001"
+                        data-status="entregue">
+
+                        <div class="pedido-topo">
+                            <h3>Pedido #001</h3>
+                            <span>10:30</span>
+                        </div>
+
+                        <p>
+                            <strong>Cliente:</strong> Milena
+                        </p>
+
+                        <p>
+                            <strong>Produtos:</strong><br>
+                            Hamburgão<br>
+                            Coca-Cola
+                        </p>
+
+                        <p class="total">
+                            Total: R$ 9,00
+                        </p>
+
+                        <button type="button">
+                            Entregue
+                        </button>
+
+                    </article>
 
                 </div>
 

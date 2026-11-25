@@ -159,7 +159,7 @@ if (!empty($carrinhoSessao)) {
                         <span class="preco-total">R$ <?php echo number_format($totalPedido, 2, ',', '.'); ?></span>
                     </div>
                     
-                    <a href="pagamento.php">
+                    <a href="../pix.php">
                         <button class="botao-finalizar">
                             <i class="fa-solid fa-bag-shopping sacola"></i> Finalizar pedido
                         </button>
