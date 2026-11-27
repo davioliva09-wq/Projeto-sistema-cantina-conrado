@@ -249,10 +249,50 @@ $produtosDisponiveis = array_filter($produtos, function($item) {
         }
 
         function comprarDireto() {
-            const qtd = document.getElementById('modalQtd').value;
-            window.location.href = `checkout.php?id=${produtoAtualId}&qtd=${qtd}`;
-        }
+    const qtd = parseInt(document.getElementById('modalQtd').value, 10);
+
+    if (!produtoAtualId || parseInt(produtoAtualId, 10) <= 0) {
+        alert('Produto não reconhecido.');
+        return;
+    }
+
+    if (!qtd || qtd < 1) {
+        alert('Quantidade inválida.');
+        return;
+    }
+
+    window.location.href =
+        `../pix.php?id=${encodeURIComponent(produtoAtualId)}&qtd=${encodeURIComponent(qtd)}&direto=1`;
+}
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
                     
